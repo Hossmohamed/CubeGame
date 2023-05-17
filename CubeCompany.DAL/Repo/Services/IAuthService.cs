@@ -1,4 +1,5 @@
-﻿using CubeGame.Data.Models.Account;
+﻿using CubeGame.DAL.Data.Models.Account;
+using CubeGame.Data.Models.Account;
 
 namespace CubeGame.DAL.Repo.Services
 {
@@ -6,5 +7,6 @@ namespace CubeGame.DAL.Repo.Services
     {
         Task<AuthModel> RegisterAsync(RegisterModel model);
         Task<AuthModel> GetTokenAsync(TokenRequestModel model);
+        Task<string> AddRoleAsync(AddRoleModel model);
     }
 }

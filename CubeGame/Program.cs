@@ -14,6 +14,8 @@ using CubeGame.BL.Manager;
 using CubeGame.DAL.Repo.product;
 using CubeGame.DAL.Repo.category;
 using CubeGame.DAL.Repo.cart;
+using CubeGame.DAL.Repo.operatingSYstem;
+
 
 namespace CubeGame
 {
@@ -77,6 +79,8 @@ namespace CubeGame
 
             builder.Services.AddScoped<ICartRepo, CartRepo>();
 
+            builder.Services.AddScoped<IOsRepo, OsRepo>();
+            builder.Services.AddScoped<IOsManager, OsManager>();
 
             //for session
             builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -88,6 +92,9 @@ namespace CubeGame
                 options.Cookie.IsEssential = true;
                
             });
+
+         
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -107,7 +114,6 @@ namespace CubeGame
 
             app.UseSession();
             app.MapControllers();
-
             app.Run();
         }
     }
