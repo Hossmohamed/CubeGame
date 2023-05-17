@@ -1,0 +1,242 @@
+/* .nav{
+  background-color: rgb(31, 25, 61);
+  height: 80px;
+}
+
+.logo{
+  width: 3%;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+
+.websiteName
+{
+  font-family: 'Russo One';
+  text-decoration: none;
+  color: white;
+  margin-right: 40px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.txtNav{
+  font-family: 'play';
+  font-size: 25PX;
+  font-weight: bold;
+  margin-left: 20px;
+
+}
+
+.parent{
+  margin-left: 500px;
+  width: 280px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 23px;
+}
+
+.navIcons{
+  color: white;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.SignUpButton{
+  background-color: rgb(112, 226, 226);
+  border-radius: 7px;
+  width: 140px;
+  height: 50px;
+  font-family: 'play';
+  color: white;
+  font-weight: bold;
+  text-shadow: 0px 1px 4px rgb(154, 148, 148);
+  border: none;
+  box-shadow: 0px 0px 5px rgb(112, 226, 226);
+} */
+
+/* ============nav2============= */
+
+/* .nav2{
+  background-color: rgb(21, 14, 44);
+  position: sticky;
+  top: 0;
+}
+
+
+.srch{
+  margin-left: 10px;
+  width: 350px;
+}
+
+.srchIcon{
+  position: relative;
+  bottom: 32px;
+  left: 18px;
+  color: rgb(92, 91, 91);
+}
+
+.parent2{
+  margin-left: 500px;
+  width: 280px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 23px;
+  position: relative;
+  bottom: 17px;
+}
+
+
+.txtNav2{
+  font-family: 'play';
+  font-size: 20PX;
+  font-weight: bold;
+  margin-left: 30px;
+
+}
+
+.lib{
+  position: relative;
+  top: 18px;
+  left: 85px;
+} */
+
+ /* ================== body ==================  */
+
+ .browse{
+  display: flex;
+}
+
+.left{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cardItem{
+  background-color: #1F193D;
+  width: 220px;
+  height: 380px;
+  margin-top: 20px;
+  margin-right: 20px;
+  border-radius: 10px;
+  text-align: center;
+  padding-top: 27px;
+  box-shadow: 0px 0px 7px rgb(0, 0, 0);
+}
+
+
+
+.cardItem:hover .genreColor{
+  color: rgb(31, 25, 61);
+  transition: all 1s;
+  text-decoration: underline;
+
+}
+
+.cardItem:not(:hover) .genreColor{
+  color: rgb(100, 92, 143);
+  transition: all 1s;
+}
+
+.cardItem:hover{
+  background-color: rgb(100, 92, 143);
+  transition: all 1s;
+}
+
+.cardItem:not(:hover){
+  background-color: rgb(31, 25, 61);
+  transition: all 1s;
+}
+
+.cardItem img{
+  width: 85%;
+  border-radius: 10px;
+  box-shadow: 0px 0px 7px rgb(0, 0, 0);
+
+}
+
+.details{
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-size: 10px;
+  width: 85%;
+  /* border: 2px solid rgb(194, 64, 64); */
+  margin:auto;
+  text-align: center;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.genrePrice{
+  display: flex;
+  justify-content: space-between;
+  font-size: 17px;
+  margin-top: 10px;
+  align-items: center
+}
+
+.nameIcons{
+  display: flex;
+  justify-content: space-between;
+  font-size: 17px;
+  position: relative;
+  bottom: 15px;
+  align-items: baseline;
+}
+
+.cardIcon{
+  cursor: pointer;
+}
+
+.price{
+  font-size: 20px;
+}
+
+.gameName{
+  font-size: 22px;
+}
+
+.genreColor{
+  color: rgb(100, 92, 143);
+}
+
+.cart{
+  position: relative;
+  left: 28px;
+}
+
+.filter{
+  color: white;
+  font-family: 'play';
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.right{
+  position: fixed;
+  left: 70%;
+  padding: 20px;
+}
+
+
+
+hr{
+  border: 1px solid white;
+  width: 100%;
+}
+
+
+.arrow
+{
+  position: relative;
+  left: 80%;
+}
+
+.filterHover:hover
+{
+  border-bottom: 5px solid #6FE2E1;
+  color: white;
+  transition: ease-in 0.1s;
+  cursor: pointer;
+}
