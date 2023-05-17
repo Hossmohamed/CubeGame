@@ -38,8 +38,11 @@ namespace CubeGame.DAL.Repo.product
             P.Description = pD.Description;
             P.Price = pD.Price;
             P.Discount = pD.Discount;
+            P.DeveloperName = pD.DeveloperName;
+            P.RAM = pD.RAM;
+            P.Processor = pD.Processor;
+            P.ReleaseDate = pD.ReleaseDate;
             P.CategoryId = pD.CategoryId;
-            //P.category.CategoryName = IC.GetById(P.CategoryId).CategoryName;
             _context.Update(P);
             _context.SaveChanges();
         }
@@ -55,12 +58,12 @@ namespace CubeGame.DAL.Repo.product
         }
         public List<Product> GetAll()
         {
-            return _context.Products.Include(i => i.Images).Include(c => c.category).ToList();
+            return _context.Products.Include(i => i.Images).Include(o => o.operatingSystem).Include(c => c.category).ToList();
         }
 
         public Product getProductByID(int id)
         {
-            return _context.Products.Include(i => i.Images).Include(c => c.category).SingleOrDefault(g => g.ProductId == id);
+            return _context.Products.Include(i => i.Images).Include(c => c.category).Include(o=>o.operatingSystem).SingleOrDefault(g => g.ProductId == id);
         }
     }
 }

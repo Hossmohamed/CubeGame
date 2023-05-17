@@ -1,4 +1,5 @@
-﻿using CubeGame.Data.Helper;
+﻿using CubeGame.DAL.Data.Models.Account;
+using CubeGame.Data.Helper;
 using CubeGame.Data.Models;
 using CubeGame.Data.Models.Account;
 using Microsoft.AspNetCore.Identity;
@@ -13,11 +14,13 @@ namespace CubeGame.DAL.Repo.Services
     public class AuthService : IAuthService
     {
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly JWT _jwt;
-        public AuthService(UserManager<ApplicationUser> userManager, IOptions<JWT> jwt)
+        public AuthService(UserManager<ApplicationUser> userManager, IOptions<JWT> jwt, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _jwt = jwt.Value;
+            _roleManager = roleManager;
         }
 
         public async Task<AuthModel> GetTokenAsync(TokenRequestModel model)
@@ -44,6 +47,22 @@ namespace CubeGame.DAL.Repo.Services
 
             return authModel;
         }
+
+        public async Task<string> AddRoleAsync(AddRoleModel model)
+        {
+            var user = await _userManager.FindByIdAsync(model.UserId);
+
+            if (user is null || !await _roleManager.RoleExistsAsync(model.Role))
+                return "Invalid user ID or Role";
+
+            if (await _userManager.IsInRoleAsync(user, model.Role))
+                return "User already assigned to this role";
+
+            var result = await _userManager.AddToRoleAsync(user, model.Role);
+
+            return result.Succeeded ? string.Empty : "Sonething went wrong";
+        }
+
 
         public async Task<AuthModel> RegisterAsync(RegisterModel model)
         {
