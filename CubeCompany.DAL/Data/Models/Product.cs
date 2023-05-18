@@ -12,6 +12,10 @@ using System.Threading.Tasks;
 
 namespace CubeGame.DAL.Data.Models
 {
+    public enum OS
+    {
+        Windows , Linux , Mac
+    }
     public class Product
     {
         [Key]
@@ -57,7 +61,8 @@ namespace CubeGame.DAL.Data.Models
 
         public int RAM { get; set; }
 
-        public virtual ICollection<OS> operatingSystem { get; set; } = new List<OS>();
+        [EnumDataType(typeof(OS))]
+        public OS platform { get; set; }
 
         public virtual ICollection<Image> Images { get; set; } = new List<Image>();
 

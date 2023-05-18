@@ -14,7 +14,7 @@ namespace CubeGame.BL.Manager
         public ProductDTO getProductByID(int id);
         public void AddProduct(ProductDTO p);
 
-        public void AddProductImages(int productId , ImageDTO i);
+        public void AddProductImages(int productId , Image i);
 
         public List<Image> GetProductImages(int productId);
         public void EditProduct(int id , ProductDTO p);

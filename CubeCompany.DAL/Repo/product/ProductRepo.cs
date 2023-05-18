@@ -58,12 +58,12 @@ namespace CubeGame.DAL.Repo.product
         }
         public List<Product> GetAll()
         {
-            return _context.Products.Include(i => i.Images).Include(o => o.operatingSystem).Include(c => c.category).ToList();
+            return _context.Products.Include(i => i.Images).Include(c => c.category).ToList();
         }
 
         public Product getProductByID(int id)
         {
-            return _context.Products.Include(i => i.Images).Include(c => c.category).Include(o=>o.operatingSystem).SingleOrDefault(g => g.ProductId == id);
+            return _context.Products.Include(i => i.Images).Include(c => c.category).SingleOrDefault(g => g.ProductId == id);
         }
     }
 }
