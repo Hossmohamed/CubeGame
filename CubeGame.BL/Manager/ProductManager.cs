@@ -2,16 +2,17 @@
 using CubeGame.BL.DTO;
 using CubeGame.DAL.Data.Models;
 using CubeGame.DAL.Repo.category;
-using CubeGame.DAL.Repo.operatingSYstem;
 using CubeGame.DAL.Repo.product;
 using CubeGame.Data.Context;
 using Microsoft.AspNetCore.Http;
+using Microsoft.CodeAnalysis;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using OS = CubeGame.BL.DTO.OS;
 
 namespace CubeGame.BL.Manager
 {
@@ -19,39 +20,28 @@ namespace CubeGame.BL.Manager
     {
         IProductRepo IR { get; }
         ICategoryRepo IC {get;}
-
-        IOsRepo IO { get;}
    
-        public ProductManager(IProductRepo _IR , ICategoryRepo _IC , IOsRepo _IO)
+        public ProductManager(IProductRepo _IR , ICategoryRepo _IC )
         {
             IR = _IR;
-            IC = _IC;
-            IO = _IO;
-          
+            IC = _IC; 
         }
-        public void AddProductImages(int productId , ImageDTO pD)
-        {
-            Image I = new Image();      
-            foreach (IFormFile formFile in pD.Picture)
-            {
-                using (MemoryStream stream = new MemoryStream())
-                {
-                    formFile.CopyTo(stream);
-                    byte[] byteArray = stream.ToArray();
-                    I.ImageData = (byteArray);
-                    I.ProductId = productId;
-                    I.Title = "image";
-                }
-                IR.AddImage(I);
-;            }
 
-        }
+
         public List<Image> GetProductImages(int productId)
         {
             return IR.GetImages(productId);
         }
-        public void AddProduct(ProductDTO pD)
-        {
+
+        public void AddProductImages(int productId, Image I)
+            {
+                  I.ProductId = productId;
+                  I.Title = "image";
+                  IR.AddImage(I);             
+            }
+
+            public void AddProduct(ProductDTO pD)
+              {
            
             Product P = new Product();
             P.ProductName = pD.ProductName;
@@ -63,27 +53,13 @@ namespace CubeGame.BL.Manager
             P.RAM = pD.RAM;
             P.Processor = pD.Processor;
             P.ReleaseDate = pD.ReleaseDate;
-            //foreach (var byteArray in P.Images)
-            //{
-            //    MemoryStream stream = new MemoryStream(byteArray.ImageData);
-            //    IFormFile formFile = new FormFile(stream, 0, byteArray.ImageData.Length, "file", "filename");
-            //    pD.Picture.Add(formFile);
-            //}
-            //Image I = new Image();
-            //foreach (IFormFile formFile in pD.Picture)
-            //{
-            //    using (MemoryStream stream = new MemoryStream())
-            //    {
-            //        formFile.CopyTo(stream);
-            //        byte[] byteArray = stream.ToArray();
-            //        I.ImageData = (byteArray);
-            //        I.ProductId = pD.ProductId;
-            //        I.Title = "image";
-            //        _context.Images.Add(I);
-            //        _context.SaveChanges();
-            //    }               
-            //}
+           
+            OS enumValue = (OS)Enum.Parse(typeof(OS), pD.platform);
 
+            P.platform = (DAL.Data.Models.OS)enumValue;
+
+       
+            
             IR.AddProduct(P);
         }
 
@@ -105,6 +81,7 @@ namespace CubeGame.BL.Manager
             P.RAM = dTO.RAM;
             P.Processor = dTO.Processor;
             P.ReleaseDate = dTO.ReleaseDate;
+           // P.platform = dTO.platform;
             //P.category.CategoryName = IC.GetById(P.CategoryId).CategoryName;
 
             IR.EditProduct(id, P);
@@ -131,8 +108,9 @@ namespace CubeGame.BL.Manager
                     RAM = i.RAM,
                     Processor = i.Processor,
                     ReleaseDate = i.ReleaseDate,
-                    CategoryName = i.category.CategoryName,                 
-                };
+                    platform = i.platform.ToString()
+                                   
+            };
                 productDTOs.Add(dTO);
             }
 
@@ -156,8 +134,9 @@ namespace CubeGame.BL.Manager
                 insDTo.RAM = i.RAM;
                 insDTo.Processor = i.Processor;
                 insDTo.ReleaseDate = i.ReleaseDate;
+                insDTo.platform = i.platform.ToString();
                 //insDTo.CategoryName = i.category.CategoryName;
-                           
+
             }
 
             return insDTo;

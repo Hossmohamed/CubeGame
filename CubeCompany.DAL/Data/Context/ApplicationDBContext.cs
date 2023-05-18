@@ -27,7 +27,6 @@ namespace CubeGame.Data.Context
         public DbSet<Category> Categories { get; set; }
         public DbSet<Image> Images { get; set; }
         public DbSet<CartItem> cartItems { get; set; }
-        public DbSet<OS> oS { get; set; }
       
     }
 }

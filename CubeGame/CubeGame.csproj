@@ -30,4 +30,8 @@
     <ProjectReference Include="..\CubeGame.BL\CubeGame.BL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\uploads\" />
+  </ItemGroup>
+
 </Project>
