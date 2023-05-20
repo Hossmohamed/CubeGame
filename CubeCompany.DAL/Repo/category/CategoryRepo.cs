@@ -33,12 +33,12 @@ namespace CubeGame.DAL.Repo.category
         public IEnumerable<Category> GetAll()
         {
 
-            return _context.Categories.ToList();
+            return _context.Categories.Include(x=>x.Products).ToList();
         }
 
         public Category GetById(int id)
         {
-            return _context.Categories.SingleOrDefault(g => g.ID == id);
+            return _context.Categories.Include(p=>p.Products).SingleOrDefault(g => g.ID == id);
         }
 
         public void Update(int id, Category c)

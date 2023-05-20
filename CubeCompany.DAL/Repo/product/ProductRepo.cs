@@ -38,8 +38,11 @@ namespace CubeGame.DAL.Repo.product
             P.Description = pD.Description;
             P.Price = pD.Price;
             P.Discount = pD.Discount;
+            P.DeveloperName = pD.DeveloperName;
+            P.RAM = pD.RAM;
+            P.Processor = pD.Processor;
+            P.ReleaseDate = pD.ReleaseDate;
             P.CategoryId = pD.CategoryId;
-            //P.category.CategoryName = IC.GetById(P.CategoryId).CategoryName;
             _context.Update(P);
             _context.SaveChanges();
         }

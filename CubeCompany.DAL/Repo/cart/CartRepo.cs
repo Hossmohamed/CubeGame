@@ -20,6 +20,7 @@ namespace CubeGame.DAL.Repo.cart
         {
             context = _context;
             HttpContextAccessor = _HttpContextAccessor;
+           
         }
 
         public void AddToCart(int id)
@@ -80,6 +81,7 @@ namespace CubeGame.DAL.Repo.cart
                     session.SetString(cart.CartSessionKey, tempCartId.ToString());
                 }
             }
+
             return session.GetString(cart.CartSessionKey);
         }
 

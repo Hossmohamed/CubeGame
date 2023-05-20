@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 
 namespace CubeGame.BL.DTO
 {
+    public enum OS
+    {
+        Windows, Linux, Mac
+    }
     public class ProductDTO
     {
         public int ProductId { get; set; }
@@ -16,9 +20,16 @@ namespace CubeGame.BL.DTO
         public  string Description { get; set; }
         public  double Price { get; set; }
         public double Discount { get; set; }
-        public int CategoryId { get; set; }
+        public double? Rate { get; set; }
+        public int CategoryId { get; set; }   
+        
+       // public string CategoryName { get; set; }
+        public string DeveloperName { get; set; }
+        public DateTime ReleaseDate { get; set; }
+        public string Processor { get; set; }
+        public int RAM { get; set; }
+        public string platform { get; set; }
 
-        //public string CategoryName { get; set; }
-        //public virtual ICollection<Image> Picture { get; set; } = new List<Image>();
+        public virtual string Picture { get; set; } 
     }
 }

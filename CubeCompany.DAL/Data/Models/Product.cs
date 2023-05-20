@@ -12,6 +12,10 @@ using System.Threading.Tasks;
 
 namespace CubeGame.DAL.Data.Models
 {
+    public enum OS
+    {
+        Windows , Linux , Mac
+    }
     public class Product
     {
         [Key]
@@ -28,7 +32,7 @@ namespace CubeGame.DAL.Data.Models
         [Range(0, double.MaxValue)]
         [DataType(DataType.Currency)]
         [Column(TypeName = "money")]
-        public  double Price { get; set; }
+        public  double  Price { get; set; }
 
 
         [Range(0, 100)]
@@ -40,7 +44,6 @@ namespace CubeGame.DAL.Data.Models
         [RegularExpression("^(([1-9*)|(([1-9]*)\\.([0-9]*)))$")]
         [DefaultValue(0.00)]
         public double ? Rate { get; set; }
-        public virtual ICollection<Image> Images { get; set; } = new List<Image>();
 
         [Required]
         [ForeignKey("Category")]
@@ -48,13 +51,27 @@ namespace CubeGame.DAL.Data.Models
         public  int CategoryId { get; set; }
 
         public Category category { get; set; }
+        [Required]
+        public string DeveloperName { get; set; }
 
+        [Required]
+        public DateTime ReleaseDate { get; set; }
+
+        public string Processor { get; set; }
+
+        public int RAM { get; set; }
+
+        [EnumDataType(typeof(OS))]
+        public OS platform { get; set; }
+
+        public virtual ICollection<Image> Images { get; set; } = new List<Image>();
+
+        public double PriceAfterDiscount() => Price * (1 - Discount / 100);
+        public double DiscountedAmount() => Price * (Discount / 100);
         public Image? GetMainImage()
         {
             if (Images.Count == 0) return null;
             return Images.FirstOrDefault();
         }
-        public double PriceAfterDiscount() => Price * (1 - Discount / 100);
-        public double DiscountedAmount() => Price * (Discount / 100);
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CubeGame.DAL.Data.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,5 +11,7 @@ namespace CubeGame.BL.DTO
     {
         public int ID { get; set; }
         public string CategoryName { get; set; }
+
+        public virtual ICollection<Product> Products { get; set; } = new HashSet<Product>();
     }
 }

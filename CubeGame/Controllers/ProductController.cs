@@ -1,8 +1,11 @@
 ﻿using CubeGame.BL.DTO;
 using CubeGame.BL.Manager;
 using CubeGame.DAL.Data.Models;
+using CubeGame.DAL.Repo.product;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing.Constraints;
+using System.IO;
 
 namespace CubeGame.Controllers
 {
@@ -11,9 +14,13 @@ namespace CubeGame.Controllers
     public class ProductController : ControllerBase
     {
         IProductManager repo;
-        public ProductController(IProductManager _repo)
+        private IWebHostEnvironment env;
+        private IHttpContextAccessor httpContextAccessor;
+        public ProductController( IProductManager _repo , IWebHostEnvironment _env, IHttpContextAccessor _httpContextAccessor)
         {
             repo = _repo;
+            env = _env;
+            httpContextAccessor = _httpContextAccessor;
         }
 
         [HttpGet]
@@ -43,13 +50,14 @@ namespace CubeGame.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddProduct([FromForm] ProductDTO c)
-        {
+        public IActionResult AddProduct([FromForm] ProductDTO c )
+        {          
             if (ModelState.IsValid)
             {
                 try
-                {
+                {                 
                     repo.AddProduct(c);
+
                     return Created("url", c);
                 }
                 catch (Exception ex)
@@ -99,13 +107,30 @@ namespace CubeGame.Controllers
         }
 
         [HttpPost("AddImage/{id:int}")]
-        public IActionResult AddImage(int id , [FromForm] ImageDTO i)
+        public IActionResult AddImage(int id, IFormFile file)
         {
+            Image I = new Image();
             if (ModelState.IsValid)
             {
                 try
                 {
-                    repo.AddProductImages(id , i);
+                    var path = Path.Combine(env.WebRootPath, "uploads", file.FileName);
+
+                    using (var fileStream = new FileStream(path, FileMode.Create))
+                    {
+                        file.CopyTo(fileStream);
+
+                    }
+                    var baseURL = httpContextAccessor.HttpContext.Request.Scheme + "://" +
+                        httpContextAccessor.HttpContext.Request.Host +
+                        httpContextAccessor.HttpContext.Request.PathBase;
+
+                    var im = baseURL + "/uploads/" + file.FileName;
+
+                    I.ImageURL = im;
+
+                    repo.AddProductImages(id, I);
+
                     return Created("url", id);
                 }
                 catch (Exception ex)

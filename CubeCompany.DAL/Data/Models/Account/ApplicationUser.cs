@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using CubeGame.DAL.Data.Models.Account;
+using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 
 namespace CubeGame.Data.Models.Account
@@ -10,5 +11,6 @@ namespace CubeGame.Data.Models.Account
 
         [Required, MaxLength(50)]
         public string LastName { get; set; }
+        public List<RefreshToken>? RefreshTokens { get; set; }
     }
 }
