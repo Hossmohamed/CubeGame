@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 namespace CubeGame.DAL.Repo.cart
 {
     public interface ICartRepo
-    {
-        public string GetCartId(Cart cart);
-        public void AddToCart(int id);
-        public List<CartItem> GetCartItems();
-        public void ClearCart();
-        public void RemoveFromCart(string id);
-        public double GetCartTotal();
-        public CartItem GetCartItem(string id);
+    {    
+        public void AddToCart(int Product_id, string userId);
+        public Cart GetCartItems(string user_id);
+
+        public void ClearCart(string Token);
+        public void RemoveFromCart(int id , string token);
+
+        //public double GetCartTotal();
     }
 }

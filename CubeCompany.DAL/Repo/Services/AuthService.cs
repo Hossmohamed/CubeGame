@@ -41,7 +41,11 @@ namespace CubeGame.DAL.Repo.Services
             var rolesList = await _userManager.GetRolesAsync(user);
 
             authModel.IsAuthenticated = true;
-            authModel.Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
+
+            //authModel.Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
+            authModel.Token = user.token;
+
+
             authModel.Email = user.Email;
             authModel.Username = user.UserName;
             //authModel.ExpiresOn = jwtSecurityToken.ValidTo;
@@ -57,9 +61,12 @@ namespace CubeGame.DAL.Repo.Services
             }
             else
             {
+                user.token = authModel.Token;    /*  ----------------------------------------------*/
                 var refreshToken = GenerateRefreshToken();
                 authModel.RefreshToken = refreshToken.Token;
                 authModel.RefreshTokenExpiration = refreshToken.ExpiresOn;
+
+
                 user.RefreshTokens.Add(refreshToken);
                 await _userManager.UpdateAsync(user);
             }
@@ -114,8 +121,13 @@ namespace CubeGame.DAL.Repo.Services
             await _userManager.AddToRoleAsync(user, "User");
 
             var jwtSecurityToken = await CreateJwtToken(user);
-
+           
             var refreshToken = GenerateRefreshToken();
+
+            //////////////////////////////////////////////////////////////////////////////////
+            user.token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
+            ///////////////////////////////////////////////////////////////////////////////
+            
             user.RefreshTokens?.Add(refreshToken);
             await _userManager.UpdateAsync(user);
 
@@ -125,7 +137,7 @@ namespace CubeGame.DAL.Repo.Services
                // ExpiresOn = jwtSecurityToken.ValidTo,
                 IsAuthenticated = true,
                 Roles = new List<string> { "User" },
-                Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken),
+                Token = user.token,
                 Username = user.UserName,
                 RefreshToken = refreshToken.Token,
                 RefreshTokenExpiration = refreshToken.ExpiresOn
@@ -172,7 +184,11 @@ namespace CubeGame.DAL.Repo.Services
             var jwtToken = await CreateJwtToken(user);
 
             authModel.IsAuthenticated = true;
-            authModel.Token = new JwtSecurityTokenHandler().WriteToken(jwtToken);
+
+
+            // authModel.Token = new JwtSecurityTokenHandler().WriteToken(jwtToken);
+            authModel.Token = user.token;
+
             authModel.Email = user.Email;
             authModel.Username = user.UserName;
             var roles = await _userManager.GetRolesAsync(user);
