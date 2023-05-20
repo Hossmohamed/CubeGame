@@ -1,0 +1,21 @@
+.bg-second-nav
+{
+  background-color: #15102B;
+  box-shadow: 0px 4px 6px #0000002d;
+  height: 60px;
+  margin: 2px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+
+}
+.btn-discover,.btn-browse, .btn-library
+{
+  color: #645B8F;
+  font-size: 18px;
+  font-weight: bold;
+}
+.active-btn,.btn-discover:hover,.btn-browse:hover, .btn-library:hover
+{
+  color: white;
+}
