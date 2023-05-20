@@ -12,28 +12,30 @@ namespace CubeGame.DAL.Data.Models.Cart
 {
     public class CartItem
     {
-
         [Key]
-        public string ItemId { get; set; }
-
-        public string CartId { get; set; }
+        public int Id { get; set; }
 
         public int Quantity { get; set; }
-
-        public int ProductId { get; set; }
-
-        public virtual Product? Product { get; set; }
 
         [DataType(DataType.Currency)]
         public  double Price { get; set; }
 
-        //[DataType(DataType.Currency)]
-        //public double DiscountedPrice { get; set; }
+        [DataType(DataType.Currency)]
+        public double PriceAfterDiscount { get; set; }
 
-        //[DataType(DataType.Currency)]
-        //public double PriceAfterDiscount { get; set; }    
-        //public double Discount { get; set; }
+        [ForeignKey("Product")]
+        [Required]
+        public int ProductId { get; set; }
 
-       
+        [DefaultValue(0.00)]
+        [Range(0.00, 100.00)]
+        public double Discount { get; set; }
+
+        [ForeignKey("Cart")]
+        [Required]
+        public  int CartId { get; set; }
+        public virtual Product? Product { get; set; }
+        public virtual Cart? Cart { get; set; }
+
     }
 }

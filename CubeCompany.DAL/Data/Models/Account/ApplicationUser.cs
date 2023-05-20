@@ -11,6 +11,9 @@ namespace CubeGame.Data.Models.Account
 
         [Required, MaxLength(50)]
         public string LastName { get; set; }
+
+        public string ? token { get; set; }
+
         public List<RefreshToken>? RefreshTokens { get; set; }
     }
 }
