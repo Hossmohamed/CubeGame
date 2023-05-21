@@ -136,7 +136,7 @@ namespace CubeGame.BL.Manager
                 insDTo.Processor = i.Processor;
                 insDTo.ReleaseDate = i.ReleaseDate;
                 insDTo.platform = i.platform.ToString();
-                insDTo.Picture = i.GetMainImage().ImageURL;
+               // insDTo.Picture = i.GetMainImage().ImageURL;
                 insDTo.CategoryName = IC.GetById(i.CategoryId).CategoryName;
             }
 

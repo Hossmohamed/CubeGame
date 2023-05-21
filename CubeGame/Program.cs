@@ -14,7 +14,7 @@ using CubeGame.BL.Manager;
 using CubeGame.DAL.Repo.product;
 using CubeGame.DAL.Repo.category;
 using CubeGame.DAL.Repo.cart;
-
+using CubeGame.DAL.Repo.wishlist;
 
 namespace CubeGame
 {
@@ -91,12 +91,22 @@ namespace CubeGame
 
             builder.Services.AddScoped<IProductRepo, ProductRepo>();
             builder.Services.AddScoped<IProductManager, ProductManager>();
-
+            //addCart
             builder.Services.AddScoped<ICartRepo, CartRepo>();
-
             builder.Services.AddScoped<ICartManager, CartManager>();
+            //addwishList
+            builder.Services.AddScoped<IwishlistRepo,WishListRepo>();
+          
+            //for session
+            builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            builder.Services.AddDistributedMemoryCache();
 
-            builder.Services.AddHttpContextAccessor();
+            builder.Services.AddSession(options =>
+            {
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+               
+            });
 
 
             var app = builder.Build();
@@ -107,17 +117,17 @@ namespace CubeGame
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+            app.UseRouting();
+            app.UseAuthentication();
+           
+            app.UseAuthorization();
 
             app.UseHttpsRedirection();
 
-            app.UseRouting();
 
             app.UseCors("AllowOrigin");
-         
-            app.UseAuthentication();
-           
-            app.UseAuthorization();           
-           
+
+
             app.UseStaticFiles();
            
             app.MapControllers();
