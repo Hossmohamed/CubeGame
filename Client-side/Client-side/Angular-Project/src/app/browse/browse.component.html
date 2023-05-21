@@ -70,7 +70,7 @@
 <app-navigation-two></app-navigation-two>
 <div class="container">
   <div class="browse">
-    <div class="left col-9">
+    <div class="left col-9 mb-4">
       <div class="cardItem">
         <img src="assets/img/22.jpg" alt="" />
 
@@ -220,21 +220,49 @@
       <p class="filter">Filters</p>
       <hr />
       <div class="filterHover">
-        <p>
-          Price <i class="bi bi-caret-down arrow"></i>
-        </p>
+        <label for="price">Price</label>
+        <select id="price" name="price">
+          <option value="" selected></option>
+          <option value="Free">Free</option>
+          <option value="200">200 EGP</option>
+          <option value="250">250 EGP</option>
+          <option value="300">300 EGP</option>
+          <option value="400">400 EGP</option>
+        </select>
       </div>
       <hr />
       <div class="filterHover">
-        <p>Genre<i class="bi bi-caret-down arrow"></i></p>
+        <label for="genre">Genre</label>
+        <select id="genre" name="genre">
+          <option value="" selected></option>
+          <option value="action">Action</option>
+          <option value="party">Party</option>
+          <option value="stratigy">Stratigy</option>
+          <option value="shooter">Shooter</option>
+          <option value="multiplayer">Multiplayer</option>
+        </select>
       </div>
       <hr />
       <div class="filterHover">
-        <p>
-          Filters<i class="bi bi-caret-down arrow"></i>
-        </p>
+        <label for="platform">Platform</label>
+        <select id="platforn" name="platform">
+          <option value="" selected></option>
+          <option value="windows">Windows</option>
+          <option value="mac">MAC</option>
+        </select>
       </div>
       <hr />
+      <div class="filterHover">
+        <label for="publisher">Publisher</label>
+        <select id="publisher" name="publisher">
+          <option value="" selected></option>
+          <option value="riot games">Riot Games</option>
+          <option value="rockstar games">Rockstar Games</option>
+          <option value="epic games">Epic Games</option>
+        </select>
+      </div>
     </div>
   </div>
 </div>
+
+<app-footer></app-footer>
