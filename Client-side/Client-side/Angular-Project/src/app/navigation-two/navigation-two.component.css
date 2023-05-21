@@ -9,13 +9,15 @@
   z-index: 2;
 
 }
-.btn-discover,.btn-browse, .btn-library
+.btn-discover,.btn-browse, .btn-library, a
 {
   color: #645B8F;
   font-size: 18px;
   font-weight: bold;
+  text-decoration: none;
 }
-.active-btn,.btn-discover:hover,.btn-browse:hover, .btn-library:hover
+.active-navtwo, .btn-discover:hover,.btn-browse:hover, .btn-library:hover
 {
   color: white;
 }
+

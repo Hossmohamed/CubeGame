@@ -13,7 +13,7 @@
 .login-form
 {
   width: 900px;
-  height: 680px;
+  height: 550px;
   border-radius: 15px;
   box-shadow: 0px 3px 6px #1F193D;
   text-align: center;
@@ -25,16 +25,18 @@
   background-size: cover;
   border: 3px solid #6FE2E1;
 }
-.login-form h1
+.login-form h2
 {
   font-family: 'Russo One';
   text-shadow: 0px 3px 5px #15102B;
+  margin-left: 20px;
 }
 form
 {
   background-color: #8a80b688;
   backdrop-filter: blur(2px);
   box-shadow: 0px 3px 7px #15102B;
+  border-radius: 3px;
   height: 370px;
   width: 400px;
   padding: 40px;
@@ -180,4 +182,7 @@ form
 {
   transition: ease 0.1s;
   text-shadow: 0px 1px 3px #B4D9F4;
+}
+a{
+  color: white;
 }
