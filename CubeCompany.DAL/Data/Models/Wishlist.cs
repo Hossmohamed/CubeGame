@@ -15,7 +15,7 @@ namespace CubeGame.DAL.Data.Models
 
         [ForeignKey("ApplicationUser")]
         [Required]
-        public required int AccountID { get; set; }
+        public required string AccountID { get; set; }
 
         [ForeignKey("Product")]
         [Required]
