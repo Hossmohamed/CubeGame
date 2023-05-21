@@ -37,10 +37,10 @@ namespace CubeGame.Controllers
             return NotFound();
         }
         [HttpGet("search")]
-        public IActionResult Search(string productName , string categoryName)
+        public IActionResult Search(string SearchItem )
         {
             var products = Context.Products
-                .Where(p => p.ProductName.Contains(productName)&&p.category.CategoryName.Contains(categoryName))
+                .Where(p => p.ProductName.Contains(SearchItem) || p.category.CategoryName.Contains(SearchItem))
                 .ToList();
 
             return Ok(products);
