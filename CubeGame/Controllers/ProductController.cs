@@ -2,9 +2,11 @@
 using CubeGame.BL.Manager;
 using CubeGame.DAL.Data.Models;
 using CubeGame.DAL.Repo.product;
+using CubeGame.Data.Context;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing.Constraints;
+using Microsoft.EntityFrameworkCore;
 using System.IO;
 
 namespace CubeGame.Controllers
@@ -14,13 +16,15 @@ namespace CubeGame.Controllers
     public class ProductController : ControllerBase
     {
         IProductManager repo;
+        ApplicationDBContext Context;
         private IWebHostEnvironment env;
         private IHttpContextAccessor httpContextAccessor;
-        public ProductController( IProductManager _repo , IWebHostEnvironment _env, IHttpContextAccessor _httpContextAccessor)
+        public ProductController( IProductManager _repo, ApplicationDBContext _Context, IWebHostEnvironment _env, IHttpContextAccessor _httpContextAccessor)
         {
             repo = _repo;
             env = _env;
             httpContextAccessor = _httpContextAccessor;
+            Context = _Context; 
         }
 
         [HttpGet]
@@ -31,6 +35,15 @@ namespace CubeGame.Controllers
                 return Ok(repo.GetAll());
             }
             return NotFound();
+        }
+        [HttpGet("search")]
+        public IActionResult Search(string SearchItem )
+        {
+            var products = Context.Products
+                .Where(p => p.ProductName.Contains(SearchItem) || p.category.CategoryName.Contains(SearchItem))
+                .ToList();
+
+            return Ok(products);
         }
 
         [HttpGet("ImagesProduct")]

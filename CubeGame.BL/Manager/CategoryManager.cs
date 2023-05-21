@@ -20,7 +20,7 @@ namespace CubeGame.BL.Manager
         {
             Category c = new Category();
             c.CategoryName = cd.CategoryName;
-           // c.Products = cd.Products;
+          // c.Products = cd.Products;
             IR.Add(c);
         }
 
