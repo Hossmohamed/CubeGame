@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Cube Game Store</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="assets/img/logo.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-first-nav">
+    <div class="container-fluid">
+      <a class="navbar-brand mx-3" href="#">
+        <img src="assets/img/logo.png" width="40" alt="cubegame logo">
+        CUBE GAME
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="bi bi-list"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link nav-stor active" href="#">STORE</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-cat dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              CATEGORY
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Shooter</a></li>
+              <li><a class="dropdown-item" href="#">Stratigy</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-dist" href="#">DISTRIBUTION</a>
+          </li>
+        </ul>
+        <div class="fnav-icons d-flex justify-content-end">
+          <i class="bi bi-heart mx-2">
+            <span class="position-absolute top-10 start-10 translate-middle bg-danger border border-light rounded-circle">2</span>
+          </i>
+          <i class="bi bi-bag mx-2">
+            <span class="position-absolute top-10 start-10 translate-middle bg-danger border border-light rounded-circle">5</span>
+          </i>
+          <i class="bi bi-chat-left-dots mx-2">
+            <span class="position-absolute top-10 start-10 translate-middle bg-danger border border-light rounded-circle">1</span>
+          </i>
+          <button class="btn btn-sign mx-4" type="button">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!---------------------  second nav  ---------------------->
+  <nav class="navbar bg-second-nav">
+    <div class="container">
+      <form class="d-flex align-items-center" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-second-nav btn-discover active-btn" type="button">Discover</button>
+        <button class="btn btn-second-nav btn-browse" type="button">Browse</button>
+        <button class="btn btn-second-nav btn-library" type="button">Library</button>
+      </form>
+    </div>
+  </nav>
+
+  <app-root></app-root>
+
+  <footer>
+    <p>footer</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+  </html>
