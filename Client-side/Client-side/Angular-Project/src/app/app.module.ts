@@ -13,6 +13,9 @@ import { NavigationTwoComponent } from './navigation-two/navigation-two.componen
 import { FooterComponent } from './footer/footer.component';
 
 import { RouterModule, Routes } from '@angular/router';
+import { SliderDirective } from './Directives/slider.directive';
+import { GameComponent } from './game/game.component';
+import { ArrowbuttonDirective } from './Directives/arrowbutton.directive';
 
 let routes: Routes = [
   {path:"", component:DiscoverComponent },
@@ -34,6 +37,9 @@ let routes: Routes = [
     NavigationOneComponent,
     NavigationTwoComponent,
     FooterComponent,
+    SliderDirective,
+    GameComponent,
+    ArrowbuttonDirective,
   ],
   imports: [
     BrowserModule,
