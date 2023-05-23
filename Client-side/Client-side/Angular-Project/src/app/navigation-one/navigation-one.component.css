@@ -3,7 +3,7 @@
   background-color: #1F193D;
   padding-right: 22px;
 }
-.navbar-nav .nav-link.active, .navbar-nav .nav-link {
+.navbar-nav .nav-link.active-navone, .navbar-nav .nav-link {
   color: white !important;
 }
 .navbar-nav
@@ -38,7 +38,7 @@
   color: white;
   font-size: 30px;
 }
-.navbar-nav .nav-link.active
+.navbar-nav .nav-link.active-navone
 {
   color: white;
 }
@@ -46,7 +46,7 @@
 {
   border-bottom: 0px solid #6FE2E1;
 }
-.active,.nav-stor:hover ,.nav-cat:hover ,.nav-dist:hover
+.active-navone,.nav-stor:hover ,.nav-cat:hover ,.nav-dist:hover
 {
   border-bottom: 5px solid #6FE2E1;
   color: white;
@@ -83,4 +83,19 @@ i span
   {
     margin-left: 24vw;
   }
+}
+a
+{
+  color: white;
+  text-decoration: none;
+}
+.dropdown-menu
+{
+  background-color: #1F193D;
+}
+.dropdown-menu a:hover
+{
+  color: #6FE2E1;
+  background-color: #645B8F;
+  transition: ease 0.1s;
 }

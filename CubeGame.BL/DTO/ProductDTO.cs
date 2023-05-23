@@ -28,6 +28,7 @@ namespace CubeGame.BL.DTO
         public string Processor { get; set; }
         public int RAM { get; set; }
         public string platform { get; set; }
-        public string ? Picture { get; set; } 
+
+        public string? Picture { get; set; } 
     }
 }
