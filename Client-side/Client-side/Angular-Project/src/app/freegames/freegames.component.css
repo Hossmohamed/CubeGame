@@ -42,13 +42,13 @@
 .card-free:hover .card-img-top-free
 {
   filter: brightness(135%);
-  transition: ease-in 0.2s;
 }
 .card-img-top-free
 {
   filter: brightness(100%);
   border-radius: 15px;
   height: 70%;
+  transition: ease-in 0.2s;
 }
 .card-free
 {

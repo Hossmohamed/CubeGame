@@ -22,6 +22,8 @@
   border-radius: 15px;
   opacity: 1 !important;
   height: 275px;
+  transition: ease-in 0.2s;
+  height: 255px; /*<---------*/
 }
 .card-body
 {
@@ -48,6 +50,7 @@
 {
   filter: brightness(135%);
   transition: ease-in 0.2s;
+  height: 275px; /*<---------*/
 }
  .card:hover
 {
