@@ -21,6 +21,8 @@ import { HttpClientModule } from '@angular/common/http'
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { FreegamesComponent } from './freegames/freegames.component';
 import { GameonsaleComponent } from './gameonsale/gameonsale.component';
+import { MainsliderComponent } from './mainslider/mainslider.component';
+import { MainsliderDirective } from './mainslider.directive';
 
 
 let routes: Routes = [
@@ -46,6 +48,8 @@ let routes: Routes = [
     MostpopularComponent,
     FreegamesComponent,
     GameonsaleComponent,
+    MainsliderComponent,
+    MainsliderDirective,
   ],
   imports: [
     BrowserModule,
