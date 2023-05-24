@@ -14,6 +14,22 @@ import { FooterComponent } from './footer/footer.component';
 
 import { RouterModule, Routes } from '@angular/router';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { HttpClientModule } from '@angular/common/http'
+
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { MostPlayedComponent } from './most-played/most-played.component';
+import { TopSellerComponent } from './top-seller/top-seller.component';
+import { TopRatedComponent } from './top-rated/top-rated.component';
+import { NewReleaseComponent } from './new-release/new-release.component';
+import { ComingSoonComponent } from './coming-soon/coming-soon.component';
+import { RecentlyUpdatedComponent } from './recently-updated/recently-updated.component';
+import { FreegamesComponent } from './freegames/freegames.component';
+import { GameonsaleComponent } from './gameonsale/gameonsale.component';
+import { MostpopularComponent } from './mostpopular/mostpopular.component';
+import { MainsliderComponent } from './mainslider/mainslider.component';
+import { MainsliderDirective } from './Directives/mainslider.directive';
+
 let routes: Routes = [
   {path:"", component:DiscoverComponent },
   {path:"Browse", component:BrowseComponent },
@@ -34,10 +50,26 @@ let routes: Routes = [
     NavigationOneComponent,
     NavigationTwoComponent,
     FooterComponent,
+    MostPlayedComponent,
+    TopSellerComponent,
+    TopRatedComponent,
+    NewReleaseComponent,
+    ComingSoonComponent,
+    RecentlyUpdatedComponent,
+    FreegamesComponent,
+    GameonsaleComponent,
+    MostpopularComponent,
+    MainsliderComponent,
+    MainsliderDirective,
+
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    SlickCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]
