@@ -13,6 +13,15 @@ import { NavigationTwoComponent } from './navigation-two/navigation-two.componen
 import { FooterComponent } from './footer/footer.component';
 
 import { RouterModule, Routes } from '@angular/router';
+import { MostpopularComponent } from './mostpopular/mostpopular.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { HttpClientModule } from '@angular/common/http'
+
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { FreegamesComponent } from './freegames/freegames.component';
+import { GameonsaleComponent } from './gameonsale/gameonsale.component';
+
 
 let routes: Routes = [
   {path:"", component:DiscoverComponent },
@@ -34,10 +43,17 @@ let routes: Routes = [
     NavigationOneComponent,
     NavigationTwoComponent,
     FooterComponent,
+    MostpopularComponent,
+    FreegamesComponent,
+    GameonsaleComponent,
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    SlickCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]
