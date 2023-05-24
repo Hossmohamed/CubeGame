@@ -56,6 +56,7 @@ p {
  
  .slider-container h4 {
    text-align: center;
+   cursor: pointer;
  
  }
  
@@ -65,19 +66,24 @@ p {
    left: 0;
    text-align: center;
    height: 250px;
-   overflow: hidden;
+   overflow-y: scroll;
+   overflow-x: hidden;
+
+   scroll-behavior: smooth;
+
  }
  
  
  
  .slider-images img {
    width: 99%;
-   /* height: 75px; */
-   height: 54px;
+   height: 75px;
    margin: 5px;
    display: block;
    opacity: 0.5;
    object-fit: cover;
+   cursor: pointer;
+
  
  }
  
@@ -96,6 +102,8 @@ p {
   } */
    .slider-images {
      display: flex;
+     overflow-x: scroll;
+     overflow-y: hidden;
    }
    .slider-images img {
      display: inline-flex ;
@@ -264,6 +272,7 @@ input:focus + .slider {
      position: absolute;
      width: 120px;
      height: 80%;
+     left: 0;
      border-bottom: 3px solid #6FE2E1;
      transition: 0.5s;
      
@@ -314,8 +323,12 @@ input:focus + .slider {
        border: 1px solid #6FE2E1;
        background-color: #6FE2E1;
        height: 45px;
+       transition: 1s;
    }
-   
+   table.sidebar .tablebtn .btn:hover  {
+    background: transparent;
+    
+  }
    table.sidebar .tablebtn .btn.socend  {
      background: transparent;
      padding-top: 0;

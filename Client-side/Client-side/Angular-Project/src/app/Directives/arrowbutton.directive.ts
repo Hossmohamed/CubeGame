@@ -7,15 +7,26 @@ export class ArrowbuttonDirective {
 
   constructor(private el:ElementRef) { }
 
-  uparrow = document.getElementById('top-arrow')
   downarrow = document.getElementById('down-arrow')
+  sliderImages = document.getElementById('slider-images')
+
 
 
   @HostListener('click') 
-  scroll(){
+  scrollToDown(){
 
-    console.log(this.el.nativeElement)
+    var x = window.matchMedia("(min-width: 991px)")
+          if (x.matches) { 
+            this.sliderImages?.scrollBy(0,5) ;
+          } else {
+            this.sliderImages?.scrollBy(5,0) ;
+          }
+    // console.log("scroll down")
+  
+    
 
   }
+
+  
 
 }

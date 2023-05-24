@@ -27,20 +27,20 @@
                     <div class="col-lg-3 col-sm-12 ">
                         <div class="slider-container   ">
                             <h4 class="top-arrow">
-                                <i class="bi bi-chevron-compact-up rigth" id="top-arrow" appArrowbutton></i>
+                                <i class="bi bi-chevron-compact-up rigth" id="top-arrow" appArrowTop></i>
                                 <!-- <button class="carousel-control-prev" type="button" data-bs-target="#secondcarouselExampleControls" data-bs-slide="prev">
                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                     <span class="visually-hidden">Previous</span>
                                   </button> -->
                             
                             </h4>  
-                            <div class="slider-images">
-                              <img id="img" class="img1 active" src="../../assets/img/bg.png" appSlider >
+                            <div class="slider-images" id="slider-images">
+                              <img id="FImge" class="img1 active" src="../../assets/img/bg.png" appSlider >
                               <img id="img" src="../../assets/img/2.png" appSlider>
                               <img id="img1" src="../../assets/img/3.png" appSlider>
                               <img id="img1" src="../../assets/img/4.png" appSlider>
                               <img id="img1" src="../../assets/img/1.png"  appSlider>
-
+                              
                             </div>
                             <h4 class="down-arrow">
                                 <i class="bi bi-chevron-compact-down" id="down-arrow" appArrowbutton></i>
@@ -81,10 +81,12 @@
                             </div>
                             <div class="form-box">
                                 <div class="button-box">
-                                    <div id="btn"></div>
-                                    <button type="button" id="toggle-btn1" onclick="leftClick()">Windows</button>
+                                <!-- <div id="btn" class="d-flex flex-col" ></div> -->
+                                    <button type="button" id="toggle-btn1"  appLeftClick>Windows </button>
                                     <span class="space"> | </span>
-                                    <button type="button" id="toggle-btn2" onclick="rightClick()">MAC</button>
+                                    <div id="btn" class="d-flex flex-col" ></div>
+                                    <button type="button" id="toggle-btn2" appRighttClick >MAC</button>
+                                
                                 </div>
                             </div>
                         </th>    
