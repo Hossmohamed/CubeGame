@@ -13,13 +13,21 @@ import { NavigationTwoComponent } from './navigation-two/navigation-two.componen
 import { FooterComponent } from './footer/footer.component';
 
 import { RouterModule, Routes } from '@angular/router';
+import { SliderDirective } from './Directives/slider.directive';
+import { GameComponent } from './game/game.component';
+import { ArrowbuttonDirective } from './Directives/arrowbutton.directive';
+import { ArrowTopDirective } from './Directives/arrow-top.directive';
+import { LeftClickDirective } from './Directives/left-click.directive';
+import { RighttClickDirective } from './Directives/rightt-click.directive';
 
 let routes: Routes = [
   {path:"", component:DiscoverComponent },
   {path:"Browse", component:BrowseComponent },
   {path:"Signup", component:SignUpComponent },
   {path:"Login", component:LoginComponent },
-  {path:"Distribution", component:DistributionComponent }
+  {path:"Distribution", component:DistributionComponent },
+  {path:"coverGame", component:GameComponent }
+
 ]
 
 @NgModule({
@@ -34,6 +42,12 @@ let routes: Routes = [
     NavigationOneComponent,
     NavigationTwoComponent,
     FooterComponent,
+    SliderDirective,
+    GameComponent,
+    ArrowbuttonDirective,
+    ArrowTopDirective,
+    LeftClickDirective,
+    RighttClickDirective,
   ],
   imports: [
     BrowserModule,
