@@ -37,7 +37,32 @@
         <i class="bi bi-chat-left-dots mx-2">
           <span class="position-absolute top-10 start-10 translate-middle bg-danger border border-light rounded-circle">1</span>
         </i>
-        <a routerLink="/Signup"><button class="btn btn-sign mx-4" type="button">Sign Up</button></a>
+
+        <!-- <a routerLink="/Signup"><button class="btn btn-sign mx-4" type="button">Sign Up</button></a> -->
+
+
+        <!-- <div *ngIf="Logged else anonymouse">
+            <span>Hello {{fullName}}</span>
+            <button class="btn btn-sign mx-4" type="button" (click)="logOut()">logOut</button>
+        </div>
+
+        <ng-template #anonymouse>
+            <a routerLink="/Signup">
+              <button class="btn btn-sign mx-4" type="button">Sign Up</button>
+            </a>
+       </ng-template> -->
+
+       <ng-container *ngIf="Logged" >
+        <span>Hello,{{fullName}}</span>
+        <button class="btn btn-sign mx-4" type="button" (click)="logOut()">logOut</button>
+       </ng-container>
+
+       <ng-container *ngIf="!Logged" >
+        <a routerLink="/Signup">
+          <button class="btn btn-sign mx-4" type="button">Sign Up</button>
+        </a>
+       </ng-container>
+
       </div>
     </div>
   </div>
