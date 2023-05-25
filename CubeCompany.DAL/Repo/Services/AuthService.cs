@@ -41,7 +41,11 @@ namespace CubeGame.DAL.Repo.Services
             var rolesList = await _userManager.GetRolesAsync(user);
 
             authModel.IsAuthenticated = true;
-            authModel.Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
+
+
+           // authModel.Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
+
+            authModel.Token = user.token;
             authModel.Email = user.Email;
             authModel.Username = user.UserName;
             //authModel.ExpiresOn = jwtSecurityToken.ValidTo;
@@ -57,9 +61,12 @@ namespace CubeGame.DAL.Repo.Services
             }
             else
             {
+                user.token = authModel.Token;    /*  ----------------------------------------------*/
                 var refreshToken = GenerateRefreshToken();
                 authModel.RefreshToken = refreshToken.Token;
                 authModel.RefreshTokenExpiration = refreshToken.ExpiresOn;
+
+
                 user.RefreshTokens.Add(refreshToken);
                 await _userManager.UpdateAsync(user);
             }
@@ -79,7 +86,7 @@ namespace CubeGame.DAL.Repo.Services
 
             var result = await _userManager.AddToRoleAsync(user, model.Role);
 
-            return result.Succeeded ? string.Empty : "Sonething went wrong";
+            return result.Succeeded ? string.Empty : "Something went wrong";
         }
 
 
@@ -114,8 +121,13 @@ namespace CubeGame.DAL.Repo.Services
             await _userManager.AddToRoleAsync(user, "User");
 
             var jwtSecurityToken = await CreateJwtToken(user);
-
+           
             var refreshToken = GenerateRefreshToken();
+
+            //////////////////////////////////////////////////////////////////////////////////
+            user.token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
+            ///////////////////////////////////////////////////////////////////////////////
+            
             user.RefreshTokens?.Add(refreshToken);
             await _userManager.UpdateAsync(user);
 
@@ -125,7 +137,7 @@ namespace CubeGame.DAL.Repo.Services
                // ExpiresOn = jwtSecurityToken.ValidTo,
                 IsAuthenticated = true,
                 Roles = new List<string> { "User" },
-                Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken),
+                Token = user.token,
                 Username = user.UserName,
                 RefreshToken = refreshToken.Token,
                 RefreshTokenExpiration = refreshToken.ExpiresOn
@@ -172,7 +184,8 @@ namespace CubeGame.DAL.Repo.Services
             var jwtToken = await CreateJwtToken(user);
 
             authModel.IsAuthenticated = true;
-            authModel.Token = new JwtSecurityTokenHandler().WriteToken(jwtToken);
+           // authModel.Token = new JwtSecurityTokenHandler().WriteToken(jwtToken);
+            authModel.Token = user.token;
             authModel.Email = user.Email;
             authModel.Username = user.UserName;
             var roles = await _userManager.GetRolesAsync(user);
@@ -184,19 +197,30 @@ namespace CubeGame.DAL.Repo.Services
 
         private async Task<JwtSecurityToken> CreateJwtToken(ApplicationUser user)
         {
+            if (user == null)
+            {
+                // Handle the null user case
+                throw new ArgumentNullException(nameof(user));
+            }
             var userClaims = await _userManager.GetClaimsAsync(user);
             var roles = await _userManager.GetRolesAsync(user);
             var roleClaims = new List<Claim>();
 
             foreach (var role in roles)
                 roleClaims.Add(new Claim("roles", role));
+            if (user.Id == null)
+            {
+                // Handle the null user ID case
+                throw new ArgumentNullException(nameof(user.Id));
+            }
 
             var claims = new[]
             {
+                new Claim(ClaimTypes.NameIdentifier, user.Id),
                 new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(JwtRegisteredClaimNames.Email, user.Email),
-                new Claim("uid", user.Id)
+                new Claim(JwtRegisteredClaimNames.Email, user.Email)
+              
             }
             .Union(userClaims)
             .Union(roleClaims);
@@ -210,8 +234,10 @@ namespace CubeGame.DAL.Repo.Services
                 claims: claims,
                 expires: DateTime.Now.AddDays(_jwt.DurationInDays),
                 signingCredentials: signingCredentials);
+          //  var tokenString = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
 
             return jwtSecurityToken;
+
         }
 
         //public async Task<bool> RevokeTokenAsync(string token)
@@ -246,7 +272,7 @@ namespace CubeGame.DAL.Repo.Services
             return new RefreshToken
             {
                 Token = Convert.ToBase64String(randomNumber),
-                ExpiresOn = DateTime.UtcNow.AddDays(10),
+                ExpiresOn = DateTime.UtcNow.AddDays(50),
                 CreatedOn = DateTime.UtcNow
             };
         }

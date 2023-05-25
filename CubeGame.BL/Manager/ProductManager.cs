@@ -108,8 +108,9 @@ namespace CubeGame.BL.Manager
                     RAM = i.RAM,
                     Processor = i.Processor,
                     ReleaseDate = i.ReleaseDate,
-                    platform = i.platform.ToString()
-                                   
+                    platform = i.platform.ToString(),
+                    Picture = i.GetMainImage().ImageURL,
+                    CategoryName = IC.GetById(i.CategoryId).CategoryName
             };
                 productDTOs.Add(dTO);
             }
@@ -135,8 +136,8 @@ namespace CubeGame.BL.Manager
                 insDTo.Processor = i.Processor;
                 insDTo.ReleaseDate = i.ReleaseDate;
                 insDTo.platform = i.platform.ToString();
-                //insDTo.CategoryName = i.category.CategoryName;
-
+                insDTo.Picture = i.GetMainImage().ImageURL;
+                insDTo.CategoryName = IC.GetById(i.CategoryId).CategoryName;
             }
 
             return insDTo;

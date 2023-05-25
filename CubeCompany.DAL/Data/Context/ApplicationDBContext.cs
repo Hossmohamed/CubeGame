@@ -20,13 +20,18 @@ namespace CubeGame.Data.Context
                 .Entity<Product>().HasMany(P => P.Images).WithOne(A => A.Product)
                 .OnDelete(DeleteBehavior.ClientCascade);
 
+            modelBuilder.Entity<Cart>().HasQueryFilter(C => C.IsActive == true);
+
             base.OnModelCreating(modelBuilder);
             //modelBuilder.Entity<IdentityUserLogin<string>>().HasKey(l => new { l.LoginProvider, l.ProviderKey });
         }
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Image> Images { get; set; }
-        public DbSet<CartItem> cartItems { get; set; }
+        public DbSet<Cart> Carts { get; set; }
+        public DbSet<CartItem> CartItems { get; set; }
+        public DbSet<Wishlist> wishlists { get; set; }
       
+
     }
 }

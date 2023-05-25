@@ -121,7 +121,8 @@
   border-radius: 10px;
   text-align: center;
   padding-top: 27px;
-  box-shadow: 0px 0px 7px rgb(0, 0, 0);
+  border: 1px solid #110d24;
+  box-shadow: 1px 2px 2px #110d24;
 }
 
 
@@ -135,24 +136,28 @@
 
 .cardItem:not(:hover) .genreColor{
   color: rgb(100, 92, 143);
-  transition: all 1s;
+  transition: ease-in 0.2s;
 }
 
 .cardItem:hover{
   background-color: rgb(100, 92, 143);
-  transition: all 1s;
+  transition: ease-in 0.2s;
 }
 
 .cardItem:not(:hover){
   background-color: rgb(31, 25, 61);
-  transition: all 1s;
+  transition: ease-in 0.2s;
 }
 
 .cardItem img{
   width: 85%;
   border-radius: 10px;
-  box-shadow: 0px 0px 7px rgb(0, 0, 0);
+  box-shadow: 1px 2px 2px #110d24;
 
+}
+.cardItem:hover img{
+  filter: brightness(135%);
+  transition: ease-in 0.2s;
 }
 
 .details{
@@ -206,6 +211,8 @@
   left: 28px;
 }
 
+
+
 .filter{
   color: white;
   font-family: 'play';
@@ -218,25 +225,27 @@
   left: 70%;
   padding: 20px;
 }
-
-
-
 hr{
-  border: 1px solid white;
+  border: 1px solid rgb(100, 92, 143);
   width: 100%;
 }
-
-
-.arrow
+.filterHover label
 {
-  position: relative;
-  left: 80%;
+  font-size: 18px;
 }
-
-.filterHover:hover
+.filterHover select
 {
-  border-bottom: 5px solid #6FE2E1;
+  border: none;
+  background-color: #15102B;
   color: white;
-  transition: ease-in 0.1s;
-  cursor: pointer;
+  padding: 8px;
+  width: 210px;
+  font-size: 18px;
+  /*box-shadow: 1px 2px 2px #110d24;*/
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+  float: right;
+  margin-top: -5px;
+  text-align: right;
 }

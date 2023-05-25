@@ -14,7 +14,8 @@ using CubeGame.BL.Manager;
 using CubeGame.DAL.Repo.product;
 using CubeGame.DAL.Repo.category;
 using CubeGame.DAL.Repo.cart;
-
+using CubeGame.DAL.Repo.wishlist;
+using CubeGame.Controllers;
 
 namespace CubeGame
 {
@@ -27,10 +28,11 @@ namespace CubeGame
             // Add services to the container.
 
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+           
+
             builder.Services.Configure<JWT>(builder.Configuration.GetSection("JWT"));
+
+            builder.Services.AddScoped<IAuthService, AuthService>();
 
             // he know that we use Identity Role
             builder.Services.AddIdentity<ApplicationUser , IdentityRole>().AddEntityFrameworkStores<ApplicationDBContext>();
@@ -59,25 +61,43 @@ namespace CubeGame
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Key"]))
                     };
                 });
-            builder.Services.AddScoped<IAuthService, AuthService>();
 
+            //builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            //    .AddJwtBearer(options =>
+            //    {
+            //    options.TokenValidationParameters = new TokenValidationParameters
+            //    {
+            //        ValidateIssuer = true,
+            //        ValidateAudience = true,
+            //        ValidateIssuerSigningKey = true,
+            //        ValidIssuer = builder.Configuration["JWT:Issuer"],
+            //        ValidAudience = builder.Configuration["JWT:Audience"],
+            //        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Key"]))
+            //    };
+            //});
+            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen();
+            builder.Services.AddSwaggerDoc();
             builder.Services.AddCors(option =>
             {
                 option.AddPolicy(name: "AllowOrigin", builder =>
                 {
-                    builder.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod();
+                    builder.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod().AllowCredentials();
                 });
             });
 
             builder.Services.AddScoped<ICategoryRepo, CategoryRepo>();
             builder.Services.AddScoped<ICategoryManager, CategoryManager>();
 
-
             builder.Services.AddScoped<IProductRepo, ProductRepo>();
             builder.Services.AddScoped<IProductManager, ProductManager>();
-
+            //addCart
             builder.Services.AddScoped<ICartRepo, CartRepo>();
-
+            builder.Services.AddScoped<ICartManager, CartManager>();
+            //addwishList
+            builder.Services.AddScoped<IwishlistRepo,WishListRepo>();
+          
             //for session
             builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             builder.Services.AddDistributedMemoryCache();
@@ -89,7 +109,7 @@ namespace CubeGame
                
             });
 
-         
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -98,19 +118,21 @@ namespace CubeGame
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
-            app.UseHttpsRedirection();
-
             app.UseRouting();
-
-            app.UseCors("AllowOrigin");
-
             app.UseAuthentication();
            
             app.UseAuthorization();
 
+            app.UseSwaggerDoc();
+
+            app.UseHttpsRedirection();
+
+
+            app.UseCors("AllowOrigin");
+
+
             app.UseStaticFiles();
-            app.UseSession();
+           
             app.MapControllers();
             app.Run();
         }

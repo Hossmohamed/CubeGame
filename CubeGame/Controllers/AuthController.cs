@@ -31,8 +31,9 @@ namespace CubeGame.Controllers
                 return BadRequest(result.Message);
 
             SetRefreshTokenInCookie(result.RefreshToken, result.RefreshTokenExpiration);
+            //SetRefreshTokenInCookie(result.Token);
 
-            return Ok("Ok");
+            return Ok(result);
         }
         [HttpPost("token")]
         public async Task<IActionResult> GetTokenAsync([FromBody] TokenRequestModel model)
@@ -47,7 +48,7 @@ namespace CubeGame.Controllers
 
             if (!string.IsNullOrEmpty(result.RefreshToken))
                 SetRefreshTokenInCookie(result.RefreshToken, result.RefreshTokenExpiration);
-
+            //SetRefreshTokenInCookie(result.Token);
             return Ok(result);
         }
 
@@ -62,6 +63,7 @@ namespace CubeGame.Controllers
                 return BadRequest(result);
 
             SetRefreshTokenInCookie(result.RefreshToken, result.RefreshTokenExpiration);
+            //SetRefreshTokenInCookie(result.Token);
 
             return Ok(result);
         }
@@ -79,5 +81,19 @@ namespace CubeGame.Controllers
 
             Response.Cookies.Append("refreshToken", refreshToken, cookieOptions);
         }
+
+        //private void SetRefreshTokenInCookie(string Token)
+        //{
+        //    var cookieOptions = new CookieOptions
+        //    {
+        //        HttpOnly = true,
+        //        //Expires = expires.ToLocalTime(),
+        //        Secure = true,
+        //        IsEssential = true,
+        //        SameSite = SameSiteMode.None
+        //    };
+
+        //    Response.Cookies.Append("refreshToken", Token, cookieOptions);
+        //}
     }
 }

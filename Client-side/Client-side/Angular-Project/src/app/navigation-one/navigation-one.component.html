@@ -1,0 +1,69 @@
+<!-- <p>navigation-one works!</p> -->
+<nav class="navbar navbar-expand-lg bg-first-nav">
+  <div class="container-fluid">
+    <a class="navbar-brand mx-3" routerLink="/">
+      <img src="assets/img/logo.png" width="40" alt="cubegame logo">
+      CUBE GAME
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="bi bi-list"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link nav-stor" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active-navone" routerLink="/">STORE</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link nav-cat dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            CATEGORY
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Shooter</a></li>
+            <li><a class="dropdown-item" href="#">Stratigy</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-dist" routerLinkActive="active-navone" routerLink="/Distribution">DISTRIBUTION</a>
+        </li>
+      </ul>
+      <div class="fnav-icons d-flex justify-content-end">
+        <i class="bi bi-heart mx-2">
+          <span class="position-absolute top-10 start-10 translate-middle bg-danger border border-light rounded-circle">2</span>
+        </i>
+        <i class="bi bi-bag mx-2">
+          <span class="position-absolute top-10 start-10 translate-middle bg-danger border border-light rounded-circle">5</span>
+        </i>
+        <i class="bi bi-chat-left-dots mx-2">
+          <span class="position-absolute top-10 start-10 translate-middle bg-danger border border-light rounded-circle">1</span>
+        </i>
+
+        <!-- <a routerLink="/Signup"><button class="btn btn-sign mx-4" type="button">Sign Up</button></a> -->
+
+
+        <!-- <div *ngIf="Logged else anonymouse">
+            <span>Hello {{fullName}}</span>
+            <button class="btn btn-sign mx-4" type="button" (click)="logOut()">logOut</button>
+        </div>
+
+        <ng-template #anonymouse>
+            <a routerLink="/Signup">
+              <button class="btn btn-sign mx-4" type="button">Sign Up</button>
+            </a>
+       </ng-template> -->
+
+       <ng-container *ngIf="Logged" >
+        <span>Hello,{{fullName}}</span>
+        <button class="btn btn-sign mx-4" type="button" (click)="logOut()">logOut</button>
+       </ng-container>
+
+       <ng-container *ngIf="!Logged" >
+        <a routerLink="/Signup">
+          <button class="btn btn-sign mx-4" type="button">Sign Up</button>
+        </a>
+       </ng-container>
+
+      </div>
+    </div>
+  </div>
+</nav>

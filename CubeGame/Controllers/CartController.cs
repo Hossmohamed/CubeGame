@@ -1,7 +1,13 @@
 ﻿using CubeGame.BL.Manager;
 using CubeGame.DAL.Repo.cart;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NuGet.Common;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 
 namespace CubeGame.Controllers
 {
@@ -9,47 +15,53 @@ namespace CubeGame.Controllers
     [ApiController]
     public class CartController : ControllerBase
     {
-        ICartRepo cartRepo;
-        public CartController(ICartRepo _repo)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly ICartRepo cartRepo;
+        private readonly ICartManager CM;
+        public CartController(ICartRepo _repo , IHttpContextAccessor httpContextAccessor , ICartManager _CM)
         {
             cartRepo = _repo;
+            _httpContextAccessor = httpContextAccessor;
+            CM = _CM;
         }
-
+        [Authorize]
         [HttpGet]
         public IActionResult GetAllCartItems()
         {
-            var CartItems = cartRepo.GetCartItems();
-            return Ok(CartItems);
+            string token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+            CM.GetAll(token);
+            return Ok(token);
         }
-
-        [HttpPost("AddToCart/{id}")]
+        [Authorize]
+        [HttpPost("AddToCart/{id}")]   
         public IActionResult AddToCart(int id)
         {
-            cartRepo.AddToCart(id);
+            string token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
 
-            return Created("url" , id);
+            cartRepo.AddToCart(id, token);
+
+
+            return Created("url", "Ok");
         }
-
+        [Authorize]
         [HttpDelete("RemoveFromCart/{id}")]
-        public IActionResult RemoveFromCart(string id)
+        public IActionResult RemoveFromCart(int id)
         {
-            var selectedProduct = cartRepo.GetCartItem(id);
+            string token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
 
-            if (selectedProduct != null)
-            {
-                cartRepo.RemoveFromCart(id);
-                return Ok(selectedProduct);
-            }
-            else
-            {
-                return NotFound();
-            }
+            cartRepo.RemoveFromCart(id , token);
+
+             return Ok("ok");          
+           
         }
-
+        [Authorize]
         [HttpDelete("ClearCart")]
         public IActionResult ClearCart()
         {
-            cartRepo.ClearCart();
+
+            string token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+            cartRepo.ClearCart(token);
+
             return Ok();
         }
     }
