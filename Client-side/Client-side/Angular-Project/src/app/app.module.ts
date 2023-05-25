@@ -13,24 +13,15 @@ import { NavigationTwoComponent } from './navigation-two/navigation-two.componen
 import { FooterComponent } from './footer/footer.component';
 
 import { RouterModule, Routes } from '@angular/router';
-import { MostpopularComponent } from './mostpopular/mostpopular.component';
-
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { HttpClientModule } from '@angular/common/http'
-
-import { SlickCarouselModule } from 'ngx-slick-carousel';
-import { FreegamesComponent } from './freegames/freegames.component';
-import { GameonsaleComponent } from './gameonsale/gameonsale.component';
-import { MainsliderComponent } from './mainslider/mainslider.component';
-import { MainsliderDirective } from './mainslider.directive';
-
 
 let routes: Routes = [
   {path:"", component:DiscoverComponent },
   {path:"Browse", component:BrowseComponent },
   {path:"Signup", component:SignUpComponent },
   {path:"Login", component:LoginComponent },
-  {path:"Distribution", component:DistributionComponent }
+  {path:"Distribution", component:DistributionComponent },
+  {path:"coverGame", component:GameComponent }
+
 ]
 
 @NgModule({
@@ -45,11 +36,6 @@ let routes: Routes = [
     NavigationOneComponent,
     NavigationTwoComponent,
     FooterComponent,
-    MostpopularComponent,
-    FreegamesComponent,
-    GameonsaleComponent,
-    MainsliderComponent,
-    MainsliderDirective,
   ],
   imports: [
     BrowserModule,
