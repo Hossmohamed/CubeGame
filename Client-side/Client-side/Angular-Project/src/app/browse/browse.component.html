@@ -68,153 +68,11 @@
 <!-- ================== body ================== -->
 <app-navigation-one></app-navigation-one>
 <app-navigation-two></app-navigation-two>
+
 <div class="container">
   <div class="browse">
-    <div class="left col-9 mb-4">
-      <div class="cardItem">
-        <img src="assets/img/22.jpg" alt="" />
-
-        <div class="details">
-          <div class="genrePrice">
-            <p class="genreColor">Action Game</p>
-            <p class="price">$6.30</p>
-          </div>
-
-          <div class="nameIcons">
-            <p class="gameName">Farcry</p>
-            <span class="cardIcon cart"><i class="bi bi-bag-dash"></i></span>
-            <span class="cardIcon"><i class="bi bi-suit-heart"></i></span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cardItem">
-        <img src="assets/img/22.jpg" alt="" />
-        <div class="details">
-          <div class="genrePrice">
-            <p class="genreColor">Action Game</p>
-            <p class="price">$6.30</p>
-          </div>
-
-          <div class="nameIcons">
-            <p class="gameName">Farcry</p>
-            <span class="cardIcon cart"><i class="bi bi-bag-dash"></i></span>
-            <span class="cardIcon"><i class="bi bi-suit-heart"></i></span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cardItem">
-        <img src="assets/img/22.jpg" alt="" />
-        <div class="details">
-          <div class="genrePrice">
-            <p class="genreColor">Action Game</p>
-            <p class="price">$6.30</p>
-          </div>
-
-          <div class="nameIcons">
-            <p class="gameName">Farcry</p>
-            <span class="cardIcon cart"><i class="bi bi-bag-dash"></i></span>
-            <span class="cardIcon"><i class="bi bi-suit-heart"></i></span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cardItem">
-        <img src="assets/img/22.jpg" alt="" />
-        <div class="details">
-          <div class="genrePrice">
-            <p class="genreColor">Action Game</p>
-            <p class="price">$6.30</p>
-          </div>
-
-          <div class="nameIcons">
-            <p class="gameName">Farcry</p>
-            <span class="cardIcon cart"><i class="bi bi-bag-dash"></i></span>
-            <span class="cardIcon"><i class="bi bi-suit-heart"></i></span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cardItem">
-        <img src="assets/img/22.jpg" alt="" />
-        <div class="details">
-          <div class="genrePrice">
-            <p class="genreColor">Action Game</p>
-            <p class="price">$6.30</p>
-          </div>
-
-          <div class="nameIcons">
-            <p class="gameName">Farcry</p>
-            <span class="cardIcon cart"><i class="bi bi-bag-dash"></i></span>
-            <span class="cardIcon"><i class="bi bi-suit-heart"></i></span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cardItem">
-        <img src="assets/img/22.jpg" alt="" />
-        <div class="details">
-          <div class="genrePrice">
-            <p class="genreColor">Action Game</p>
-            <p class="price">$6.30</p>
-          </div>
-
-          <div class="nameIcons">
-            <p class="gameName">Farcry</p>
-            <span class="cardIcon cart"><i class="bi bi-bag-dash"></i></span>
-            <span class="cardIcon"><i class="bi bi-suit-heart"></i></span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cardItem">
-        <img src="assets/img/22.jpg" alt="" />
-        <div class="details">
-          <div class="genrePrice">
-            <p class="genreColor">Action Game</p>
-            <p class="price">$6.30</p>
-          </div>
-
-          <div class="nameIcons">
-            <p class="gameName">Farcry</p>
-            <span class="cardIcon cart"><i class="bi bi-bag-dash"></i></span>
-            <span class="cardIcon"><i class="bi bi-suit-heart"></i></span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cardItem">
-        <img src="assets/img/22.jpg" alt="" />
-        <div class="details">
-          <div class="genrePrice">
-            <p class="genreColor">Action Game</p>
-            <p class="price">$6.30</p>
-          </div>
-
-          <div class="nameIcons">
-            <p class="gameName">Farcry</p>
-            <span class="cardIcon cart"><i class="bi bi-bag-dash"></i></span>
-            <span class="cardIcon"><i class="bi bi-suit-heart"></i></span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cardItem">
-        <img src="assets/img/22.jpg" alt="" />
-        <div class="details">
-          <div class="genrePrice">
-            <p class="genreColor">Action Game</p>
-            <p class="price">$6.30</p>
-          </div>
-
-          <div class="nameIcons">
-            <p class="gameName">Farcry</p>
-            <span class="cardIcon cart"><i class="bi bi-bag-dash"></i></span>
-            <span class="cardIcon"><i class="bi bi-suit-heart"></i></span>
-          </div>
-        </div>
-      </div>
+    <div class="left col-9">
+      <app-product-item [oneProduct]="p" *ngFor="let p of AllProduct"></app-product-item>
     </div>
     <div class="right col-3">
       <p class="filter">Filters</p>
@@ -266,3 +124,4 @@
 </div>
 
 <app-footer></app-footer>
+

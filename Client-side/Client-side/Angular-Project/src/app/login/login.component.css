@@ -106,6 +106,7 @@ form
   background-color: #6FE2E1;
   box-shadow: 0px 1px 6px #B4D9F4;
 }
+
 /*Login facebook - google btn*/
 .auth-provider {
   font-weight: 500;
@@ -152,6 +153,7 @@ form
   transition: ease 0.1s;
   text-shadow: 0px 1px 3px #B4D9F4;
 }
+
 a
 {
   color: white;
