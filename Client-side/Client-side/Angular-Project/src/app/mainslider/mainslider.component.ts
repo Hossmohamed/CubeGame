@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MainsliderService } from '../mainslider.service';
+import { MainsliderService } from '../Services/mainslider.service';
 
 @Component({
   selector: 'app-mainslider',

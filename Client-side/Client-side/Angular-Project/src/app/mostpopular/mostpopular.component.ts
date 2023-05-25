@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MostpopularService } from '../mostpopular.service';
+import { MostpopularService } from '../Services/mostpopular.service';
 
 @Component({
   selector: 'app-mostpopular',

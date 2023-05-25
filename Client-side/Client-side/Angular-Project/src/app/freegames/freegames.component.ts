@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FreegamesService } from '../freegames.service';
+import { FreegamesService } from '../Services/freegames.service';
 
 
 @Component({
