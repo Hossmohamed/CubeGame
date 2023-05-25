@@ -15,6 +15,15 @@ using CubeGame.DAL.Repo.product;
 using CubeGame.DAL.Repo.category;
 using CubeGame.DAL.Repo.cart;
 using CubeGame.DAL.Repo.wishlist;
+using CubeGame.DAL.Repo.mostplayed;
+using CubeGame.DAL.Repo.mostpopular;
+using CubeGame.DAL.Repo.toprated;
+using CubeGame.DAL.Repo.newrelease;
+using CubeGame.DAL.Repo.freegame;
+using CubeGame.DAL.Repo.comingsoon;
+using CubeGame.DAL.Repo.topseller;
+using CubeGame.DAL.Repo.recentlyupdated;
+using CubeGame.DAL.Repo.onsale;
 
 namespace CubeGame
 {
@@ -96,7 +105,34 @@ namespace CubeGame
             builder.Services.AddScoped<ICartManager, CartManager>();
             //addwishList
             builder.Services.AddScoped<IwishlistRepo,WishListRepo>();
-          
+            //addmostplayed
+            builder.Services.AddScoped<IMostplayedRepo, MostplayedRepo>();
+            builder.Services.AddScoped<IMostplayedManager, MostplayedManager>();
+            //addmostpopular
+            builder.Services.AddScoped<IMostpopularRepo, MostpopularRepo>();
+            builder.Services.AddScoped<IMostpopularManager, MostpopularManager>();
+            //addtoprated
+            builder.Services.AddScoped<ITopratedRepo, TopratedRepo>();
+            builder.Services.AddScoped<ITopratedManager, TopratedManager>();
+            //addnewrelease
+            builder.Services.AddScoped<INewreleaseRepo, NewreleaseRepo>();
+            builder.Services.AddScoped<INewreleaseManager, NewreleaseManager>();
+            //addfreegame
+            builder.Services.AddScoped<IFreegameRepo, FreegameRepo>();
+            builder.Services.AddScoped<IFreegameManager, FreegameManager>();
+            //addcomingsoon
+            builder.Services.AddScoped<IComingsoonRepo, ComingsoonRepo>();
+            builder.Services.AddScoped<IComingsoonManager, ComingsoonManager>();
+            //addtopseller
+            builder.Services.AddScoped<ITopsellerRepo, TopsellerRepo>();
+            builder.Services.AddScoped<ITopsellerManager, TopsellerManager>();
+            //addrecentlyupdated
+            builder.Services.AddScoped<IRecentlyupdatedRepo, RecentlyupdatedRepo>();
+            builder.Services.AddScoped<IRecentlyupdatedManager, RecentlyupdatedManager>();
+            //addonsale
+            builder.Services.AddScoped<IOnsaleRepo, OnsaleRepo>();
+            builder.Services.AddScoped<IOnsaleManager, OnsaleManager>();
+
             //for session
             builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             builder.Services.AddDistributedMemoryCache();

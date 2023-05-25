@@ -4,6 +4,7 @@ using CubeGame.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CubeGame.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230522065601_onsale")]
+    partial class onsale
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -159,24 +162,9 @@ namespace CubeGame.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("ComingsoonId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("FreegameId")
-                        .HasColumnType("int");
-
                     b.Property<string>("ImageURL")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("MostplayedId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("MostpopularId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("NewreleaseId")
-                        .HasColumnType("int");
 
                     b.Property<int?>("OnsaleId")
                         .HasColumnType("int");
@@ -184,40 +172,15 @@ namespace CubeGame.Migrations
                     b.Property<int?>("ProductId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("RecentlyupdatedId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("TopratedId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("TopsellerId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("ComingsoonId");
-
-                    b.HasIndex("FreegameId");
-
-                    b.HasIndex("MostplayedId");
-
-                    b.HasIndex("MostpopularId");
-
-                    b.HasIndex("NewreleaseId");
 
                     b.HasIndex("OnsaleId");
 
                     b.HasIndex("ProductId");
-
-                    b.HasIndex("RecentlyupdatedId");
-
-                    b.HasIndex("TopratedId");
-
-                    b.HasIndex("TopsellerId");
 
                     b.ToTable("Images");
                 });
@@ -749,26 +712,6 @@ namespace CubeGame.Migrations
 
             modelBuilder.Entity("CubeGame.DAL.Data.Models.Image", b =>
                 {
-                    b.HasOne("CubeGame.DAL.Data.Models.Comingsoon", null)
-                        .WithMany("Images")
-                        .HasForeignKey("ComingsoonId");
-
-                    b.HasOne("CubeGame.DAL.Data.Models.Freegame", null)
-                        .WithMany("Images")
-                        .HasForeignKey("FreegameId");
-
-                    b.HasOne("CubeGame.DAL.Data.Models.Mostplayed", null)
-                        .WithMany("Images")
-                        .HasForeignKey("MostplayedId");
-
-                    b.HasOne("CubeGame.DAL.Data.Models.Mostpopular", null)
-                        .WithMany("Images")
-                        .HasForeignKey("MostpopularId");
-
-                    b.HasOne("CubeGame.DAL.Data.Models.Newrelease", null)
-                        .WithMany("Images")
-                        .HasForeignKey("NewreleaseId");
-
                     b.HasOne("CubeGame.DAL.Data.Models.Onsale", null)
                         .WithMany("Images")
                         .HasForeignKey("OnsaleId");
@@ -777,18 +720,6 @@ namespace CubeGame.Migrations
                         .WithMany("Images")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.ClientCascade);
-
-                    b.HasOne("CubeGame.DAL.Data.Models.Recentlyupdated", null)
-                        .WithMany("Images")
-                        .HasForeignKey("RecentlyupdatedId");
-
-                    b.HasOne("CubeGame.DAL.Data.Models.Toprated", null)
-                        .WithMany("Images")
-                        .HasForeignKey("TopratedId");
-
-                    b.HasOne("CubeGame.DAL.Data.Models.Topseller", null)
-                        .WithMany("Images")
-                        .HasForeignKey("TopsellerId");
 
                     b.Navigation("Product");
                 });
@@ -998,52 +929,12 @@ namespace CubeGame.Migrations
                     b.Navigation("Products");
                 });
 
-            modelBuilder.Entity("CubeGame.DAL.Data.Models.Comingsoon", b =>
-                {
-                    b.Navigation("Images");
-                });
-
-            modelBuilder.Entity("CubeGame.DAL.Data.Models.Freegame", b =>
-                {
-                    b.Navigation("Images");
-                });
-
-            modelBuilder.Entity("CubeGame.DAL.Data.Models.Mostplayed", b =>
-                {
-                    b.Navigation("Images");
-                });
-
-            modelBuilder.Entity("CubeGame.DAL.Data.Models.Mostpopular", b =>
-                {
-                    b.Navigation("Images");
-                });
-
-            modelBuilder.Entity("CubeGame.DAL.Data.Models.Newrelease", b =>
-                {
-                    b.Navigation("Images");
-                });
-
             modelBuilder.Entity("CubeGame.DAL.Data.Models.Onsale", b =>
                 {
                     b.Navigation("Images");
                 });
 
             modelBuilder.Entity("CubeGame.DAL.Data.Models.Product", b =>
-                {
-                    b.Navigation("Images");
-                });
-
-            modelBuilder.Entity("CubeGame.DAL.Data.Models.Recentlyupdated", b =>
-                {
-                    b.Navigation("Images");
-                });
-
-            modelBuilder.Entity("CubeGame.DAL.Data.Models.Toprated", b =>
-                {
-                    b.Navigation("Images");
-                });
-
-            modelBuilder.Entity("CubeGame.DAL.Data.Models.Topseller", b =>
                 {
                     b.Navigation("Images");
                 });
