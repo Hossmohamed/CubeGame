@@ -14,7 +14,6 @@ using CubeGame.BL.Manager;
 using CubeGame.DAL.Repo.product;
 using CubeGame.DAL.Repo.category;
 using CubeGame.DAL.Repo.cart;
-using Stripe;
 
 
 namespace CubeGame
@@ -26,19 +25,6 @@ namespace CubeGame
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
-            StripeConfiguration.ApiKey = builder.Configuration["Stripe:SecretKey"];
-            builder.Services.AddCors(options =>
-            {
-                options.AddDefaultPolicy(builder =>
-                {
-                    builder.AllowAnyOrigin()
-                        .AllowAnyHeader()
-                        .AllowAnyMethod();
-                });
-            });
-            builder.Services.AddRouting(options => options.LowercaseUrls = true);
-
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

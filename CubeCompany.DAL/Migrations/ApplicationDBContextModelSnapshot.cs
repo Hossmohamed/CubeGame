@@ -64,25 +64,6 @@ namespace CubeGame.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("CubeGame.DAL.Data.Models.CheckoutOrderResponse", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("PubKey")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SessionId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Checkouts");
-                });
-
             modelBuilder.Entity("CubeGame.DAL.Data.Models.Image", b =>
                 {
                     b.Property<int>("Id")

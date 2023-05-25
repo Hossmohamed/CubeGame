@@ -24,8 +24,6 @@ namespace CubeGame.Data.Context
             //modelBuilder.Entity<IdentityUserLogin<string>>().HasKey(l => new { l.LoginProvider, l.ProviderKey });
         }
         public DbSet<Product> Products { get; set; }
-        public DbSet<CheckoutOrderResponse> Checkouts { get; set; }
-
         public DbSet<Category> Categories { get; set; }
         public DbSet<Image> Images { get; set; }
         public DbSet<CartItem> cartItems { get; set; }
