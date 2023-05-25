@@ -23,13 +23,6 @@ import { FreegamesComponent } from './freegames/freegames.component';
 import { GameonsaleComponent } from './gameonsale/gameonsale.component';
 import { MainsliderComponent } from './mainslider/mainslider.component';
 import { MainsliderDirective } from './mainslider.directive';
-import { MostPlayedComponent } from './most-played/most-played.component';
-import { TopSellerComponent } from './top-seller/top-seller.component';
-import { TopRatedComponent } from './top-rated/top-rated.component';
-import { ComingSoonComponent } from './coming-soon/coming-soon.component';
-import { NewReleaseComponent } from './new-release/new-release.component';
-import { RecentlyUpdatedComponent } from './recently-updated/recently-updated.component';
-
 
 
 let routes: Routes = [
@@ -57,13 +50,6 @@ let routes: Routes = [
     GameonsaleComponent,
     MainsliderComponent,
     MainsliderDirective,
-    MostPlayedComponent,
-    TopSellerComponent,
-    ComingSoonComponent,
-    TopRatedComponent,
-    NewReleaseComponent,
-    RecentlyUpdatedComponent
-
   ],
   imports: [
     BrowserModule,
