@@ -10,6 +10,16 @@ namespace CubeGame.DAL.Repo.product
     public interface IProductRepo
     {
         public List<Product> GetAll();
+        public List<Product> GetAllComingSoon();
+        public List<Product> GetAllGameOnSale();
+        public List<Product> GetAllFreeGames();
+        public List<Product> GetAllTopSeller();
+        public List<Product> GetAllTopRated();
+        public List<Product> GetAllNewRelease();
+        public List<Product> GetAllRecentlyUpdated();
+        public List<Product> GetAllMostPlayed();
+        public List<Product> GetAllMostPopular();
+
         public Product getProductByID(int id);
         public void AddProduct(Product p);
 
@@ -20,5 +30,6 @@ namespace CubeGame.DAL.Repo.product
         public List<Image> GetImages(int id);
 
         public void AddImage(Image I);
+
     }
 }
