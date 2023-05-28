@@ -31,11 +31,13 @@ import { RighttClickDirective } from './Directives/rightt-click.directive';
 
 let routes: Routes = [
   {path:"", component:DiscoverComponent },
+  {path:"discover", component:DiscoverComponent },
   {path:"Browse", component:BrowseComponent },
+  {path:"Browse/:id", component:GameComponent},
   {path:"Signup", component:SignUpComponent },
   {path:"Login", component:LoginComponent },
   {path:"Distribution", component:DistributionComponent },
-  {path:"coverGame", component:GameComponent }
+  // {path:"", component:GameComponent }
 
 ]
 
