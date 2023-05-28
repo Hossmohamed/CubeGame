@@ -30,8 +30,9 @@ import { ArrowbuttonDirective } from './Directives/arrowbutton.directive';
 import { ArrowTopDirective } from './Directives/arrow-top.directive';
 import { LeftClickDirective } from './Directives/left-click.directive';
 import { RighttClickDirective } from './Directives/rightt-click.directive';
+import { CartComponent } from './cart/cart.component';
+import { AuthGuard } from 'src/guards/auth.guard';
 
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 import { FreeGamesComponent } from './free-games/free-games.component';
@@ -47,7 +48,7 @@ import { MainSliderDirective } from './Directives/main-slider.directive';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { AuthGuard } from 'src/guards/auth.guard';
 
-
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 let routes: Routes = [
   {path:"", component:DiscoverComponent },
@@ -56,8 +57,7 @@ let routes: Routes = [
   {path:"Login", component:LoginComponent },
   {path:"Distribution", component:DistributionComponent },
   {path:"coverGame", component:GameComponent },
-  {path:"wishlist",component:WishlistComponent,canActivate:[AuthGuard]}
-
+  {path:"cart", component:CartComponent , canActivate:[AuthGuard]}
 ]
 
 @NgModule({
@@ -99,9 +99,8 @@ let routes: Routes = [
     FormsModule,
     HttpClientModule,
     NgToastModule,
-    RouterModule.forRoot(routes),
-    SlickCarouselModule
-
+    SlickCarouselModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [{
     provide : HTTP_INTERCEPTORS,

@@ -10,11 +10,11 @@ namespace CubeGame.DAL.Repo.cart
 {
     public interface ICartRepo
     {    
-        public void AddToCart(int Product_id, string userId);
+        public Product AddToCart(int Product_id, string userId);
         public Cart GetCartItems(string user_id);
 
         public void ClearCart(string Token);
-        public void RemoveFromCart(int id , string token);
+        public Product RemoveFromCart(int id , string token);
 
         //public double GetCartTotal();
     }
