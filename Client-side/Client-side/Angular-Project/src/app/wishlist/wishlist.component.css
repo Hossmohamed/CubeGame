@@ -1,0 +1,25 @@
+.header-row {
+  background-color: #c1ab1b;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.item-row {
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+}
+
+.original-price {
+  text-decoration: line-through;
+}
+
+.discount-rate {
+  color: red;
+  margin-left: 5px;
+}
+
+.price-after-discount {
+  font-weight: bold;
+}
+
+/* Additional styles can be added here if needed */

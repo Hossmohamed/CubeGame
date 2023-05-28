@@ -44,6 +44,8 @@ import { TopSellerComponent } from './top-seller/top-seller.component';
 import { TopRatedComponent } from './top-rated/top-rated.component';
 import { MainSliderComponent } from './main-slider/main-slider.component';
 import { MainSliderDirective } from './Directives/main-slider.directive';
+import { WishlistComponent } from './wishlist/wishlist.component';
+import { AuthGuard } from 'src/guards/auth.guard';
 
 
 
@@ -53,7 +55,8 @@ let routes: Routes = [
   {path:"Signup", component:SignUpComponent },
   {path:"Login", component:LoginComponent },
   {path:"Distribution", component:DistributionComponent },
-  {path:"coverGame", component:GameComponent }
+  {path:"coverGame", component:GameComponent },
+  {path:"wishlist",component:WishlistComponent,canActivate:[AuthGuard]}
 
 ]
 
@@ -88,6 +91,7 @@ let routes: Routes = [
     MainSliderComponent,
     MainSliderDirective,
     SpinnerComponent,
+    WishlistComponent,
   ],
   imports: [
     BrowserModule,

@@ -23,8 +23,8 @@ namespace CubeGame.Controllers
             wishlistManager = _wishlistManager;
         }
         [Authorize]
-        [HttpGet]
-        public IActionResult Get()
+        [HttpGet("getAll")]
+        public IActionResult getAll()
         {
             string token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
             var wishlist = wishlistManager.GetAll(token);
