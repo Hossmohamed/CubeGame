@@ -4,6 +4,7 @@ using CubeGame.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CubeGame.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230527175917_discoverapis")]
+    partial class discoverapis
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -443,6 +446,36 @@ namespace CubeGame.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("CubeGame.DAL.Data.Models.Cart.Cart", b =>
+                {
+                    b.HasOne("CubeGame.Data.Models.Account.ApplicationUser", "Account")
+                        .WithMany()
+                        .HasForeignKey("AccountId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Account");
+                });
+
+            modelBuilder.Entity("CubeGame.DAL.Data.Models.Cart.CartItem", b =>
+                {
+                    b.HasOne("CubeGame.DAL.Data.Models.Cart.Cart", "Cart")
+                        .WithMany("CartItems")
+                        .HasForeignKey("CartId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CubeGame.DAL.Data.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cart");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("CubeGame.DAL.Data.Models.Image", b =>
                 {
                     b.HasOne("CubeGame.DAL.Data.Models.Product", "Product")
@@ -571,6 +604,11 @@ namespace CubeGame.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("CubeGame.DAL.Data.Models.Cart.Cart", b =>
+                {
+                    b.Navigation("CartItems");
+                });
+
             modelBuilder.Entity("CubeGame.DAL.Data.Models.Category", b =>
                 {
                     b.Navigation("Products");
@@ -579,16 +617,6 @@ namespace CubeGame.Migrations
             modelBuilder.Entity("CubeGame.DAL.Data.Models.Product", b =>
                 {
                     b.Navigation("Images");
-                });
-
-            modelBuilder.Entity("CubeGame.DAL.Data.Models.cart.Cart", b =>
-                {
-                    b.Navigation("CartItems");
-                });
-
-            modelBuilder.Entity("CubeGame.DAL.Data.Models.wishlist.Wishlist", b =>
-                {
-                    b.Navigation("WishlistItams");
                 });
 #pragma warning restore 612, 618
         }
