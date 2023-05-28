@@ -29,6 +29,7 @@ namespace CubeGame.BL.DTO
         public int RAM { get; set; }
         public string platform { get; set; }
 
-        public string? Picture { get; set; } 
+        public string? Picture { get; set; }
+        //public bool MostPopular { get; set; }
     }
 }

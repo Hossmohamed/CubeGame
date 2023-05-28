@@ -73,5 +73,7 @@ namespace CubeGame.DAL.Data.Models
             if (Images.Count == 0) return null;
             return Images.FirstOrDefault();
         }
+
+   
     }
 }

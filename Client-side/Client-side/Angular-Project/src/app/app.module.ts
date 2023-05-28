@@ -27,6 +27,8 @@ import { ArrowbuttonDirective } from './Directives/arrowbutton.directive';
 import { ArrowTopDirective } from './Directives/arrow-top.directive';
 import { LeftClickDirective } from './Directives/left-click.directive';
 import { RighttClickDirective } from './Directives/rightt-click.directive';
+import { CartComponent } from './cart/cart.component';
+import { AuthGuard } from 'src/guards/auth.guard';
 
 
 let routes: Routes = [
@@ -35,8 +37,8 @@ let routes: Routes = [
   {path:"Signup", component:SignUpComponent },
   {path:"Login", component:LoginComponent },
   {path:"Distribution", component:DistributionComponent },
-  {path:"coverGame", component:GameComponent }
-
+  {path:"coverGame", component:GameComponent },
+  {path:"cart", component:CartComponent , canActivate:[AuthGuard]}
 ]
 
 @NgModule({
@@ -58,6 +60,7 @@ let routes: Routes = [
     ArrowTopDirective,
     LeftClickDirective,
     RighttClickDirective,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
