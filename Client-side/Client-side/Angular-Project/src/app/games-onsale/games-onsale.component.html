@@ -1,0 +1,13 @@
+<h4 class="section-one my-3">Games On Sale</h4>
+<ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="multislideConfig">
+  <div ngxSlickItem *ngFor="let u of user">
+    <div class="card col-2">
+      <img src="{{u.picture}}" class="card-img-top" alt="{{u.productName}} image">
+      <div class="card-body">
+        <p class="card-genres-hov">{{u.categoryName}}</p>
+        <h5 class="card-title" title="{{u.productName}}">{{u.productName}}</h5>
+        <span class="d-flex justify-content-between"><h5><span class="price">{{u.discount}}</span> EGP</h5><h5 class="discount"><span class="price">{{u.price}}</span> EGP</h5></span>
+      </div>
+    </div>
+  </div>
+</ngx-slick-carousel>
