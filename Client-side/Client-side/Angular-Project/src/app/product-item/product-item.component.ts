@@ -1,4 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/Services/auth.service';
+import { CartService } from 'src/Services/cart.service';
 
 @Component({
   selector: 'app-product-item',
@@ -7,6 +10,25 @@ import { Component, Input } from '@angular/core';
 })
 export class ProductItemComponent {
 
+  constructor(private myservice : CartService , private auth : AuthService ,
+     private route:Router){}
+
 @Input() oneProduct : any
 
+addToCart(id : any) {
+  if(this.auth.IsLoggedIn()){
+    this.myservice.AddTCart(id).subscribe(
+      (response) => {
+        console.log('Response:', response);
+      },
+      (error) => {
+        console.error('Error:', error);
+      }
+    );
+  }
+  else{
+    this.route.navigate(['Login'])
+}
+
+}
 }

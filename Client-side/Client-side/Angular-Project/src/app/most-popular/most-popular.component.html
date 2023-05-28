@@ -1,0 +1,13 @@
+<h4 class="section-one my-3">Most Popular</h4>
+<ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="multislideConfig">
+  <div ngxSlickItem *ngFor="let u of user">
+    <div class="card col-2">
+      <img src="{{u.picture}}" class="card-img-top" alt="{{u.productName}} image">
+      <div class="card-body">
+        <p class="card-genres-hov">{{u.categoryName}}</p>
+        <h5 class="card-title" title="{{u.productName}}">{{u.productName}}</h5>
+        <h5><span class="price">{{u.price}}</span> EGP</h5>
+      </div>
+    </div>
+  </div>
+</ngx-slick-carousel>

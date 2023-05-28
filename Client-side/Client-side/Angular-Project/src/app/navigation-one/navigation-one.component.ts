@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/Services/auth.service';
+import { CartService } from 'src/Services/cart.service';
 import { UserStoreService } from 'src/Services/user-store.service';
 
 @Component({
@@ -10,15 +11,23 @@ import { UserStoreService } from 'src/Services/user-store.service';
 })
 export class NavigationOneComponent implements OnInit{
 
+
   public fullName:string =""
   public role:string =""
-
+  total : number =0
   Logged:boolean = false
-  constructor(private user_Store: UserStoreService , private auth : AuthService , private route:Router){}
+  constructor(private user_Store: UserStoreService , private auth : AuthService ,
+    private route:Router , private cartService : CartService){}
   ngOnInit(): void {
 
     if(this.auth.IsLoggedIn()){
       this.Logged = true
+
+      this.cartService.GetCart()
+      .subscribe(res=>{
+        this.total = res.length;
+      })
+
     }
     this.user_Store.getFullNameFromStore().subscribe({
       next:(data)=>{
