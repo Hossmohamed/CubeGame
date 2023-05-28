@@ -27,6 +27,7 @@ import { ArrowbuttonDirective } from './Directives/arrowbutton.directive';
 import { ArrowTopDirective } from './Directives/arrow-top.directive';
 import { LeftClickDirective } from './Directives/left-click.directive';
 import { RighttClickDirective } from './Directives/rightt-click.directive';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 let routes: Routes = [
@@ -58,6 +59,7 @@ let routes: Routes = [
     ArrowTopDirective,
     LeftClickDirective,
     RighttClickDirective,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,

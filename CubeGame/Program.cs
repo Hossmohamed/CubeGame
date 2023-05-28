@@ -16,6 +16,8 @@ using CubeGame.DAL.Repo.category;
 using CubeGame.DAL.Repo.cart;
 using CubeGame.DAL.Repo.wishlist;
 using CubeGame.Controllers;
+using CubeGame.DAL.Repo.Service;
+using Stripe;
 
 namespace CubeGame
 {
@@ -26,6 +28,12 @@ namespace CubeGame
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddScoped<TokenService>();
+            builder.Services.AddScoped<CustomerService>();
+            builder.Services.AddScoped<ChargeService>();
+
+            StripeConfiguration.ApiKey = builder.Configuration.GetValue<string>("StripeOptions:SecretKey");
+            builder.Services.AddScoped<IStripeService, StripeService>();
 
             builder.Services.AddControllers();
            
