@@ -29,8 +29,8 @@ namespace CubeGame.Controllers
         public IActionResult GetAllCartItems()
         {
             string token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
-            CM.GetAll(token);
-            return Ok(token);
+            var cart= CM.GetAll(token);
+            return Ok(cart);
         }
         [Authorize]
         [HttpPost("AddToCart/{id}")]   

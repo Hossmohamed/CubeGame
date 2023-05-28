@@ -61,6 +61,12 @@ namespace CubeGame
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Key"]))
                     };
                 });
+            //add facebook external login
+            //builder.Services.AddAuthentication().AddFacebook(option =>
+            //{
+            //    option.AppId = "3507870512791309";
+            //    option.AppSecret = "22903fd81c0111d30e3527ef02386939";
+            //});
 
             //builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             //    .AddJwtBearer(options =>
@@ -97,6 +103,7 @@ namespace CubeGame
             builder.Services.AddScoped<ICartManager, CartManager>();
             //addwishList
             builder.Services.AddScoped<IwishlistRepo,WishListRepo>();
+            builder.Services.AddScoped<IWishlistManager,WishlistManager>();
           
             //for session
             builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();

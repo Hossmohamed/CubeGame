@@ -1,5 +1,6 @@
 ﻿using CubeGame.DAL.Data.Models;
-using CubeGame.DAL.Data.Models.Cart;
+using CubeGame.DAL.Data.Models.cart;
+using CubeGame.DAL.Data.Models.wishlist;
 using CubeGame.Data.Models.Account;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -31,6 +32,7 @@ namespace CubeGame.Data.Context
         public DbSet<Cart> Carts { get; set; }
         public DbSet<CartItem> CartItems { get; set; }
         public DbSet<Wishlist> wishlists { get; set; }
+        public DbSet<wishlistItam> WishlistItams { get; set; }
       
 
     }
