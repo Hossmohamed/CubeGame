@@ -29,8 +29,8 @@ namespace CubeGame.Controllers
         public IActionResult GetAllCartItems()
         {
             string token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
-            CM.GetAll(token);
-            return Ok(token);
+            
+            return Ok(CM.GetAll(token));
         }
         [Authorize]
         [HttpPost("AddToCart/{id}")]   
@@ -38,10 +38,9 @@ namespace CubeGame.Controllers
         {
             string token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
 
-            cartRepo.AddToCart(id, token);
+            var p = cartRepo.AddToCart(id, token);
 
-
-            return Created("url", "Ok");
+            return Created("url", p);
         }
         [Authorize]
         [HttpDelete("RemoveFromCart/{id}")]
@@ -49,9 +48,9 @@ namespace CubeGame.Controllers
         {
             string token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
 
-            cartRepo.RemoveFromCart(id , token);
+            var p = cartRepo.RemoveFromCart(id , token);
 
-             return Ok("ok");          
+             return Ok(p);          
            
         }
         [Authorize]
