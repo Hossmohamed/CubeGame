@@ -28,17 +28,22 @@
         </li>
       </ul>
       <div class="fnav-icons d-flex justify-content-end">
-        <i class="bi bi-heart mx-2">
-          <span class="position-absolute top-10 start-10 translate-middle bg-danger border border-light rounded-circle">2</span>
-        </i>
-
-        <a routerLink="/cart">
+      <i>
+        <a routerLinkActive="active-wishlist" routerLink="/wishlist">
+          <i class="bi bi-heart mx-2">
+            <span class="position-absolute top-10 start-10 translate-middle bg-danger border border-light rounded-circle">{{total1}}</span>
+          </i>
+        </a>
+      </i>
+    <i>
+      <a routerLink="/cart">
         <i class="bi bi-bag mx-2">
           <span class="position-absolute
            top-10 start-10 translate-middle
            bg-danger border border-light rounded-circle">{{total}}</span>
         </i>
-        </a>
+      </a>
+    </i>
 
         <i class="bi bi-chat-left-dots mx-2">
           <span class="position-absolute top-10 start-10 translate-middle bg-danger border border-light rounded-circle">1</span>

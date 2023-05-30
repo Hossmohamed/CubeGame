@@ -1,5 +1,5 @@
 ﻿using CubeGame.DAL.Data.Models;
-using CubeGame.DAL.Data.Models.Cart;
+using CubeGame.DAL.Data.Models.cart;
 using System;
 using System.Collections.Generic;
 using System.Linq;
