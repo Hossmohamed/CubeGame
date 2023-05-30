@@ -33,7 +33,7 @@ namespace CubeGame.Controllers
 
         }
         [Authorize]
-        [HttpPost("{Id}")]
+        [HttpPost("AddTowishlist/{Id}")]
         public IActionResult AddTowishlist(int Id)
         {
             var token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");

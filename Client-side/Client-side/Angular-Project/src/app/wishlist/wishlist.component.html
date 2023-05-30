@@ -3,7 +3,77 @@
 
   <div class="container">
     <h1 class="text-center">My Wishlist</h1>
+    <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Sr.No</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Product Image</th>
+        <th scope="col">Price</th>
+        <th scope="col">Discount</th>
+        <th scope="col">Price After Discount</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of AllProduct;let i =index">
+        <th scope="row">{{i+1}}</th>
+        <td>
+          <h4>{{item.productName}}</h4>
+          <p>Description of Item 1...</p>
+        </td>
+        <td>
+          <img src="{{item.image}}" alt="Item 1" class="img-fluid">
+        </td>
+        <td>
+          <p>
+            <span class="original-price">{{item.price}}EGP</span>
+          </p>
+        </td>
+        <td>
+          <p>
+            <span class="discount-rate">{{item.discount}}%</span>
+          </p>
+        </td>
+        <td>
+          <p>
+            <span class="price-after-discount">{{item.priceAfterDiscount}} EGP</span>
+          </p>
+        </td>
+        <td>
+          <p>
+            <button (click)="deleteitem(item.id)" class="btn btn-danger">Delete item</button>
+          </p>
+        </td>
+        <td>
+          <p>
+            <button (click)="addcart(item.id)" class="btn btn-primary">add to cart</button>
+          </p>
+        </td>
+      </tr>
+      <br>
+    </tbody>
+  </table>
+  <div class="container">
+    <h1 class="text-center">My Wishlist</h1>
+    <table class="table">
+      <!-- Table content -->
+    </table>
+    <div class="btn-container">
+      <button (click)="clearWishlist()" class="btn btn-danger">Empty Wishlist</button>
+      <button routerLink="/Browse" class="btn btn-primary">Shop More</button>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+  <!-- <!-- <div class="container">
+    <h1 class="text-center">My Wishlist</h1>
     <div class="row header-row">
+      <div class="col">Sr.No</div>
       <div class="col">Product Name</div>
       <div class="col">Price</div>
       <div class="col">Image</div>
@@ -41,6 +111,6 @@
       </div>
     </div>
     <!-- Add more item rows for additional items in the wishlist -->
-  </div>
+
 
 

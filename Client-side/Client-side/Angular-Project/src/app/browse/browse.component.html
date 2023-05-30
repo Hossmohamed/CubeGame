@@ -71,9 +71,11 @@
 
 <div class="container">
   <div class="browse">
+    <form action="">
     <div class="left col-9">
       <app-product-item [oneProduct]="p" *ngFor="let p of AllProduct"></app-product-item>
     </div>
+  </form>
     <div class="right col-3">
       <p class="filter">Filters</p>
       <hr />
