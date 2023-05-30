@@ -56,7 +56,7 @@ let routes: Routes = [
   {path:"Signup", component:SignUpComponent },
   {path:"Login", component:LoginComponent },
   {path:"Distribution", component:DistributionComponent },
-  {path:"cart", component:CartComponent , canActivate:[AuthGuard]}
+  
 ]
 
 @NgModule({
