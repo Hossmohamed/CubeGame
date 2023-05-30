@@ -89,6 +89,7 @@ let routes: Routes = [
     MainSliderComponent,
     MainSliderDirective,
     SpinnerComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

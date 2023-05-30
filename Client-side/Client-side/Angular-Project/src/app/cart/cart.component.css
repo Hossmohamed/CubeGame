@@ -1,19 +1,18 @@
 
-
 .card {
   height: 60vh;
   margin: 25px;
   padding: 25px;
+  background-color: #a599e2;
+
 }
 
 .center img {
   text-decoration: none;
-  color: inherit;
   border: none;
   outline: none;
-  height: 162px;
-  width: 250px;
-  margin: 20px 0px;
+  height: 280px;
+  width: 280px;
 }
 
 h4,
@@ -23,7 +22,7 @@ h6 {
 
 .center {
   position: absolute;
-  top: 50%;
+  top: 53%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -41,10 +40,19 @@ h6 {
   border-radius: .25rem;
 }
 
-.center .btn {
-  font-size: 14px !important;
-  margin-top: 20px !important;
-  font-weight: 400;
-  padding: 12px 72px;
-  border-radius: 3px !important;
+
+.btn-shop
+{
+  width: 180px;
+  height: 48px;
+  font-size: 22px;
+  background-color: #6FE2E1;
+  color: white;
+  font-weight: bold;
+  text-shadow: 0px 3px 6px #0000002d;
+}
+.btn-shop:hover
+{
+  background-color: #6FE2E1;
+  box-shadow: 0px 1px 6px #B4D9F4;
 }
