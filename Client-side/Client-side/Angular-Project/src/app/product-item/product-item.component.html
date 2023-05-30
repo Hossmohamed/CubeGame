@@ -10,7 +10,10 @@
 
     <div class="nameIcons">
       <p class="gameName">{{oneProduct.productName}}</p>
-      <span class="cardIcon cart"><i class="bi bi-bag-dash"></i></span>
+      <button (click)="addToCart(oneProduct.productId)">
+        <span class="cardIcon cart">
+          <i class="bi bi-bag-dash"></i></span>
+      </button>
       <span class="cardIcon"><i class="bi bi-suit-heart"></i></span>
     </div>
   </div>

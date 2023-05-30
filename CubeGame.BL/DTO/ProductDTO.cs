@@ -28,7 +28,15 @@ namespace CubeGame.BL.DTO
         public string Processor { get; set; }
         public int RAM { get; set; }
         public string platform { get; set; }
-
+        public bool IsMostPopular { get; set; }
+        public bool IsMostPlayed { get; set; }
+        public bool IsFreeGame { get; set; }
+        public bool IsGameOnSale { get; set; }
+        public bool IsTopSeller { get; set; }
+        public bool IsTopRated { get; set; }
+        public bool IsRecentlyUpdated { get; set; }
+        public bool IsNewRelease { get; set; }
+        public bool IsComingSoon { get; set; }
         public string? Picture { get; set; } 
     }
 }

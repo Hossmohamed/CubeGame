@@ -58,7 +58,7 @@ namespace CubeGame.BL.Manager
 
             P.platform = (DAL.Data.Models.OS)enumValue;
 
-       
+
             
             IR.AddProduct(P);
         }
@@ -119,6 +119,285 @@ namespace CubeGame.BL.Manager
          
         }
 
+        public List<ProductDTO> GetAllComingSoon()
+        {
+
+            var ins = IR.GetAllComingSoon();
+
+            List<ProductDTO> productDTOs = new List<ProductDTO>();
+
+            foreach (var i in ins)
+            {
+                ProductDTO dTO = new ProductDTO()
+                {
+                    ProductId = i.ProductId,
+                    ProductName = i.ProductName,
+                    Description = i.Description,
+                    Price = i.Price,
+                    Discount = i.Discount,
+                    CategoryId = i.CategoryId,
+                    DeveloperName = i.DeveloperName,
+                    RAM = i.RAM,
+                    Processor = i.Processor,
+                    ReleaseDate = i.ReleaseDate,
+                    platform = i.platform.ToString(),
+                    Picture = i.GetMainImage().ImageURL,
+                    CategoryName = IC.GetById(i.CategoryId).CategoryName
+                };
+                productDTOs.Add(dTO);
+            }
+
+            return productDTOs;
+
+        }
+        public List<ProductDTO> GetAllGameOnSale()
+        {
+
+            var ins = IR.GetAllGameOnSale();
+
+            List<ProductDTO> productDTOs = new List<ProductDTO>();
+
+            foreach (var i in ins)
+            {
+                ProductDTO dTO = new ProductDTO()
+                {
+                    ProductId = i.ProductId,
+                    ProductName = i.ProductName,
+                    Description = i.Description,
+                    Price = i.Price,
+                    Discount = i.Discount,
+                    CategoryId = i.CategoryId,
+                    DeveloperName = i.DeveloperName,
+                    RAM = i.RAM,
+                    Processor = i.Processor,
+                    ReleaseDate = i.ReleaseDate,
+                    platform = i.platform.ToString(),
+                    Picture = i.GetMainImage().ImageURL,
+                    CategoryName = IC.GetById(i.CategoryId).CategoryName
+                };
+                productDTOs.Add(dTO);
+            }
+
+            return productDTOs;
+
+        }
+        public List<ProductDTO> GetAllMostPopular()
+        {
+
+            var ins = IR.GetAllMostPopular();
+
+            List<ProductDTO> productDTOs = new List<ProductDTO>();
+
+            foreach (var i in ins)
+            {
+                ProductDTO dTO = new ProductDTO()
+                {
+                    ProductId = i.ProductId,
+                    ProductName = i.ProductName,
+                    Description = i.Description,
+                    Price = i.Price,
+                    Discount = i.Discount,
+                    CategoryId = i.CategoryId,
+                    DeveloperName = i.DeveloperName,
+                    RAM = i.RAM,
+                    Processor = i.Processor,
+                    ReleaseDate = i.ReleaseDate,
+                    platform = i.platform.ToString(),
+                    Picture = i.GetMainImage().ImageURL,
+                    CategoryName = IC.GetById(i.CategoryId).CategoryName
+                };
+                productDTOs.Add(dTO);
+            }
+
+            return productDTOs;
+
+        }
+        public List<ProductDTO> GetAllMostPlayed()
+        {
+
+            var ins = IR.GetAllMostPlayed();
+
+            List<ProductDTO> productDTOs = new List<ProductDTO>();
+
+            foreach (var i in ins)
+            {
+                ProductDTO dTO = new ProductDTO()
+                {
+                    ProductId = i.ProductId,
+                    ProductName = i.ProductName,
+                    Description = i.Description,
+                    Price = i.Price,
+                    Discount = i.Discount,
+                    CategoryId = i.CategoryId,
+                    DeveloperName = i.DeveloperName,
+                    RAM = i.RAM,
+                    Processor = i.Processor,
+                    ReleaseDate = i.ReleaseDate,
+                    platform = i.platform.ToString(),
+                    Picture = i.GetMainImage().ImageURL,
+                    CategoryName = IC.GetById(i.CategoryId).CategoryName
+                };
+                productDTOs.Add(dTO);
+            }
+
+            return productDTOs;
+
+        }
+        public List<ProductDTO> GetAllRecentlyUpdated()
+        {
+
+            var ins = IR.GetAllRecentlyUpdated();
+
+            List<ProductDTO> productDTOs = new List<ProductDTO>();
+
+            foreach (var i in ins)
+            {
+                ProductDTO dTO = new ProductDTO()
+                {
+                    ProductId = i.ProductId,
+                    ProductName = i.ProductName,
+                    Description = i.Description,
+                    Price = i.Price,
+                    Discount = i.Discount,
+                    CategoryId = i.CategoryId,
+                    DeveloperName = i.DeveloperName,
+                    RAM = i.RAM,
+                    Processor = i.Processor,
+                    ReleaseDate = i.ReleaseDate,
+                    platform = i.platform.ToString(),
+                    Picture = i.GetMainImage().ImageURL,
+                    CategoryName = IC.GetById(i.CategoryId).CategoryName
+                };
+                productDTOs.Add(dTO);
+            }
+
+            return productDTOs;
+
+        }
+        public List<ProductDTO> GetAllNewRelease()
+        {
+
+            var ins = IR.GetAllNewRelease();
+
+            List<ProductDTO> productDTOs = new List<ProductDTO>();
+
+            foreach (var i in ins)
+            {
+                ProductDTO dTO = new ProductDTO()
+                {
+                    ProductId = i.ProductId,
+                    ProductName = i.ProductName,
+                    Description = i.Description,
+                    Price = i.Price,
+                    Discount = i.Discount,
+                    CategoryId = i.CategoryId,
+                    DeveloperName = i.DeveloperName,
+                    RAM = i.RAM,
+                    Processor = i.Processor,
+                    ReleaseDate = i.ReleaseDate,
+                    platform = i.platform.ToString(),
+                    Picture = i.GetMainImage().ImageURL,
+                    CategoryName = IC.GetById(i.CategoryId).CategoryName
+                };
+                productDTOs.Add(dTO);
+            }
+
+            return productDTOs;
+
+        }
+        public List<ProductDTO> GetAllTopRated()
+        {
+
+            var ins = IR.GetAllTopRated();
+
+            List<ProductDTO> productDTOs = new List<ProductDTO>();
+
+            foreach (var i in ins)
+            {
+                ProductDTO dTO = new ProductDTO()
+                {
+                    ProductId = i.ProductId,
+                    ProductName = i.ProductName,
+                    Description = i.Description,
+                    Price = i.Price,
+                    Discount = i.Discount,
+                    CategoryId = i.CategoryId,
+                    DeveloperName = i.DeveloperName,
+                    RAM = i.RAM,
+                    Processor = i.Processor,
+                    ReleaseDate = i.ReleaseDate,
+                    platform = i.platform.ToString(),
+                    Picture = i.GetMainImage().ImageURL,
+                    CategoryName = IC.GetById(i.CategoryId).CategoryName
+                };
+                productDTOs.Add(dTO);
+            }
+
+            return productDTOs;
+
+        }
+        public List<ProductDTO> GetAllTopSeller()
+        {
+
+            var ins = IR.GetAllTopSeller();
+
+            List<ProductDTO> productDTOs = new List<ProductDTO>();
+
+            foreach (var i in ins)
+            {
+                ProductDTO dTO = new ProductDTO()
+                {
+                    ProductId = i.ProductId,
+                    ProductName = i.ProductName,
+                    Description = i.Description,
+                    Price = i.Price,
+                    Discount = i.Discount,
+                    CategoryId = i.CategoryId,
+                    DeveloperName = i.DeveloperName,
+                    RAM = i.RAM,
+                    Processor = i.Processor,
+                    ReleaseDate = i.ReleaseDate,
+                    platform = i.platform.ToString(),
+                    Picture = i.GetMainImage().ImageURL,
+                    CategoryName = IC.GetById(i.CategoryId).CategoryName
+                };
+                productDTOs.Add(dTO);
+            }
+
+            return productDTOs;
+
+        }
+        public List<ProductDTO> GetAllFreeGames()
+        {
+
+            var ins = IR.GetAllFreeGames();
+
+            List<ProductDTO> productDTOs = new List<ProductDTO>();
+
+            foreach (var i in ins)
+            {
+                ProductDTO dTO = new ProductDTO()
+                {
+                    ProductId = i.ProductId,
+                    ProductName = i.ProductName,
+                    Description = i.Description,
+                    Price = i.Price,
+                    Discount = i.Discount,
+                    CategoryId = i.CategoryId,
+                    DeveloperName = i.DeveloperName,
+                    RAM = i.RAM,
+                    Processor = i.Processor,
+                    ReleaseDate = i.ReleaseDate,
+                    platform = i.platform.ToString(),
+                    Picture = i.GetMainImage().ImageURL,
+                    CategoryName = IC.GetById(i.CategoryId).CategoryName
+                };
+                productDTOs.Add(dTO);
+            }
+
+            return productDTOs;
+
+        }
         public ProductDTO getProductByID(int id)
         {
             var i = IR.getProductByID(id);

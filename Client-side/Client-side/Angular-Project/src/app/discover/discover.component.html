@@ -2,7 +2,8 @@
 <app-navigation-two></app-navigation-two>
 
 <div class="container">
-  <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <app-main-slider></app-main-slider>
+  <!-- <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
         
@@ -75,10 +76,11 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
 <!----------------------------- Card Slider Most Popular-------------------------------->
-  <h4 class="section-one">Most Popular</h4>
+  <app-most-popular></app-most-popular>
+  <!--<h4 class="section-one">Most Popular</h4>
 
   <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
     <div class="carousel-inner">
@@ -223,9 +225,12 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-  </div>
+  </div>-->
   <!----------------Section list 1------------------>
   <div class="section-lists row d-flex justify-content-around">
+    <div class="container-sec col-lg-4">
+      <app-most-played></app-most-played>
+  <!--<div class="section-lists row d-flex justify-content-around">
     <div class="container-sec col-lg-4">
       <div class="list-title d-flex justify-content-between align-items-center">
         <h4>Most Played</h4>
@@ -276,8 +281,11 @@
           <h5>250 <span> EGP</span></h5>
         </div>
       </div>
+    </div>-->
     </div>
     <div class="container-sec col-lg-4">
+      <app-top-seller></app-top-seller>
+    <!--<div class="container-sec col-lg-4">
       <div class="list-title d-flex justify-content-between align-items-center">
         <h4>Top Sellers</h4>
         <button class="btn btn-view-list btn " type="button">View More</button>
@@ -327,8 +335,11 @@
           <h5>250 <span> EGP</span></h5>
         </div>
       </div>
+    </div>-->
     </div>
     <div class="container-sec sec-border col-lg-4">
+      <app-top-rated></app-top-rated>
+    <!--<div class="container-sec sec-border col-lg-4">
       <div class="list-title d-flex justify-content-between align-items-center">
         <h4>Top Player Rated</h4>
         <button class="btn btn-view-list btn " type="button">View More</button>
@@ -379,9 +390,12 @@
         </div>
       </div>
     </div>
+  </div>-->
+    </div>
   </div>
   <!----------------------------- Free Games -------------------------------->
-  <div class="container-free">
+  <app-free-games></app-free-games>
+  <!-- <div class="container-free">
     <div class="d-flex justify-content-between">
       <div class="d-flex mx-4">
         <img src="../../assets/img/gift.png" width="55px"> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -512,9 +526,10 @@
         </button>
       </div>
     </div>
-  </div>
+  </div> -->
   <!----------------------------- Card Slider Game On Sale -------------------------------->
-  <h4 class="section-two">Games On Sale</h4>
+  <app-games-onsale></app-games-onsale>
+  <!-- <h4 class="section-two">Games On Sale</h4>
 
   <div id="secondcarouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
     <div class="carousel-inner">
@@ -689,9 +704,12 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-  </div>
+  </div> -->
   <!----------------Section list 2------------------>
   <div class="section-lists row d-flex justify-content-around">
+    <div class="container-sec col-lg-4">
+      <app-new-release></app-new-release>
+  <!--<div class="section-lists row d-flex justify-content-around">
     <div class="container-sec col-lg-4">
       <div class="list-title d-flex justify-content-between align-items-center">
         <h4>New Releases</h4>
@@ -742,8 +760,11 @@
           <h5>250 <span> EGP</span></h5>
         </div>
       </div>
-    </div>
-    <div class="container-sec col-lg-4">
+    </div>-->
+  </div>
+  <div class="container-sec col-lg-4">
+   <app-coming-soon> </app-coming-soon>
+    <!--<div class="container-sec col-lg-4">
       <div class="list-title d-flex justify-content-between align-items-center">
         <h4>Coming Soon</h4>
         <button class="btn btn-view-list btn " type="button">View More</button>
@@ -793,8 +814,12 @@
           <h5>250 <span> EGP</span></h5>
         </div>
       </div>
-    </div>
-    <div class="container-sec sec-border col-lg-4">
+    </div>-->
+  </div>
+  <!-- ======================================= -->
+  <div class="container-sec sec-border col-lg-4">
+    <app-recently-updated></app-recently-updated>
+    <!--<div class="container-sec sec-border col-lg-4">
       <div class="list-title d-flex justify-content-between align-items-center">
         <h4>Recently Updated</h4>
         <button class="btn btn-view-list btn " type="button">View More</button>
@@ -843,7 +868,7 @@
           <h4>It Takes Two</h4>
           <h5>250 <span> EGP</span></h5>
         </div>
-      </div>
+      </div>-->
     </div>
   </div>
 </div>

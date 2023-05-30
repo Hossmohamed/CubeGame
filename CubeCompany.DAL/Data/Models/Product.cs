@@ -64,6 +64,16 @@ namespace CubeGame.DAL.Data.Models
         [EnumDataType(typeof(OS))]
         public OS platform { get; set; }
 
+        public bool IsMostPopular { get; set; }
+        public bool IsMostPlayed { get; set; }
+        public bool IsFreeGame { get; set; }
+        public bool IsGameOnSale { get; set; }
+        public bool IsTopSeller { get; set; }
+        public bool IsTopRated { get; set; }
+        public bool IsRecentlyUpdated { get; set; }
+        public bool IsNewRelease { get; set; }
+        public bool IsComingSoon { get; set; }
+
         public virtual ICollection<Image> Images { get; set; } = new List<Image>();
 
         public double PriceAfterDiscount() => Price * (1 - Discount / 100);
@@ -73,5 +83,7 @@ namespace CubeGame.DAL.Data.Models
             if (Images.Count == 0) return null;
             return Images.FirstOrDefault();
         }
+
+   
     }
 }
