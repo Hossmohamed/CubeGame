@@ -1,11 +1,11 @@
-
+<!--
 <div class="cardItem">
-  <img src={{oneProduct.picture}}  alt="" />
+  <img src={{oneProduct.picture}}  alt="{{oneProduct.picture}}" />
 
   <div class="details">
     <div class="genrePrice">
       <p class="genreColor">{{oneProduct.categoryName}}</p>
-      <p class="price">{{oneProduct.price}}</p>
+      <h4>{{oneProduct.price}}</h4>
     </div>
 
     <div class="nameIcons">
@@ -14,12 +14,28 @@
         <span class="cardIcon cart">
           <i class="bi bi-bag-dash"></i></span>
       </button>
-      
+
      <button (click)="addToWishlist(oneProduct.productId)">
       <span class="cardIcon"><i class="bi bi-suit-heart">
       </i>
       </span>
     </button>
+    </div>
+  </div>
+</div>-->
+<div class="card">
+  <img src="{{oneProduct.picture}}" class="card-img-top" alt="{{oneProduct.picture}} image">
+  <div class="card-body">
+    <p class="card-genres-hov">{{oneProduct.categoryName}}</p>
+    <h5 class="card-title" title="{{oneProduct.productName}}">{{oneProduct.productName}}</h5>
+    <div class="d-flex justify-content-between">
+      <h5><span class="price">{{oneProduct.price}}</span> EGP</h5>
+      <div>
+        <span class="cardIcon" (click)="addToWishlist(oneProduct.productId)"><i class="bi bi-heart"></i></span>
+        <span class="cardIcon cart" (click)="addToCart(oneProduct.productId)">
+          <i class="bi bi-bag"></i>
+        </span>
+      </div>
     </div>
   </div>
 </div>

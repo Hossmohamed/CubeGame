@@ -3,7 +3,7 @@
   <div class="container">
     <form class="d-flex align-items-center" role="search" >
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="searchQuery"[ngModelOptions]="{standalone: true}">
-      <button class="btn btn-primary"(click)="search()">Search</button>
+      <button class="btn btn-search"(click)="search()">Search</button>
       <!-- <div *ngIf="searchQuery.length > 0">
         <h3>Search Results:</h3>
         <ul>

@@ -28,27 +28,22 @@
         </li>
       </ul>
       <div class="fnav-icons d-flex justify-content-end">
-      <i>
-        <a routerLinkActive="active-wishlist" routerLink="/wishlist">
-          <i class="bi bi-heart mx-2">
+          <i class="bi bi-heart " routerLinkActive="active-wishlist" routerLink="/wishlist">
             <span class="position-absolute top-10 start-10 translate-middle bg-danger border border-light rounded-circle">{{total1}}</span>
           </i>
-        </a>
-      </i>
-    <i>
-      <a routerLink="/cart">
-        <i class="bi bi-bag mx-2">
+
+
+        <i class="bi bi-bag " routerLink="/cart">
           <span class="position-absolute
            top-10 start-10 translate-middle
            bg-danger border border-light rounded-circle">{{total}}</span>
         </i>
-      </a>
-    </i>
 
-        <i class="bi bi-chat-left-dots mx-2">
+
+        <i class="bi bi-chat-left-dots ">
           <span class="position-absolute top-10 start-10 translate-middle bg-danger border border-light rounded-circle">1</span>
         </i>
-
+      </div>
         <!-- <a routerLink="/Signup"><button class="btn btn-sign mx-4" type="button">Sign Up</button></a> -->
 
 
@@ -64,17 +59,16 @@
        </ng-template> -->
 
        <ng-container *ngIf="Logged" >
-        <span>Hello,{{fullName}}</span>
+        <span class="mx-3" >Hello,{{fullName}}</span>
         <button class="btn btn-sign mx-4" type="button" (click)="logOut()">logOut</button>
        </ng-container>
 
        <ng-container *ngIf="!Logged" >
         <a routerLink="/Signup">
-          <button class="btn btn-sign mx-4" type="button">Sign Up</button>
+          <button class="btn btn-sign" type="button">Sign Up</button>
         </a>
        </ng-container>
 
       </div>
     </div>
-  </div>
 </nav>
