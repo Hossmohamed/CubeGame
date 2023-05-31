@@ -9,7 +9,7 @@ import { BrowseComponent } from './browse/browse.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LoginComponent } from './login/login.component';
 import { NavigationOneComponent } from './navigation-one/navigation-one.component';
-import { NavigationTwoComponent } from './navigation-two/navigation-two.component';
+import { NavigationtwoComponent } from './navigation-two/navigation-two.component';
 
 import { FooterComponent } from './footer/footer.component';
 
@@ -45,18 +45,18 @@ import { TopSellerComponent } from './top-seller/top-seller.component';
 import { TopRatedComponent } from './top-rated/top-rated.component';
 import { MainSliderComponent } from './main-slider/main-slider.component';
 import { MainSliderDirective } from './Directives/main-slider.directive';
-
+import { WishlistComponent } from './wishlist/wishlist.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { AddCategoryDashboardComponent } from './add-category-dashboard/add-category-dashboard.component';
 import { UpdateCategoryDashboardComponent } from './update-category-dashboard/update-category-dashboard.component';
+import { AddCategoryDashboardComponent } from './add-category-dashboard/add-category-dashboard.component';
 import { AddProductDashboardComponent } from './add-product-dashboard/add-product-dashboard.component';
 import { ProductImageComponent } from './product-image/product-image.component';
-import { UpdateProductDashboardComponent } from './update-product-dashboard/update-product-dashboard.component';
-
 let routes: Routes = [
   {path:"", component:DiscoverComponent },
+  {path:"discover", component:DiscoverComponent },
   {path:"Browse", component:BrowseComponent },
+  {path:"Browse/:id", component:GameComponent},
   {path:"Signup", component:SignUpComponent },
   {path:"Login", component:LoginComponent },
   {path:"Distribution", component:DistributionComponent },
@@ -71,22 +71,13 @@ let routes: Routes = [
 
   {path:"add-product-dashboard", component:AddProductDashboardComponent },
   {path:"product-image", component:ProductImageComponent },
-
-  {path:"update-product-dashboard/:data", component:UpdateProductDashboardComponent },
-
 ]
-
-@NgModule({
-  declarations: [
-    AppComponent,
-    StoreComponent,
-    DistributionComponent,
-    DiscoverComponent,
+  @NgModule({
+    declarations: [
     BrowseComponent,
-    SignUpComponent,
     LoginComponent,
     NavigationOneComponent,
-    NavigationTwoComponent,
+    NavigationtwoComponent,
     ProductItemComponent,
     FooterComponent,
     SliderDirective,
@@ -107,14 +98,9 @@ let routes: Routes = [
     MainSliderComponent,
     MainSliderDirective,
     SpinnerComponent,
+    WishlistComponent,
     CartComponent,
-    DashboardComponent,
-    AddCategoryDashboardComponent,
-    UpdateCategoryDashboardComponent,
-    AddProductDashboardComponent,
-    ProductImageComponent,
-    ProductImageComponent,
-    UpdateProductDashboardComponent
+
   ],
   imports: [
     BrowserModule,
@@ -137,4 +123,6 @@ let routes: Routes = [
   }],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+ }

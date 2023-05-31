@@ -1,0 +1,167 @@
+<ng-container *ngIf="AllProduct.length !=0">
+  <div class="container my-4">
+    <h1>My wishlist</h1>
+    <div class="container-head">
+      <p style="width:10px; ">Sr.No</p>
+      <p>Product Image</p>
+      <p style="width:250px; ">Product Name</p>
+      <p>Price</p>
+      <p>Discount</p>
+      <p>Price After Discount</p>
+      <p>Action</p>
+    </div>
+          <div class="cart-product">
+
+            <div class="container-list" *ngFor="let item of AllProduct; let i = index">
+                <div style="width:40px; ">{{i+1}}</div>
+                <div>
+                  <img width="80px" alt="card-list" src="{{item.image}}">
+                </div>
+                <div style="width:250px; "><h4>{{item.productName}}</h4></div>
+                <div><h4>{{item.price}} <span> EGP</span></h4></div>
+                <div><h4>{{item.discount}}%</h4></div>
+                <div><h4>{{item.priceAfterDiscount}} <span> EGP</span></h4></div>
+                <div>
+                    <i class="bi bi-x-square-fill" (click)=" deleteitem(item.id)"></i>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between">
+                <div>
+                  <button (click)="clearWishlist()" class="btn btn-empcart mx-1">Empty Wishlist</button>
+                  <button routerLink="/Browse" class="btn btn-shopm  mx-1">Shop More</button>
+                  <button class="btn btn-checkout  mx-1">Checkout</button>
+                </div>
+              </div>
+            </div>
+          </div>
+</ng-container>
+<ng-container *ngIf="AllProduct.length ==0">
+  <div class="container mt-4">
+    <h1>My wishlist</h1>
+      <div class="card">
+        <img src="../../assets/img/wishlist.jpg" alt="">
+      </div>
+      <div class="center">
+          <h4>Your wishlistis empty!</h4>
+          <h6>Add item to it now</h6>
+          <button routerLink="/Browse" class="btn btn-shop">Shop Now</button>
+      </div>
+  </div>
+</ng-container>
+
+<!--
+<app-navigation-one></app-navigation-one>
+<app-navigation-two></app-navigation-two>
+
+  <div class="container">
+    <h1 class="text-center">My Wishlist</h1>
+    <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Sr.No</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Product Image</th>
+        <th scope="col">Price</th>
+        <th scope="col">Discount</th>
+        <th scope="col">Price After Discount</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of AllProduct;let i =index">
+        <th scope="row">{{i+1}}</th>
+        <td>
+          <h4>{{item.productName}}</h4>
+          <p>Description of Item 1...</p>
+        </td>
+        <td>
+          <img src="{{item.image}}" alt="Item 1" class="img-fluid">
+        </td>
+        <td>
+          <p>
+            <span class="original-price">{{item.price}}EGP</span>
+          </p>
+        </td>
+        <td>
+          <p>
+            <span class="discount-rate">{{item.discount}}%</span>
+          </p>
+        </td>
+        <td>
+          <p>
+            <span class="price-after-discount">{{item.priceAfterDiscount}} EGP</span>
+          </p>
+        </td>
+        <td>
+          <p>
+            <button (click)="deleteitem(item.id)" class="btn btn-danger">Delete item</button>
+          </p>
+        </td>
+        <td>
+          <p>
+            <button (click)="addcart(item.id)" class="btn btn-primary">add to cart</button>
+          </p>
+        </td>
+      </tr>
+      <br>
+    </tbody>
+  </table>
+  <div class="container">
+    <table class="table">
+     Table content --
+    </table>
+    <div class="btn-container">
+      <button (click)="clearWishlist()" class="btn btn-danger">Empty Wishlist</button>
+      <button routerLink="/Browse" class="btn btn-primary">Shop More</button>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+  <div class="container">
+    <h1 class="text-center">My Wishlist</h1>
+    <div class="row header-row">
+      <div class="col">Sr.No</div>
+      <div class="col">Product Name</div>
+      <div class="col">Price</div>
+      <div class="col">Image</div>
+    </div>
+    <div class="row item-row">
+      <div class="col">
+        <h4>Item 1</h4>
+        <p>Description of Item 1...</p>
+      </div>
+      <div class="col">
+        <p>
+          <span class="original-price">$100</span>
+          <span class="discount-rate">-20%</span><br>
+          <span class="price-after-discount">$80</span>
+        </p>
+      </div>
+      <div class="col">
+        <img src="item1.jpg" alt="Item 1" class="img-fluid">
+      </div>
+    </div>
+    <div class="row item-row">
+      <div class="col">
+        <h4>Item 2</h4>
+        <p>Description of Item 2...</p>
+      </div>
+      <div class="col">
+        <p>
+          <span class="original-price">$200</span>
+          <span class="discount-rate">-30%</span><br>
+          <span class="price-after-discount">$140</span>
+        </p>
+      </div>
+      <div class="col">
+        <img src="item2.jpg" alt="Item 2" class="img-fluid">
+      </div>
+    </div>
+     Add more item rows for additional items in the wishlist -->
+
+
+

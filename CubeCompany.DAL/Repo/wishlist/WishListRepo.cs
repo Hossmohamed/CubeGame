@@ -1,9 +1,15 @@
 ﻿using CubeGame.DAL.Data.Models;
+using CubeGame.DAL.Data.Models.wishlist;
 using CubeGame.Data.Context;
 using CubeGame.Data.Helper;
+using CubeGame.Data.Models.Account;
 using Microsoft.AspNetCore.Http;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json.Linq;
+using NuGet.Common;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -14,108 +20,150 @@ using System.Threading.Tasks;
 
 namespace CubeGame.DAL.Repo.wishlist
 {
-    public class WishListRepo:IwishlistRepo
+    public class WishListRepo : IwishlistRepo
     {
         private readonly ApplicationDBContext context;
-        private readonly IHttpContextAccessor httpContextAccessor;
-      
 
-        public WishListRepo(ApplicationDBContext _context, IHttpContextAccessor _httpContextAccessor)
+        public WishListRepo(ApplicationDBContext _context)
         {
             context = _context;
-            httpContextAccessor = _httpContextAccessor;
-        
         }
-        //public void AddToWishlist(int id, string token)
-        //{
-        //    var tokenHandler = new JwtSecurityTokenHandler();
-        //    var validationParameters = new TokenValidationParameters
-        //    {
-        //        //ValidateIssuerSigningKey = true,
-        //        //IssuerSigningKey = jwt.Key, // Replace with your security key
-
-        //        ValidateIssuer = true,
-        //        ValidIssuer = jwt.Issuer, // Replace with your issuer
-
-        //        ValidateAudience = true,
-        //        ValidAudience = jwt.Audience, // Replace with your audience
-
-        //        // Additional validation if needed
-        //        // ...
-
-        //    };
-
-        //    try
-        //    {
-        //        // Validate the token
-        //        SecurityToken validatedToken;
-        //        var principal = tokenHandler.ValidateToken(token, validationParameters, out validatedToken);
-
-        //        // Get the user ID from the validated token
-        //        var userIdClaim = principal.FindFirst(ClaimTypes.NameIdentifier);
-        //        var userId = userIdClaim.Value;
-
-        //        var wishlist = context.wishlists.FirstOrDefault(w => w.ProductID == id && w.AccountID == userId);
-        //        if (wishlist == null && userId != null)
-        //        {
-        //            var wishlistItem = new Wishlist
-        //            {
-        //                AccountID = userId,
-        //                ProductID = id
-        //            };
-
-        //            context.wishlists.Add(wishlistItem);
-        //            context.SaveChanges();
-        //        }
-        //    }
-        //    catch (SecurityTokenValidationException ex)
-        //    {
-        //        // Handle token validation exception
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        // Handle other exceptions
-        //    }
-        //}
-
-
-
-        public List<Wishlist> GetwishlisttItems()
+        public Wishlist GetwishlisttItems(string Token)
         {
 
-            var userIdClaim = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier);
+           ApplicationUser? account = context.Users.FirstOrDefault(a => a.token == Token);
 
-            var userId = userIdClaim.Value;
-            var wishlistItems = context.wishlists
-               .Include(w => w.Product)
-               .ThenInclude(p => p.Images)
-               .Where(w => w.AccountID.ToString() == userId)
-               .ToList();
+           Wishlist? wishlistItems = context.wishlists.Include(w => w.WishlistItams)
+               .ThenInclude(w => w.Product)
+               .ThenInclude(w => w.Images)
+               .FirstOrDefault(w => w.AccountID == account.Id);
+
             return wishlistItems;
         }
-        
-public void AddToWishlist(int id)
-{
-    var userIdClaim = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier);
 
-    var userId = userIdClaim.Value;
-
-
-    var wishlist = context.wishlists.FirstOrDefault(w => w.ProductID == id && w.AccountID == userId);
-    if (wishlist == null && userId != null)
-    {
-        var wishlistItem = new Wishlist
+        public wishlistItam AddToWishlist(int id, string token)
         {
-            AccountID = userId,
-            ProductID = id
-        };
 
-        context.wishlists.Add(wishlistItem);
-        context.SaveChanges();
+
+            Product? product = context.Products.FirstOrDefault(p => p.ProductId == id);
+
+            if (product != null)
+            {
+                ApplicationUser? account = context.Users.FirstOrDefault(a => a.token == token);
+
+                if (account != null)
+                {
+                    Wishlist? existingWishlist = context.wishlists.Include(w => w.WishlistItams).FirstOrDefault(w => w.AccountID == account.Id);
+
+                    if (existingWishlist != null)
+                    {
+                        wishlistItam? wishlistItams = existingWishlist.WishlistItams.FirstOrDefault(w => w.productId == id);
+                        if (wishlistItams != null)
+                        {
+                            return wishlistItams;
+                        }
+                        else
+                        {
+
+                            // Wishlist does not exist, create a new wishlist item
+                            wishlistItam? newWishlist = new wishlistItam
+                            {
+                                productId = product.ProductId,
+                                Price = product.Price,
+                                PriceAfterDiscount = product.PriceAfterDiscount(),
+                                Discount = product.Discount,
+                                wishlistId = existingWishlist.Id
+                            };
+
+                            context.WishlistItams.Add(newWishlist);
+                            context.SaveChanges();
+                            return newWishlist;
+                        }
+
+
+                    }
+                    else
+                    {
+                        existingWishlist = new()
+                        {
+                            AccountID = account.Id,
+                            IsActive = true
+                        };
+                        context.Add(existingWishlist);
+                        context.SaveChanges();
+                        wishlistItam? newWishlist = new wishlistItam
+                        {
+                            productId = product.ProductId,
+                            Price = product.Price,
+                            PriceAfterDiscount = product.PriceAfterDiscount(),
+                            Discount = product.Discount,
+                            wishlistId = existingWishlist.Id
+                        };
+
+
+                        context.WishlistItams.Add(newWishlist);
+                        context.SaveChanges();
+
+                        return newWishlist;
+                    }
+
+
+                }
+            }
+            return null;
+
+        }
+        public void ClearWishList(string Token)
+        {
+            ApplicationUser? account = context.Users.FirstOrDefault(a => a.token == Token);
+
+            var wishlist = context.wishlists.Include(w => w.WishlistItams).FirstOrDefault(w => w.AccountID == account.Id);
+
+            var wishlistItems = wishlist.WishlistItams.Where(w => w.wishlistId == wishlist.Id).ToList();
+
+            foreach (var wish in wishlistItems)
+            {
+                context.Remove(wish);
+                context.SaveChanges();
+            }
+
+
+        }
+        public void RemoveFromWishList(int id, string token)
+        {
+
+
+            Product? product = context.Products.FirstOrDefault(p => p.ProductId == id);
+
+            if (product != null)
+            {
+                ApplicationUser? account = context.Users.FirstOrDefault(a => a.token == token);
+
+                if (account != null)
+                {
+                    Wishlist? existingWishlist = context.wishlists.Include(w => w.WishlistItams).FirstOrDefault(w => w.AccountID == account.Id);
+                    if (existingWishlist != null)
+                    {
+                        wishlistItam? wishlistItams = existingWishlist.WishlistItams.FirstOrDefault(w => w.productId == id);
+                        if (wishlistItams != null)
+                        {
+
+                            context.Remove(wishlistItams);
+                            context.SaveChanges();
+
+                        }
+
+
+
+
+                    }
+
+
+
+                }
+            }
+        }
     }
-
-
-
 }
-    }
-}
+
+   

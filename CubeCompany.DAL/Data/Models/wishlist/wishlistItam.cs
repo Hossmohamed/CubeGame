@@ -1,4 +1,4 @@
-﻿using CubeGame.Data.Models.Account;
+﻿using CubeGame.DAL.Data.Models.cart;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,14 +8,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CubeGame.DAL.Data.Models.cart
+namespace CubeGame.DAL.Data.Models.wishlist
 {
-    public class CartItem
+    public class wishlistItam
     {
         [Key]
         public int Id { get; set; }
-
-        public int Quantity { get; set; }
 
         [DataType(DataType.Currency)]
         public double Price { get; set; }
@@ -23,19 +21,18 @@ namespace CubeGame.DAL.Data.Models.cart
         [DataType(DataType.Currency)]
         public double PriceAfterDiscount { get; set; }
 
-        [ForeignKey("Product")]
-        [Required]
-        public int ProductId { get; set; }
-
         [DefaultValue(0.00)]
         [Range(0.00, 100.00)]
         public double Discount { get; set; }
-
-        [ForeignKey("Cart")]
+        [ForeignKey(" Wishlist")]
         [Required]
-        public int CartId { get; set; }
-        public virtual Product Product { get; set; }
-        public virtual Cart Cart { get; set; }
+        public int wishlistId { get; set; }
+        public virtual Wishlist Wishlist { get; set; }
+
+        [ForeignKey("Product")]
+        [Required]
+        public required int productId { get; set; }
+        public virtual Product? Product { get; set; }
 
     }
 }
