@@ -14,7 +14,7 @@
         <span class="cardIcon cart">
           <i class="bi bi-bag-dash"></i></span>
       </button>
-      
+
      <button (click)="addToWishlist(oneProduct.productId)">
       <span class="cardIcon"><i class="bi bi-suit-heart">
       </i>
@@ -31,7 +31,7 @@
     <div class="d-flex justify-content-between">
       <h5><span class="price">{{oneProduct.price}}</span> EGP</h5>
       <div>
-        <span class="cardIcon"><i class="bi bi-heart"></i></span>
+        <span class="cardIcon" (click)="addToWishlist(oneProduct.productId)"><i class="bi bi-heart"></i></span>
         <span class="cardIcon cart" (click)="addToCart(oneProduct.productId)">
           <i class="bi bi-bag"></i>
         </span>
