@@ -49,7 +49,9 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 let routes: Routes = [
   {path:"", component:DiscoverComponent },
+  {path:"discover", component:DiscoverComponent },
   {path:"Browse", component:BrowseComponent },
+  {path:"Browse/:id", component:GameComponent},
   {path:"Signup", component:SignUpComponent },
   {path:"Login", component:LoginComponent },
   {path:"Distribution", component:DistributionComponent },
