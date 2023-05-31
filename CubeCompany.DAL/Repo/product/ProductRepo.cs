@@ -27,7 +27,8 @@ namespace CubeGame.DAL.Repo.product
 
         public void DeleteProduct(int id)
         {
-            _context.Remove(id);
+            var p = getProductByID(id);
+            _context.Products.Remove(p);
             _context.SaveChanges();
         }
 
@@ -38,12 +39,25 @@ namespace CubeGame.DAL.Repo.product
             P.Description = pD.Description;
             P.Price = pD.Price;
             P.Discount = pD.Discount;
+            P.CategoryId = pD.CategoryId;
             P.DeveloperName = pD.DeveloperName;
             P.RAM = pD.RAM;
             P.Processor = pD.Processor;
-            P.ReleaseDate = pD.ReleaseDate;
-            P.CategoryId = pD.CategoryId;
-            _context.Update(P);
+            P.ReleaseDate = pD.ReleaseDate;    
+            //P.platform = pD.platform;
+
+            P.platform = (DAL.Data.Models.OS)pD.platform;
+            P.IsComingSoon = pD.IsComingSoon;
+            P.IsFreeGame = pD.IsFreeGame;
+            P.IsGameOnSale = pD.IsGameOnSale;
+            P.IsMostPlayed = pD.IsMostPlayed;
+            P.IsNewRelease = pD.IsNewRelease;
+            P.IsMostPopular = pD.IsMostPopular;
+            P.IsRecentlyUpdated = pD.IsRecentlyUpdated;
+            P.IsTopRated = pD.IsTopRated;
+            P.IsTopSeller = pD.IsTopSeller;
+            P.Rate = pD.Rate;
+            _context.Products.Update(P);
             _context.SaveChanges();
         }
         public List<Image> GetImages(int Productid)
@@ -60,7 +74,10 @@ namespace CubeGame.DAL.Repo.product
         {
             return _context.Products.Include(i => i.Images).Include(c => c.category).ToList();
         }
-
+        public List<Product> GetAllWithoutImage()
+        {
+            return _context.Products.ToList();
+        }
         public List<Product> GetAllMostPopular()
         {
             return _context.Products.Include(i => i.Images).Include(c => c.category).Where(x=>x.IsMostPopular==true).ToList();

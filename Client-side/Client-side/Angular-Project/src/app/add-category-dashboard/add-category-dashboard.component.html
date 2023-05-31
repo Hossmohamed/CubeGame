@@ -1,0 +1,11 @@
+
+<form [formGroup]="AddCategory" (ngSubmit)="onSubmitdata()">
+
+  <label for="firstname">Enter Category-Name :</label>
+  <input class="form-control" formControlName="name"
+  id="name" type="text"  class="form-input border-bottom">
+
+  <button class="btn btn-login mx-4"
+  type="submit"
+  [disabled]="AddCategory.invalid">Submit</button>
+</form>
