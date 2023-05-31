@@ -1,4 +1,5 @@
-﻿using CubeGame.Data.Models.Account;
+﻿using CubeGame.DAL.Data.Models.cart;
+using CubeGame.Data.Models.Account;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -7,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CubeGame.DAL.Data.Models
+namespace CubeGame.DAL.Data.Models.wishlist
 {
     public class Wishlist
     {
@@ -17,10 +18,10 @@ namespace CubeGame.DAL.Data.Models
         [Required]
         public required string AccountID { get; set; }
 
-        [ForeignKey("Product")]
-        [Required]
-        public required int ProductID { get; set; }
         public virtual ApplicationUser? Account { get; set; }
-        public virtual Product? Product { get; set; }
+
+        public virtual ICollection<wishlistItam> WishlistItams { get; set; } = new List<wishlistItam>();
+        public bool IsActive { get; set; } = true;
+
     }
 }

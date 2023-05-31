@@ -3,6 +3,7 @@ using CubeGame.BL.Manager;
 using CubeGame.DAL.Data.Models;
 using CubeGame.DAL.Repo.product;
 using CubeGame.Data.Context;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing.Constraints;
@@ -120,6 +121,7 @@ namespace CubeGame.Controllers
         }
 
         [HttpGet("search")]
+    
         public IActionResult Search(string SearchItem )
         {
             var products = Context.Products
