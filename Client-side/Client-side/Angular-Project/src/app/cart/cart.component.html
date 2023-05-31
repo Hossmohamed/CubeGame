@@ -13,24 +13,6 @@
     </div>
           <div class="cart-product">
 
-                      <!--<tr *ngFor="let item of AllProductCart; let i = index">
-                          <td style="width: 5%;">{{i+1}}</td>
-                          <td><img style="width: 120px;" src="{{item.image}}" alt=""></td>
-                          <td>{{item.productName}}</td>
-                          -- <td style="width: 25%;">{{item.description}}</td> --
-                          -- <th style="width: 12%;">{{item.image}}</th> --
-                          <td style="width: 12%;">{{item.price}} EGP</td>
-                          <td style="width: 12%;">{{item.discount}}%</td>
-                          <td style="width: 12%;">{{item.priceAfterDiscount}} EGP</td>
-                          <td>
-                            <button type="button" class="btn btn-danger" (click)="removeItem(item.id)">
-                              <i class="bi bi-trash-fill"></i> Delete
-                            </button>
-
-
-                          </td>
-                      </tr>-->
-
             <div class="container-list" *ngFor="let item of AllProductCart; let i = index">
                 <div style="width:40px; ">{{i+1}}</div>
                 <div>
@@ -71,3 +53,21 @@
       </div>
   </div>
 </ng-container>
+
+   <!--<tr *ngFor="let item of AllProductCart; let i = index">
+                          <td style="width: 5%;">{{i+1}}</td>
+                          <td><img style="width: 120px;" src="{{item.image}}" alt=""></td>
+                          <td>{{item.productName}}</td>
+                          -- <td style="width: 25%;">{{item.description}}</td> --
+                          -- <th style="width: 12%;">{{item.image}}</th> --
+                          <td style="width: 12%;">{{item.price}} EGP</td>
+                          <td style="width: 12%;">{{item.discount}}%</td>
+                          <td style="width: 12%;">{{item.priceAfterDiscount}} EGP</td>
+                          <td>
+                            <button type="button" class="btn btn-danger" (click)="removeItem(item.id)">
+                              <i class="bi bi-trash-fill"></i> Delete
+                            </button>
+
+
+                          </td>
+                      </tr>-->

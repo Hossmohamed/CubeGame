@@ -25,10 +25,9 @@ export class BrowseComponent implements OnInit {
       error:(err)=>{console.log(err)}
 
     });
-    this.searchService.searchQuery$.subscribe((query) => {
-      (results: Product[]) => {
-        this.searchResults = results;
-      }
-  })
+    this.searchService.searchResults$.subscribe((results: Product[]) => {
+      this.searchResults = results;
+    });
+  }
 
-}}
+}

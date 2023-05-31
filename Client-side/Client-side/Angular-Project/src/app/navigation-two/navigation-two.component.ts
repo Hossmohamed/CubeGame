@@ -10,18 +10,40 @@ import { SearchService } from 'src/Services/shared.service';
 export class NavigationtwoComponent {
   searchQuery: string = '';
 
-  constructor(private searchService: SearchService,private productService:ProductService){}
-  search() {
+  constructor(private searchService: SearchService, private productService: ProductService) {}
+
+  search(): void {
     this.productService.searchProducts(this.searchQuery).subscribe(
       (data: Product[]) => {
-        this.searchService.emitSearchQuery(data);
+        this.searchService.emitSearchQuery(this.searchQuery);
+        this.searchService.updateSearchResults(data);
       },
       (error) => {
         console.error('Error:', error);
       }
     );
+  }
+}
 
-}}
+
+
+
+
+// export class NavigationtwoComponent {
+//   searchQuery: string = '';
+
+//   constructor(private searchService: SearchService,private productService:ProductService){}
+//   search() {
+//     this.productService.searchProducts(this.searchQuery).subscribe(
+//       (data: Product[]) => {
+//         this.searchService.emitSearchQuery(data);
+//       },
+//       (error) => {
+//         console.error('Error:', error);
+//       }
+//     );
+
+// }}
 
 
 
