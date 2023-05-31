@@ -71,17 +71,25 @@
 
 <div class="container">
   <div class="browse">
-    <form action="">
-    <div class="left col-9">
-      <app-product-item [oneProduct]="p" *ngFor="let p of AllProduct"></app-product-item>
-      <div>
-        <h3>Search Results:</h3>
-        <ul>
-          <app-product-item *ngFor="let product of searchResults">{{ product.productName }}</app-product-item>
-        </ul>
+    <form action=""class="d-flex align-items-center" role="search" >
+      <div class="left col-9">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="searchQuery"[ngModelOptions]="{standalone: true}">
+        <button class="btn btn-search" (click)="search()">Search</button>
+        <div *ngIf="searchQuery.length > 0">
+          <h3>Search Results:</h3>
+          <app-product-item *ngFor="let product of searchResults ;let i = index" [oneProduct]="product" >
+            <div style="width:40px; ">{{i+1}}</div>
+            <img width="80px" alt="card-list" src="{{product.picture}}">
+          <div style="width:250px; "><h4>{{product.productName}}</h4></div>
+          <div><h4>{{product.price}} <span> EGP</span></h4></div>
+          <div><h4>{{product.discount}}%</h4></div>
+          <div><h4>{{product.priceAfterDiscount}} <span> EGP</span></h4></div>
+        </app-product-item>
       </div>
+      <app-product-item *ngFor="let product of AllProduct" [oneProduct]="product"  ></app-product-item>
     </div>
-  </form>
+
+    </form>
     <div class="right col-3">
       <p class="filter">Filters</p>
       <hr />

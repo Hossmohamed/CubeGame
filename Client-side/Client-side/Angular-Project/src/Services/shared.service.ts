@@ -7,22 +7,27 @@ import { Product } from './search.service';
 })
 
 export class SearchService {
-  private searchQuerySubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
-  private searchResultsSubject: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
+  private searchResultsSubject: Subject<Product[]> = new Subject<Product[]>();
+  searchResults$ = this.searchResultsSubject.asObservable();
 
-  public searchQuery$: Observable<string> = this.searchQuerySubject.asObservable();
-  public searchResults$: Observable<Product[]> = this.searchResultsSubject.asObservable();
-
-  constructor() {}
-
-  public emitSearchQuery(query: string): void {
-    this.searchQuerySubject.next(query);
-  }
-
-  public updateSearchResults(results: Product[]): void {
+  updateSearchResults(results: Product[]): void {
     this.searchResultsSubject.next(results);
-  }
-}
+  // private searchQuerySubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  // private searchResultsSubject: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
+
+  // public searchQuery$: Observable<string> = this.searchQuerySubject.asObservable();
+  // public searchResults$: Observable<Product[]> = this.searchResultsSubject.asObservable();
+
+  // constructor() {}
+
+  // public emitSearchQuery(query: string): void {
+  //   this.searchQuerySubject.next(query);
+  // }
+
+  // public updateSearchResults(results: Product[]): void {
+  //   this.searchResultsSubject.next(results);
+  // }
+}}
 
 
 // export class SearchService {

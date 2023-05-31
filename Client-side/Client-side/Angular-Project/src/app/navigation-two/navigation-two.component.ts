@@ -9,21 +9,26 @@ import { SearchService } from 'src/Services/shared.service';
 })
 export class NavigationtwoComponent {
   searchQuery: string = '';
+  searchResults: Product[] = [];
 
   constructor(private searchService: SearchService, private productService: ProductService) {}
 
   search(): void {
     this.productService.searchProducts(this.searchQuery).subscribe(
       (data: Product[]) => {
-        this.searchService.emitSearchQuery(this.searchQuery);
+        //this.searchService.emitSearchQuery(this.searchQuery);
         this.searchService.updateSearchResults(data);
+        console.log('Search Item:', this.searchQuery);
+           this.productService.searchProducts(this.searchQuery).subscribe(
+           (data: Product[]) => {
+            this.searchResults = data;
       },
       (error) => {
         console.error('Error:', error);
       }
     );
-  }
-}
+  })
+}}
 
 
 

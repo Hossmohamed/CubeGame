@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductBrowseService } from 'src/Services/product-browse.service';
-import { Product } from 'src/Services/search.service';
+import { Product, ProductService } from 'src/Services/search.service';
 import { SearchService } from 'src/Services/shared.service';
 
 @Component({
@@ -9,9 +9,10 @@ import { SearchService } from 'src/Services/shared.service';
   styleUrls: ['./browse.component.css']
 })
 export class BrowseComponent implements OnInit {
-  searchResults: any[] = [];
+  searchResults: Product[] = [];
   AllProduct : any
-  constructor(public myService : ProductBrowseService,private searchService: SearchService){}
+  searchQuery: string = '';
+  constructor(public myService : ProductBrowseService,private searchService: SearchService,private productService: ProductService){}
 
   ngOnInit(): void {
 
@@ -29,5 +30,21 @@ export class BrowseComponent implements OnInit {
       this.searchResults = results;
     });
   }
-
+  search(): void {
+    this.productService.searchProducts(this.searchQuery).subscribe(
+      (data: Product[]) => {
+        this.searchResults = data;
+        //this.searchService.emitSearchQuery(this.searchQuery);
+        this.searchService.updateSearchResults(data);
+        console.log('Search Item:', this.searchResults);
+      //      this.productService.searchProducts(this.searchQuery).subscribe(
+      //      (data: Product[]) => {
+       },
+      (error) => {
+        console.error('Error:', error);
+      }
+    );
+  }
 }
+
+
