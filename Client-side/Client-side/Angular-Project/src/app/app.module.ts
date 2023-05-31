@@ -47,12 +47,14 @@ import { MainSliderComponent } from './main-slider/main-slider.component';
 import { MainSliderDirective } from './Directives/main-slider.directive';
 
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 let routes: Routes = [
   {path:"", component:DiscoverComponent },
   {path:"Browse", component:BrowseComponent },
   {path:"Signup", component:SignUpComponent },
   {path:"Login", component:LoginComponent },
+  {path:"Checkout", component:CheckoutComponent },
   {path:"Distribution", component:DistributionComponent },
   {path:"coverGame", component:GameComponent },
   {path:"cart", component:CartComponent , canActivate:[AuthGuard]}
@@ -89,6 +91,7 @@ let routes: Routes = [
     MainSliderComponent,
     MainSliderDirective,
     SpinnerComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
