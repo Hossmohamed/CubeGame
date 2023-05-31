@@ -51,7 +51,7 @@ namespace CubeGame.Controllers
             return BadRequest();
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
         public IActionResult UpdateCategory(int id, CategoryDTO c)
         {
             var uCategory = repo.GetById(id);
