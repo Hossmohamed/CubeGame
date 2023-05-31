@@ -24,7 +24,8 @@
   </div>
 </div>-->
 <div class="card">
-  <img src="{{oneProduct.picture}}" class="card-img-top" alt="{{oneProduct.picture}} image">
+  <a routerLink="/Browse/{{oneProduct.productId}}"> <img class="card-img-top" src={{oneProduct.picture}} alt=""/></a>
+  <!-- <img src="{{oneProduct.picture}}" class="card-img-top" alt="{{oneProduct.picture}} image"> -->
   <div class="card-body">
     <p class="card-genres-hov">{{oneProduct.categoryName}}</p>
     <h5 class="card-title" title="{{oneProduct.productName}}">{{oneProduct.productName}}</h5>

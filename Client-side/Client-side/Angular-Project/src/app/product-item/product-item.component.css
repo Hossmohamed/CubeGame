@@ -117,7 +117,7 @@
   border-radius: 15px;
   opacity: 1 !important;
   transition: ease-in 0.2s;
-  height: 275px; /*<---------*/
+  height: 200px; /*<---------*/
 }
 .card-body
 {
