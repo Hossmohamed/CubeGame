@@ -27,7 +27,7 @@ namespace CubeGame.DAL.Repo.cart
             Context = _context;          
         }
 
-        public Product AddToCart(int Product_id , string Token)
+        public void AddToCart(int Product_id , string Token)
         {
             Cart? cart = null;
 
@@ -101,8 +101,7 @@ namespace CubeGame.DAL.Repo.cart
 
               
             }
-
-            return product;
+          
         }
 
         public void ClearCart(string Token)
@@ -136,7 +135,7 @@ namespace CubeGame.DAL.Repo.cart
             return cart;
         }
 
-        public Product RemoveFromCart(int productId , string Token)
+        public void RemoveFromCart(int productId , string Token)
         {
             Cart? cart = null;
 
@@ -168,9 +167,8 @@ namespace CubeGame.DAL.Repo.cart
                     }
                 }
                
-            }
-
-            return product;
+            }  
+           
         }
     }
 }

@@ -61,43 +61,6 @@ namespace CubeGame.DAL.Repo.product
             return _context.Products.Include(i => i.Images).Include(c => c.category).ToList();
         }
 
-        public List<Product> GetAllMostPopular()
-        {
-            return _context.Products.Include(i => i.Images).Include(c => c.category).Where(x=>x.IsMostPopular==true).ToList();
-        }
-        public List<Product> GetAllMostPlayed()
-        {
-            return _context.Products.Include(i => i.Images).Include(c => c.category).Where(x => x.IsMostPlayed == true).ToList();
-        }
-        public List<Product> GetAllRecentlyUpdated()
-        {
-            return _context.Products.Include(i => i.Images).Include(c => c.category).Where(x => x.IsRecentlyUpdated == true).ToList();
-        }
-        public List<Product> GetAllNewRelease()
-        {
-            return _context.Products.Include(i => i.Images).Include(c => c.category).Where(x => x.IsNewRelease == true).ToList();
-        }
-        public List<Product> GetAllTopRated()
-        {
-            return _context.Products.Include(i => i.Images).Include(c => c.category).Where(x => x.Rate==5).ToList();
-        }
-        public List<Product> GetAllTopSeller()
-        {
-            return _context.Products.Include(i => i.Images).Include(c => c.category).Where(x => x.IsTopSeller == true).ToList();
-        }
-        public List<Product> GetAllFreeGames()
-        {
-            return _context.Products.Include(i => i.Images).Include(c => c.category).Where(x=>x.Price==0).ToList();
-        }
-        public List<Product> GetAllGameOnSale()
-        {
-            return _context.Products.Include(i => i.Images).Include(c => c.category).Where(x => x.IsGameOnSale == true).ToList();
-        }
-        public List<Product> GetAllComingSoon()
-        {
-            return _context.Products.Include(i => i.Images).Include(c => c.category).Where(x => x.IsComingSoon == true).ToList();
-        }
-
         public Product getProductByID(int id)
         {
             return _context.Products.Include(i => i.Images).Include(c => c.category).SingleOrDefault(g => g.ProductId == id);

@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/Services/auth.service';
 import { CartService } from 'src/Services/cart.service';
 import { WishlistService } from 'src/Services/wishlist.service';
+=======
+import { Component, Input } from '@angular/core';
+>>>>>>> parent of 05940b1 (Merge branch 'master' into dev-nancy)
 
 @Component({
   selector: 'app-product-item',
@@ -11,6 +15,7 @@ import { WishlistService } from 'src/Services/wishlist.service';
 })
 export class ProductItemComponent {
 
+<<<<<<< HEAD
   constructor(private myservice : CartService , private auth : AuthService ,
      private route:Router,private wishlistservice:WishlistService){}
 
@@ -44,4 +49,8 @@ addToWishlist(id : any) {
   else{
     this.route.navigate(['Login'])}
 }
+=======
+@Input() oneProduct : any
+
+>>>>>>> parent of 05940b1 (Merge branch 'master' into dev-nancy)
 }

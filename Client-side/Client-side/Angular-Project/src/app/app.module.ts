@@ -21,19 +21,15 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { TokenInterceptor } from 'src/interceptor/token.interceptor';
 
-import { LoadingInterceptor } from './loading.interceptor';
-import { SpinnerComponent } from './spinner/spinner.component';
-
 import { SliderDirective } from './Directives/slider.directive';
 import { GameComponent } from './game/game.component';
 import { ArrowbuttonDirective } from './Directives/arrowbutton.directive';
 import { ArrowTopDirective } from './Directives/arrow-top.directive';
 import { LeftClickDirective } from './Directives/left-click.directive';
 import { RighttClickDirective } from './Directives/rightt-click.directive';
-import { CartComponent } from './cart/cart.component';
-import { AuthGuard } from 'src/guards/auth.guard';
 
 
+<<<<<<< HEAD
 import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 import { FreeGamesComponent } from './free-games/free-games.component';
 import { GamesOnsaleComponent } from './games-onsale/games-onsale.component';
@@ -47,6 +43,8 @@ import { MainSliderComponent } from './main-slider/main-slider.component';
 import { MainSliderDirective } from './Directives/main-slider.directive';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+=======
+>>>>>>> parent of 05940b1 (Merge branch 'master' into dev-nancy)
 let routes: Routes = [
   {path:"", component:DiscoverComponent },
   {path:"discover", component:DiscoverComponent },
@@ -55,9 +53,14 @@ let routes: Routes = [
   {path:"Signup", component:SignUpComponent },
   {path:"Login", component:LoginComponent },
   {path:"Distribution", component:DistributionComponent },
+<<<<<<< HEAD
   {path:"coverGame", component:GameComponent },
   {path:"cart", component:CartComponent , canActivate:[AuthGuard]},
   {path:"wishlist", component:WishlistComponent , canActivate:[AuthGuard]}
+=======
+  {path:"coverGame", component:GameComponent }
+
+>>>>>>> parent of 05940b1 (Merge branch 'master' into dev-nancy)
 ]
 
 @NgModule({
@@ -79,6 +82,7 @@ let routes: Routes = [
     ArrowTopDirective,
     LeftClickDirective,
     RighttClickDirective,
+<<<<<<< HEAD
     ComingSoonComponent,
     FreeGamesComponent,
     GamesOnsaleComponent,
@@ -94,6 +98,8 @@ let routes: Routes = [
     WishlistComponent,
     CartComponent,
 
+=======
+>>>>>>> parent of 05940b1 (Merge branch 'master' into dev-nancy)
   ],
   imports: [
     BrowserModule,
@@ -101,17 +107,12 @@ let routes: Routes = [
     FormsModule,
     HttpClientModule,
     NgToastModule,
-    SlickCarouselModule,
     RouterModule.forRoot(routes)
+
   ],
   providers: [{
     provide : HTTP_INTERCEPTORS,
     useClass:TokenInterceptor,
-    multi:true
-  },
-  {
-    provide : HTTP_INTERCEPTORS,
-    useClass:LoadingInterceptor,
     multi:true
   }],
   bootstrap: [AppComponent]

@@ -47,7 +47,7 @@ namespace CubeGame.Migrations
 
                     b.HasIndex("AccountId");
 
-                    b.ToTable("Carts");
+                    b.ToTable("Carts", (string)null);
                 });
 
             modelBuilder.Entity("CubeGame.DAL.Data.Models.Cart.CartItem", b =>
@@ -82,7 +82,7 @@ namespace CubeGame.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("CartItems");
+                    b.ToTable("CartItems", (string)null);
                 });
 
             modelBuilder.Entity("CubeGame.DAL.Data.Models.Category", b =>
@@ -99,7 +99,7 @@ namespace CubeGame.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("CubeGame.DAL.Data.Models.Image", b =>
@@ -125,7 +125,7 @@ namespace CubeGame.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("Images");
+                    b.ToTable("Images", (string)null);
                 });
 
             modelBuilder.Entity("CubeGame.DAL.Data.Models.Product", b =>
@@ -149,33 +149,6 @@ namespace CubeGame.Migrations
 
                     b.Property<double>("Discount")
                         .HasColumnType("float");
-
-                    b.Property<bool>("IsComingSoon")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsFreeGame")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsGameOnSale")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsMostPlayed")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsMostPopular")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsNewRelease")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsRecentlyUpdated")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsTopRated")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsTopSeller")
-                        .HasColumnType("bit");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("money");
@@ -205,31 +178,7 @@ namespace CubeGame.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("CubeGame.DAL.Data.Models.Wishlist", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("AccountID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("ProductID")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AccountID");
-
-                    b.HasIndex("ProductID");
-
-                    b.ToTable("wishlists");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("CubeGame.Data.Models.Account.ApplicationUser", b =>
@@ -464,28 +413,9 @@ namespace CubeGame.Migrations
                     b.Navigation("category");
                 });
 
-            modelBuilder.Entity("CubeGame.DAL.Data.Models.Wishlist", b =>
-                {
-                    b.HasOne("CubeGame.Data.Models.Account.ApplicationUser", "Account")
-                        .WithMany()
-                        .HasForeignKey("AccountID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CubeGame.DAL.Data.Models.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Account");
-
-                    b.Navigation("Product");
-                });
-
             modelBuilder.Entity("CubeGame.Data.Models.Account.ApplicationUser", b =>
                 {
-                    b.OwnsMany("CubeGame.DAL.Data.Models.Account.RefreshToken", "RefreshTokens", b1 =>
+                    b.OwnsMany("CubeGame.Data.Models.Account.ApplicationUser.RefreshTokens#CubeGame.DAL.Data.Models.Account.RefreshToken", "RefreshTokens", b1 =>
                         {
                             b1.Property<string>("ApplicationUserId")
                                 .HasColumnType("nvarchar(450)");
@@ -511,7 +441,7 @@ namespace CubeGame.Migrations
 
                             b1.HasKey("ApplicationUserId", "Id");
 
-                            b1.ToTable("RefreshToken");
+                            b1.ToTable("RefreshToken", (string)null);
 
                             b1.WithOwner()
                                 .HasForeignKey("ApplicationUserId");

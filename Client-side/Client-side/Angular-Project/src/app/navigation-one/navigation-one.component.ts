@@ -2,7 +2,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { AuthService } from 'src/Services/auth.service';
-import { CartService } from 'src/Services/cart.service';
 import { UserStoreService } from 'src/Services/user-store.service';
 import { WishlistService } from 'src/Services/wishlist.service';
 
@@ -13,9 +12,9 @@ import { WishlistService } from 'src/Services/wishlist.service';
 })
 export class NavigationOneComponent implements OnInit ,OnDestroy{
 
-
   public fullName:string =""
   public role:string =""
+<<<<<<< HEAD
   total : number =0
   total1:number=0;
   Logged:boolean = false;
@@ -24,10 +23,16 @@ export class NavigationOneComponent implements OnInit ,OnDestroy{
   constructor(private user_Store: UserStoreService , private auth : AuthService ,
     private route:Router , private cartService : CartService,private wishlistService:WishlistService){}
 
+=======
+
+  Logged:boolean = false
+  constructor(private user_Store: UserStoreService , private auth : AuthService , private route:Router){}
+>>>>>>> parent of 05940b1 (Merge branch 'master' into dev-nancy)
   ngOnInit(): void {
     if (this.auth.IsLoggedIn()) {
       this.Logged = true;
 
+<<<<<<< HEAD
       this.cartItemsSubscription = this.cartService.cartItems$.subscribe(
         (cartItems) => {
           this.total = cartItems.length;
@@ -41,6 +46,13 @@ export class NavigationOneComponent implements OnInit ,OnDestroy{
           this.total1 = wishlistItems.length;
         }
       )
+=======
+    if(this.auth.IsLoggedIn()){
+      this.Logged = true
+    }
+    this.user_Store.getFullNameFromStore().subscribe({
+      next:(data)=>{
+>>>>>>> parent of 05940b1 (Merge branch 'master' into dev-nancy)
 
        this.wishlistService.GetWishlist().subscribe();
        this.user_Store.getFullNameFromStore().subscribe({
