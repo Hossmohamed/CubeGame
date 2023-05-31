@@ -9,7 +9,7 @@ import { BrowseComponent } from './browse/browse.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LoginComponent } from './login/login.component';
 import { NavigationOneComponent } from './navigation-one/navigation-one.component';
-import { NavigationTwoComponent } from './navigation-two/navigation-two.component';
+import { NavigationtwoComponent } from './navigation-two/navigation-two.component';
 
 import { FooterComponent } from './footer/footer.component';
 
@@ -45,19 +45,21 @@ import { TopSellerComponent } from './top-seller/top-seller.component';
 import { TopRatedComponent } from './top-rated/top-rated.component';
 import { MainSliderComponent } from './main-slider/main-slider.component';
 import { MainSliderDirective } from './Directives/main-slider.directive';
-
+import { WishlistComponent } from './wishlist/wishlist.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { CheckoutComponent } from './checkout/checkout.component';
-
 let routes: Routes = [
   {path:"", component:DiscoverComponent },
+  {path:"discover", component:DiscoverComponent },
   {path:"Browse", component:BrowseComponent },
+  {path:"Browse/:id", component:GameComponent},
   {path:"Signup", component:SignUpComponent },
   {path:"Login", component:LoginComponent },
   {path:"Checkout", component:CheckoutComponent },
   {path:"Distribution", component:DistributionComponent },
   {path:"coverGame", component:GameComponent },
-  {path:"cart", component:CartComponent , canActivate:[AuthGuard]}
+  {path:"cart", component:CartComponent , canActivate:[AuthGuard]},
+  {path:"wishlist", component:WishlistComponent , canActivate:[AuthGuard]}
 ]
 
 @NgModule({
@@ -70,7 +72,7 @@ let routes: Routes = [
     SignUpComponent,
     LoginComponent,
     NavigationOneComponent,
-    NavigationTwoComponent,
+    NavigationtwoComponent,
     ProductItemComponent,
     FooterComponent,
     SliderDirective,
@@ -91,7 +93,10 @@ let routes: Routes = [
     MainSliderComponent,
     MainSliderDirective,
     SpinnerComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    WishlistComponent,
+    CartComponent,
+
   ],
   imports: [
     BrowserModule,

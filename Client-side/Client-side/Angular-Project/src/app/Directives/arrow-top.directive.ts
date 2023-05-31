@@ -10,7 +10,7 @@ export class ArrowTopDirective {
 
   constructor(el:ElementRef) { }
   x:number = 0 ;
-  y:number = (-5);
+  y:number = 5*-1;
 @HostListener('click')
 
 scrollToTop(){
