@@ -63,9 +63,10 @@ this.wishlistService.ClearCart().subscribe(
 )
 
 }
+
  addcart(id:any){
 
-     if(this.auth.IsLoggedIn()){
+  if(this.auth.IsLoggedIn()){
 
    this.cartService.AddTCart(id).subscribe(
 
@@ -91,10 +92,7 @@ this.wishlistService.ClearCart().subscribe(
 
     }
 
-
-
-
-    }
+  }
  }
 
 

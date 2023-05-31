@@ -1,11 +1,11 @@
-<app-navigation-one></app-navigation-one> -->
+<app-navigation-one></app-navigation-one> 
  <app-navigation-two></app-navigation-two>
 <div class="container">
     <div *ngIf="product ;else flaseBlock" class="row">
         <div class="col-lg-8 col-sm-12">
             <div class="row">
                 <div class="col-12  header">
-                    <h1>{{product.productName}}</h1> 
+                    <h1>{{product.productName}}</h1>
                     <h2>
                         <span class="stars">
                             <i class="bi bi-star-fill"></i>
@@ -20,7 +20,7 @@
                 <div class="col-12">
                    <div class="row">
                     <div class="col-lg-9  col-sm-12 img">
-  
+
                         <img id="preview" src={{product.picture}}>
                         <ul>
                             <li class="left"><h4>Geners</h4> <span>{{product.categoryName}}</span></li>
@@ -35,8 +35,8 @@
                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                     <span class="visually-hidden">Previous</span>
                                   </button> -->
-                            
-                            </h4>  
+
+                            </h4>
                             <div class="slider-images" id="slider-images">
                               <img id="FImge" class="img1 active" src="../../assets/img/bg.png" appSlider >
                               <img id="img"  src="../../assets/img/2.png" appSlider>
@@ -44,7 +44,7 @@
                               <img id="img1" src="../../assets/img/4.png" appSlider>
                               <img id="img1" src="../../assets/img/1.png"  appSlider>
                               <!-- <img *ngFor="let i of img" src={{img.imageURL}}> -->
-                              
+
                             </div>
                             <h4 class="down-arrow">
                                 <i class="bi bi-chevron-compact-down" id="down-arrow" appArrowbutton></i>
@@ -53,12 +53,12 @@
                                     <span class="visually-hidden">Next</span>
                                   </button>
                              -->
-                            </h4>  
+                            </h4>
 
                         </div>
                     </div>
                     </div>
-                  
+
                 </div>
                 <div class="col-12">
                     <p>{{product.description}}</p>
@@ -81,7 +81,7 @@
                                 <span class="slider">MacOS</span>
                             </label> -->
                             <div class="top-select">
-               
+
                             </div>
                             <div class="form-box">
                                 <div class="button-box">
@@ -90,10 +90,10 @@
                                     <span class="space"> | </span>
                                     <div id="btn" class="d-flex flex-col" ></div>
                                     <button type="button" id="toggle-btn2" appRighttClick >MAC</button>
-                                
+
                                 </div>
                             </div>
-                        </th>    
+                        </th>
                         <th></th>
                     </tr>
                     <tr>
@@ -184,18 +184,18 @@
                         </tr>
                         <tr>
                             <td colspan="2" class="tablebtn">
-                             <button class="btn">ADD TO CART</button>   
+                             <button  (click)=" addcart(product.productId)" class="btn">ADD TO CART</button>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="2" class="tablebtn">
-                             <button class="btn socend">ADD TO CART</button>   
+                             <button (click)=" addToWishlist(product.productId)" class="btn socend">ADD TO wishlist</button>
                             </td>
                         </tr>
                     </tbody>
                   </table>
             </div>
-           
+
         </div>
     </div>
     <ng-template #flaseBlock>
@@ -206,6 +206,6 @@
         </div>
     </ng-template>
 
-  </div> 
+  </div>
 
   <app-footer></app-footer>

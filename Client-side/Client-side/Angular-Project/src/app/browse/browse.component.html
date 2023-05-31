@@ -74,6 +74,12 @@
     <form action="">
     <div class="left col-9">
       <app-product-item [oneProduct]="p" *ngFor="let p of AllProduct"></app-product-item>
+      <div>
+        <h3>Search Results:</h3>
+        <ul>
+          <app-product-item *ngFor="let product of searchResults">{{ product.productName }}</app-product-item>
+        </ul>
+      </div>
     </div>
   </form>
     <div class="right col-3">
