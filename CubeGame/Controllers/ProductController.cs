@@ -38,6 +38,16 @@ namespace CubeGame.Controllers
             return NotFound();
         }
 
+        [HttpGet("ProductsWithoutImages")]
+        public IActionResult GetAllProductWithoutImages()
+        {
+            if (repo.GetAllWithoutImage().Count() > 0)
+            {
+                return Ok(repo.GetAllWithoutImage());
+            }
+            return NotFound();
+        }
+
         [HttpGet ("GetAllFreeGames")]
         public IActionResult GetAllFreeGames()
         {
@@ -148,7 +158,7 @@ namespace CubeGame.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddProduct([FromForm] ProductDTO c )
+        public IActionResult AddProduct( ProductDTO c )
         {          
             if (ModelState.IsValid)
             {
@@ -167,7 +177,7 @@ namespace CubeGame.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateProduct(int id, [FromForm] ProductDTO c)
+        public IActionResult UpdateProduct(int id, ProductDTO c)
         {
             var uCategory = repo.getProductByID(id);
             if (uCategory == null)
@@ -180,7 +190,8 @@ namespace CubeGame.Controllers
                 try
                 {
                     repo.EditProduct(id, c);
-                    return NoContent();
+                    return Created("url", c);
+                    //return NoContent();
                 }
                 catch (Exception ex)
                 {
@@ -189,7 +200,7 @@ namespace CubeGame.Controllers
             }
             return BadRequest();
         }
-        [HttpDelete("DeleteProduct/{id:int}")]
+        [HttpDelete("DeleteProduct/{id}")]
         public IActionResult DeleteProduct(int id)
         {
             var c = repo.getProductByID(id);
@@ -229,7 +240,7 @@ namespace CubeGame.Controllers
 
                     repo.AddProductImages(id, I);
 
-                    return Created("url", id);
+                    return Created("url", I);
                 }
                 catch (Exception ex)
                 {

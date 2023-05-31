@@ -1,6 +1,6 @@
-<!--
-<div class="cardItem">
-  <img src={{oneProduct.picture}}  alt="{{oneProduct.picture}}" />
+
+<div *ngIf="oneProduct.price!=0" class="cardItem">
+  <img src={{oneProduct.picture}}  alt="" />
 
   <div class="details">
     <div class="genrePrice">
@@ -22,7 +22,7 @@
     </button>
     </div>
   </div>
-</div>-->
+</div>
 <div class="card">
   <a routerLink="/Browse/{{oneProduct.productId}}"> <img class="card-img-top" src={{oneProduct.picture}} alt=""/></a>
   <!-- <img src="{{oneProduct.picture}}" class="card-img-top" alt="{{oneProduct.picture}} image"> -->
@@ -40,3 +40,25 @@
     </div>
   </div>
 </div>
+
+
+<div *ngIf="oneProduct.price==0" class="cardItem">
+  <img src={{oneProduct.picture}}  alt="" />
+
+  <div class="details">
+    <div class="genrePrice">
+      <p class="genreColor">{{oneProduct.categoryName}}</p>
+      <p class="price">Free</p>
+    </div>
+
+    <div class="nameIcons">
+      <p class="gameName">{{oneProduct.productName}}</p>
+      <!-- <button (click)="addToCart(oneProduct.productId)">
+        <span class="cardIcon cart">
+          <i class="bi bi-bag-dash"></i></span>
+      </button>
+      <span class="cardIcon"><i class="bi bi-suit-heart"></i></span> -->
+    </div>
+  </div>
+</div>
+

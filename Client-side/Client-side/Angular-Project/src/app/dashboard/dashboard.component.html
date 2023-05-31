@@ -1,0 +1,80 @@
+
+
+<div class="app container">
+			<nav class="navigation col-3">
+				<button type="button" class="btn btn-warning"(click)="showC()">
+					Category
+        </button>
+        <button type="button" class="btn btn-warning"(click)="showP()">
+					Product
+        </button>
+				<button type="button" class="btn btn-warning"(click)="showI()">
+					Orders
+        </button>
+			</nav>
+      <div class="app-body-main-content col-9">
+        <a routerLink="/add-category-dashboard">
+          <button class="btn btn-primary" type="button">Add New Category</button>
+        </a>
+        <a routerLink="/add-product-dashboard">
+          <button class="btn btn-primary" type="button">Add New Product</button>
+        </a>
+        <!-- Category -->
+          <table class="table" *ngIf="show1">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let s of AllCategories">
+                <th scope="row">{{s.id}}</th>
+                <td>{{s.categoryName}}</td>
+                <td>
+                    <button class="btn btn-primary" (click)="updatecategory(s)">Update</button>
+                </td>
+                <td><button class="btn btn-danger" (click)="deletecategory(s.id)">Delete</button></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Product -->
+          <table class="table" *ngIf="show2">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Image</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+                <th scope="col">Discount</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let s of AllProduct">
+                <th scope="row">{{s.productId}}</th>
+                <td>{{s.productName}}</td>
+                <td><img style="width: 100px;" src="{{s.picture}}"></td>
+                <td>{{s.description}}</td>
+                <td>{{s.price}}</td>
+                <td>{{s.discount}}</td>
+                <td>
+                    <button class="btn btn-primary" (click)="updateproduct(s)">Update</button>
+                </td>
+                <td><button class="btn btn-danger" (click)="deleteproduct(s.productId)">Delete</button></td>
+
+              </tr>
+            </tbody>
+          </table>
+
+          <table *ngIf="show3">
+
+          </table>
+      </div>
+</div>
+

@@ -276,5 +276,6 @@ namespace CubeGame.DAL.Repo.Services
                 CreatedOn = DateTime.UtcNow
             };
         }
+
     }
 }
