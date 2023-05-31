@@ -1,5 +1,5 @@
-﻿using CubeGame.DAL.Data.Models;
-using CubeGame.DAL.Data.Models.Cart;
+﻿using CubeGame.DAL.Data.Models.cart;
+using CubeGame.DAL.Data.Models.wishlist;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,9 @@ namespace CubeGame.DAL.Repo.wishlist
 {
     public interface IwishlistRepo
     {
-        public List<Wishlist> GetwishlisttItems();
-        public void AddToWishlist(int id );
+        public Wishlist GetwishlisttItems(string token);
+        public wishlistItam AddToWishlist(int id, string token);
+        public void ClearWishList(string Token);
+        public void RemoveFromWishList(int id, string token);
     }
 }

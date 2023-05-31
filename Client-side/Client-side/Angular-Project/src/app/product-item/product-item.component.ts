@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/Services/auth.service';
 import { CartService } from 'src/Services/cart.service';
+import { WishlistService } from 'src/Services/wishlist.service';
 
 @Component({
   selector: 'app-product-item',
@@ -11,7 +12,7 @@ import { CartService } from 'src/Services/cart.service';
 export class ProductItemComponent {
 
   constructor(private myservice : CartService , private auth : AuthService ,
-     private route:Router){}
+     private route:Router,private wishlistservice:WishlistService){}
 
 @Input() oneProduct : any
 
@@ -21,14 +22,26 @@ addToCart(id : any) {
       (response) => {
         console.log('Response:', response);
       },
+
+      (error) => {
+        console.error('Error:', error);
+      }
+      );}
+  else{
+    this.route.navigate(['Login'])
+}}
+addToWishlist(id : any) {
+  if(this.auth.IsLoggedIn()){
+    this.wishlistservice.AddToWishlist(id).subscribe(
+      (response) => {
+        console.log('Response:', response);
+      },
       (error) => {
         console.error('Error:', error);
       }
     );
   }
   else{
-    this.route.navigate(['Login'])
-}
-
+    this.route.navigate(['Login'])}
 }
 }
