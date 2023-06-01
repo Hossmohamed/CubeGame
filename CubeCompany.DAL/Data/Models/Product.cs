@@ -74,7 +74,7 @@ namespace CubeGame.DAL.Data.Models
         public bool IsNewRelease { get; set; }
         public bool IsComingSoon { get; set; }
 
-        public virtual ICollection<Image> ? Images { get; set; } = new List<Image>();
+        public virtual ICollection<Image> Images { get; set; } = new List<Image>();
 
         public double PriceAfterDiscount() => Price * (1 - Discount / 100);
         public double DiscountedAmount() => Price * (Discount / 100);

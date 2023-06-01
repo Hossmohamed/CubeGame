@@ -47,12 +47,16 @@ import { MainSliderComponent } from './main-slider/main-slider.component';
 import { MainSliderDirective } from './Directives/main-slider.directive';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+<<<<<<< HEAD
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UpdateCategoryDashboardComponent } from './update-category-dashboard/update-category-dashboard.component';
 import { AddCategoryDashboardComponent } from './add-category-dashboard/add-category-dashboard.component';
 import { AddProductDashboardComponent } from './add-product-dashboard/add-product-dashboard.component';
 import { ProductImageComponent } from './product-image/product-image.component';
 import { UpdateProductDashboardComponent } from './update-product-dashboard/update-product-dashboard.component';
+=======
+
+>>>>>>> parent of 75946e2 (SomeEdits&Dashboard)
 let routes: Routes = [
   {path:"", component:DiscoverComponent },
   {path:"discover", component:DiscoverComponent },
@@ -62,6 +66,7 @@ let routes: Routes = [
   {path:"Login", component:LoginComponent },
   {path:"Distribution", component:DistributionComponent },
   {path:"coverGame", component:GameComponent },
+<<<<<<< HEAD
   {path:"cart", component:CartComponent , canActivate:[AuthGuard]},
 
   // dashboard
@@ -72,6 +77,9 @@ let routes: Routes = [
 
   {path:"add-product-dashboard", component:AddProductDashboardComponent },
   {path:"product-image", component:ProductImageComponent },
+=======
+  {path:"cart", component:CartComponent , canActivate:[AuthGuard]}
+>>>>>>> parent of 75946e2 (SomeEdits&Dashboard)
 ]
   @NgModule({
     declarations: [
@@ -99,6 +107,7 @@ let routes: Routes = [
     MainSliderComponent,
     MainSliderDirective,
     SpinnerComponent,
+<<<<<<< HEAD
     WishlistComponent,
     CartComponent,
     DashboardComponent,
@@ -112,6 +121,8 @@ let routes: Routes = [
     DiscoverComponent,
     AppComponent
 
+=======
+>>>>>>> parent of 75946e2 (SomeEdits&Dashboard)
   ],
   imports: [
     BrowserModule,
