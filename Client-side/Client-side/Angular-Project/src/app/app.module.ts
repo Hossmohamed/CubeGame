@@ -14,39 +14,25 @@ import { NavigationtwoComponent } from './navigation-two/navigation-two.componen
 import { FooterComponent } from './footer/footer.component';
 
 import { RouterModule, Routes } from '@angular/router';
-
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgToastModule } from 'ng-angular-popup';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GameComponent } from './game/game.component';
+
+import { FreegameComponent } from './freegame/freegame.component';
+import { GameonsalesComponent } from './gameonsales/gameonsales.component';
+import { MostPopularComponent } from './most-popular/most-popular.component';
+import { MainSliderDirective } from './Directives/main-slider.directive';
+import { MainSliderComponent } from './main-slider/main-slider.component';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { TokenInterceptor } from 'src/interceptor/token.interceptor';
-
 import { LoadingInterceptor } from './loading.interceptor';
-import { SpinnerComponent } from './spinner/spinner.component';
-
-import { SliderDirective } from './Directives/slider.directive';
-import { GameComponent } from './game/game.component';
-import { ArrowbuttonDirective } from './Directives/arrowbutton.directive';
-import { ArrowTopDirective } from './Directives/arrow-top.directive';
-import { LeftClickDirective } from './Directives/left-click.directive';
-import { RighttClickDirective } from './Directives/rightt-click.directive';
-import { CartComponent } from './cart/cart.component';
-import { AuthGuard } from 'src/guards/auth.guard';
-
-
-import { ComingSoonComponent } from './coming-soon/coming-soon.component';
-import { FreeGamesComponent } from './free-games/free-games.component';
-import { GamesOnsaleComponent } from './games-onsale/games-onsale.component';
 import { MostPlayedComponent } from './most-played/most-played.component';
-import { MostPopularComponent } from './most-popular/most-popular.component';
-import { NewReleaseComponent } from './new-release/new-release.component';
-import { RecentlyUpdatedComponent } from './recently-updated/recently-updated.component';
 import { TopSellerComponent } from './top-seller/top-seller.component';
 import { TopRatedComponent } from './top-rated/top-rated.component';
-import { MainSliderComponent } from './main-slider/main-slider.component';
-import { MainSliderDirective } from './Directives/main-slider.directive';
-import { WishlistComponent } from './wishlist/wishlist.component';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { NewReleaseComponent } from './new-release/new-release.component';
+import { ComingSoonComponent } from './coming-soon/coming-soon.component';
+import { RecentlyUpdatedComponent } from './recently-updated/recently-updated.component';
 
 
 let routes: Routes = [
@@ -75,34 +61,27 @@ let routes: Routes = [
     NavigationtwoComponent,
     ProductItemComponent,
     FooterComponent,
-    SliderDirective,
-    GameComponent,
-    ArrowbuttonDirective,
-    ArrowTopDirective,
-    LeftClickDirective,
-    RighttClickDirective,
-    ComingSoonComponent,
-    FreeGamesComponent,
-    GamesOnsaleComponent,
-    MostPlayedComponent,
+    FreegameComponent,
+    GameonsalesComponent,
     MostPopularComponent,
-    NewReleaseComponent,
-    RecentlyUpdatedComponent,
+    MainSliderDirective,
+    MainSliderComponent,
+    MostPlayedComponent,
     TopSellerComponent,
     TopRatedComponent,
-    MainSliderComponent,
-    MainSliderDirective,
-    SpinnerComponent,
+    NewReleaseComponent,
+    ComingSoonComponent,
+    RecentlyUpdatedComponent,
+    
 
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule,
+    RouterModule.forRoot(routes),
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
-    NgToastModule,
     SlickCarouselModule,
-    RouterModule.forRoot(routes)
   ],
   providers: [{
     provide : HTTP_INTERCEPTORS,

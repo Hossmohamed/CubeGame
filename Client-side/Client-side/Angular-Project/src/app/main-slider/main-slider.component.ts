@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MainSliderService } from '../../Services/main-slider.service';
+import { MainSliderService } from '../Services/main-slider.service';
 
 @Component({
   selector: 'app-main-slider',
@@ -26,7 +26,7 @@ export class MainSliderComponent implements OnInit {
 
   ngOnInit(): void {
     this.startInterval();
-    this.myserv.GetAllMainSlider().subscribe({
+    this.myserv.GetAllmostpop().subscribe({
       next:(data)=>{
         this.user=data;
       },

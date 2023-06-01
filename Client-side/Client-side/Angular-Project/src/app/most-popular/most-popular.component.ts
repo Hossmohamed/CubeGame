@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MostPopularService } from '../../Services/most-popular.service';
+import { MostPopularService } from '../Services/most-popular.service';
 
 @Component({
   selector: 'app-most-popular',
@@ -22,7 +22,7 @@ export class MostPopularComponent implements OnInit {
     constructor(public myserv:MostPopularService){}
     user:any;
     ngOnInit(): void {
-      this.myserv.GetAllMostPopular().subscribe({
+      this.myserv.GetAllmostpop().subscribe({
         next:(data)=>{
           this.user=data;
         },
