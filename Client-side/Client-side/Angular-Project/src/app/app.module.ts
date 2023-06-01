@@ -105,14 +105,17 @@ let routes: Routes = [
     SpinnerComponent,
     WishlistComponent,
     CartComponent,
-    DiscoverComponent,
     DashboardComponent,
-    DistributionComponent,
     AddCategoryDashboardComponent,
     UpdateCategoryDashboardComponent,
     AddProductDashboardComponent,
     ProductImageComponent,
     UpdateProductDashboardComponent,
+    SignUpComponent,
+    DistributionComponent,
+    DiscoverComponent,
+    AppComponent
+
   ],
   imports: [
     BrowserModule,
