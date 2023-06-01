@@ -12,11 +12,12 @@ namespace CubeGame.DAL.Data.Models.wishlist
 {
     public class Wishlist
     {
+        [Key]
         public int Id { get; set; }
 
         [ForeignKey("ApplicationUser")]
         [Required]
-        public required string AccountID { get; set; }
+        public  string AccountID { get; set; }
 
         public virtual ApplicationUser? Account { get; set; }
 

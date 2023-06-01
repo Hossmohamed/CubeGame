@@ -33,7 +33,7 @@ namespace CubeGame.Data.Context
         public DbSet<CartItem> CartItems { get; set; }
         public DbSet<Wishlist> wishlists { get; set; }
         public DbSet<wishlistItam> WishlistItams { get; set; }
-      
+
 
     }
 }

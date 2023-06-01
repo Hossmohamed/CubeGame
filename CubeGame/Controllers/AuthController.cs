@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
+using CubeGame.DAL.Data.Models.Account;
 
 namespace CubeGame.Controllers
 {

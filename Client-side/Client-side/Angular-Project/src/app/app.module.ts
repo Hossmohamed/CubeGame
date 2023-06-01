@@ -52,6 +52,8 @@ import { UpdateCategoryDashboardComponent } from './update-category-dashboard/up
 import { AddCategoryDashboardComponent } from './add-category-dashboard/add-category-dashboard.component';
 import { AddProductDashboardComponent } from './add-product-dashboard/add-product-dashboard.component';
 import { ProductImageComponent } from './product-image/product-image.component';
+import { UpdateProductDashboardComponent } from './update-product-dashboard/update-product-dashboard.component';
+
 let routes: Routes = [
   {path:"", component:DiscoverComponent },
   {path:"discover", component:DiscoverComponent },
@@ -68,14 +70,17 @@ let routes: Routes = [
 
   {path:"update-category-dashboard/:data", component:UpdateCategoryDashboardComponent },
   {path:"add-category-dashboard", component:AddCategoryDashboardComponent },
+  {path:"update-product-dashboard/:data", component:UpdateProductDashboardComponent },
 
   {path:"add-product-dashboard", component:AddProductDashboardComponent },
   {path:"product-image", component:ProductImageComponent },
 ]
   @NgModule({
     declarations: [
+    AppComponent,
     BrowseComponent,
     LoginComponent,
+    SignUpComponent,
     NavigationOneComponent,
     NavigationtwoComponent,
     ProductItemComponent,
@@ -100,7 +105,14 @@ let routes: Routes = [
     SpinnerComponent,
     WishlistComponent,
     CartComponent,
-
+    DiscoverComponent,
+    DashboardComponent,
+    DistributionComponent,
+    AddCategoryDashboardComponent,
+    UpdateCategoryDashboardComponent,
+    AddProductDashboardComponent,
+    ProductImageComponent,
+    UpdateProductDashboardComponent,
   ],
   imports: [
     BrowserModule,

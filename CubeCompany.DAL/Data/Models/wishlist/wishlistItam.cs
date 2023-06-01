@@ -31,7 +31,7 @@ namespace CubeGame.DAL.Data.Models.wishlist
 
         [ForeignKey("Product")]
         [Required]
-        public required int productId { get; set; }
+        public  int productId { get; set; }
         public virtual Product? Product { get; set; }
 
     }
