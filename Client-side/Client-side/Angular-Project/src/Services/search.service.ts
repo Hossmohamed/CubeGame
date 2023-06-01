@@ -9,13 +9,13 @@ export interface Product {
   discount: number,
   price: number,
   priceAfterDiscount: number,
-  picture: string
+  image: string
 }
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-
+  [x: string]: any;
   private baseURL = 'https://localhost:7121/api/Product';
 
   constructor(private http: HttpClient) {}

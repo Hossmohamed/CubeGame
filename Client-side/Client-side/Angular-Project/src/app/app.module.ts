@@ -52,7 +52,6 @@ import { UpdateCategoryDashboardComponent } from './update-category-dashboard/up
 import { AddCategoryDashboardComponent } from './add-category-dashboard/add-category-dashboard.component';
 import { AddProductDashboardComponent } from './add-product-dashboard/add-product-dashboard.component';
 import { ProductImageComponent } from './product-image/product-image.component';
-import { UpdateProductDashboardComponent } from './update-product-dashboard/update-product-dashboard.component';
 let routes: Routes = [
   {path:"", component:DiscoverComponent },
   {path:"discover", component:DiscoverComponent },
@@ -101,16 +100,6 @@ let routes: Routes = [
     SpinnerComponent,
     WishlistComponent,
     CartComponent,
-    DashboardComponent,
-    AddCategoryDashboardComponent,
-    UpdateCategoryDashboardComponent,
-    AddProductDashboardComponent,
-    ProductImageComponent,
-    UpdateProductDashboardComponent,
-    SignUpComponent,
-    DistributionComponent,
-    DiscoverComponent,
-    AppComponent
 
   ],
   imports: [

@@ -35,7 +35,6 @@ addToWishlist(id : any) {
     this.wishlistservice.AddToWishlist(id).subscribe(
       (response) => {
         console.log('Response:', response);
-      
       },
       (error) => {
         console.error('Error:', error);
