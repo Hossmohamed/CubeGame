@@ -77,16 +77,16 @@
         <button class="btn btn-search" (click)="search()">Search</button>
         <div *ngIf="searchQuery.length > 0">
           <h3>Search Results:</h3>
-          <app-product-item *ngFor="let product of searchResults ;let i = index" [oneProduct]="product" >
+          <div *ngFor="let product of searchResults ;let i = index"  >
             <div style="width:40px; ">{{i+1}}</div>
             <img width="80px" alt="card-list" src="{{product.picture}}">
           <div style="width:250px; "><h4>{{product.productName}}</h4></div>
           <div><h4>{{product.price}} <span> EGP</span></h4></div>
           <div><h4>{{product.discount}}%</h4></div>
           <div><h4>{{product.priceAfterDiscount}} <span> EGP</span></h4></div>
-        </app-product-item>
+        </div>
       </div>
-      <app-product-item *ngFor="let product of AllProduct" [oneProduct]="product"  ></app-product-item>
+      <app-product-item *ngFor="let product of AllProduct" [oneProduct]="product" ></app-product-item>
     </div>
 
     </form>
