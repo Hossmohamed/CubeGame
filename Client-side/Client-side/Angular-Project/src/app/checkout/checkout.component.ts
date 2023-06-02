@@ -6,12 +6,6 @@ import { Component, OnInit} from '@angular/core';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit{
-  // cardNum = "";
-  // mmyy = "";
-  // cvc = "";
-  // AddOrder(){
-  //    let newOrder = {cardNum:this.cardNum, mmyy:this.mmyy, cvc:this.cvc};
-  // }
   constructor() { }
   handler:any = null;
   ngOnInit() {

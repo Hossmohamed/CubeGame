@@ -1,0 +1,9 @@
+<h2>Stripe Checkout</h2>
+<button (click)="makePayment(20)">Pay With Stripe</button>
+
+<div *ngIf = "success">
+  <h1>Your Payment is Successfull</h1>
+</div>
+<div *ngIf = "failure">
+    <h1>Payment Error is There</h1>
+</div>

@@ -48,6 +48,7 @@ import { MainSliderDirective } from './Directives/main-slider.directive';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { StripecheckoutComponent } from './stripecheckout/stripecheckout.component';
 let routes: Routes = [
   {path:"", component:DiscoverComponent },
   {path:"discover", component:DiscoverComponent },
@@ -96,6 +97,7 @@ let routes: Routes = [
     CheckoutComponent,
     WishlistComponent,
     CartComponent,
+    StripecheckoutComponent,
 
   ],
   imports: [
