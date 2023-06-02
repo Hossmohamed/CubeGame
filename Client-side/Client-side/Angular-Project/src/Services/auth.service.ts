@@ -52,7 +52,7 @@ export class AuthService {
 
   getRoleFromToken(){
     if(this.userPayload){
-      return this.userPayload.role;
+      return this.userPayload.roles
     }
   }
 

@@ -23,6 +23,11 @@ namespace CubeGame.Data.Context
 
             modelBuilder.Entity<Cart>().HasQueryFilter(C => C.IsActive == true);
 
+            //modelBuilder.Entity<Cart>()
+            //  .HasMany(c => c.CartItems)
+            //  .WithOne(ci => ci.Cart)
+            //  .HasForeignKey(ci => ci.CartId);
+
             base.OnModelCreating(modelBuilder);
             //modelBuilder.Entity<IdentityUserLogin<string>>().HasKey(l => new { l.LoginProvider, l.ProviderKey });
         }

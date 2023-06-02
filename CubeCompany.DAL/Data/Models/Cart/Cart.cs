@@ -11,6 +11,7 @@ namespace CubeGame.DAL.Data.Models.cart;
 
 public class Cart
 {
+
     [Key]
     public int Id { get; set; }
 
@@ -24,8 +25,8 @@ public class Cart
 
     public virtual ApplicationUser? Account { get; set; }
 
-    //[DatabaseGenerated(DatabaseGeneratedOption.Computed)]
     public DateTime? CreatedDate { get; set; }
+
     public bool IsActive { get; set; } = true;
 
     public double GetTotalPrice()
