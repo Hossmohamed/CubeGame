@@ -47,6 +47,9 @@ import { MainSliderComponent } from './main-slider/main-slider.component';
 import { MainSliderDirective } from './Directives/main-slider.directive';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { DistFilmsliderComponent } from './dist-filmslider/dist-filmslider.component';
+import { DistFilmslidelComponent } from './dist-filmslidel/dist-filmslidel.component';
+
 let routes: Routes = [
   {path:"", component:DiscoverComponent },
   {path:"discover", component:DiscoverComponent },
@@ -93,6 +96,8 @@ let routes: Routes = [
     SpinnerComponent,
     WishlistComponent,
     CartComponent,
+    DistFilmsliderComponent,
+    DistFilmslidelComponent,
 
   ],
   imports: [
