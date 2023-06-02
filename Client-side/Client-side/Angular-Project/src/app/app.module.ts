@@ -59,6 +59,10 @@ let routes: Routes = [
   {path:"Login", component:LoginComponent },
   {path:"Distribution", component:DistributionComponent },
   {path:"coverGame", component:GameComponent },
+  {path:"cart", component:CartComponent },
+  {path:"wishlist", component:WishlistComponent },
+
+
 
 
 ]
