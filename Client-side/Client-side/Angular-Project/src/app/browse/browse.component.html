@@ -73,14 +73,32 @@
   <div class="browse">
     <form action="">
     <div class="left col-9">
-      <app-product-item [oneProduct]="p" *ngFor="let p of AllProduct"></app-product-item>
-      <div>
+
+      <!-- <div *ngIf="searchResults.length > 0"> -->
+        <!-- <app-product-item [oneProduct]="p" *ngFor="let p of searchResults"> -->
+          <div *ngIf="filteredProducts.length === 0">
+            <h3>No products found.</h3>
+         </div>
+          <app-product-item [oneProduct]="p" *ngFor="let p of filteredProducts">
+
         <h3>Search Results:</h3>
-        <ul>
-          <app-product-item *ngFor="let product of searchResults">{{ product.productName }}</app-product-item>
-        </ul>
+
+          <!-- <div *ngFor="let product of searchResults ; let i = index"> -->
+            <img class="card-img-top" src={{p.image}} alt=""/>
+           <div>
+            <div class="card-body">
+              <!-- <p class="card-genres-hov">{{p.categoryName}}</p> -->
+              <h5 class="card-title" title="{{p.productName}}">{{p.productName}}</h5>
+              <div class="d-flex justify-content-between">
+                <h5><span class="price">{{p.price}}</span> EGP</h5>
+             </div>
+            </div>
+          </div>
+
+        </app-product-item>
       </div>
-    </div>
+      <app-product-item [oneProduct]="p" *ngFor="let p of AllProduct"></app-product-item>
+   
   </form>
     <div class="right col-3">
       <p class="filter">Filters</p>

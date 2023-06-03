@@ -58,7 +58,8 @@ let routes: Routes = [
   {path:"Login", component:LoginComponent },
   {path:"Distribution", component:DistributionComponent },
   {path:"coverGame", component:GameComponent },
-
+  {path:"cart",component:CartComponent,canActivate:[AuthGuard]},
+  {path:"wishlist",component:WishlistComponent ,canActivate:[AuthGuard]}
 
 ]
 
@@ -93,6 +94,9 @@ let routes: Routes = [
     MainSliderComponent,
     MainSliderDirective,
     SpinnerComponent,
+    WishlistComponent,
+    CartComponent
+
 
   ],
   imports: [
