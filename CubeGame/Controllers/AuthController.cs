@@ -4,10 +4,7 @@ using CubeGame.DAL.Repo.Services;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-<<<<<<< HEAD
 using Microsoft.AspNetCore.Identity;
-=======
->>>>>>> parent of 75946e2 (SomeEdits&Dashboard)
 
 namespace CubeGame.Controllers
 {

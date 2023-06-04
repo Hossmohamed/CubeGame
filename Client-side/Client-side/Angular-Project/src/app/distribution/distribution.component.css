@@ -39,6 +39,7 @@ body
   padding: 7px;
   border-radius: 8px;
   transition: ease-in 0.2s;
+  cursor: pointer;
 }
 .btn-pay:hover
 {

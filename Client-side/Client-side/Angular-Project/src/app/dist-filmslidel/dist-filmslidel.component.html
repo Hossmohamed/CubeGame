@@ -1,6 +1,6 @@
 <!--RTL-->
-<ngx-slick-carousel class="carousel slider" #slickModal="slick-carousel" [config]="multislideConfig">
+<ngx-slick-carousel class="carousel slider" #slickModal="slick-carousel" [config]="multislideConfig" data-aos-anchor-placement="top-center" data-aos="fade-right">
   <div ngxSlickItem *ngFor="let T of Mostpop" >
-    <div class="element"><img src="{{T.picture}}"></div>
+    <div class="element"><img src="{{T.picture}}" routerLink="/Browse/{{T.productId}}"></div>
   </div>
 </ngx-slick-carousel>

@@ -9,6 +9,7 @@
 img{
     height: 80px;
     width:270px;
+    cursor: pointer;
     -o-object-fit:cover;
        object-fit:cover;
 }

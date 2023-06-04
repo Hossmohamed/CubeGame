@@ -5,6 +5,7 @@ import { AuthService } from 'src/Services/auth.service';
 import { CartService } from 'src/Services/cart.service';
 import { UserStoreService } from 'src/Services/user-store.service';
 import { WishlistService } from 'src/Services/wishlist.service';
+import { CategoryNameService} from 'src/Services/category-name.service'
 
 @Component({
   selector: 'app-navigation-one',
@@ -13,6 +14,7 @@ import { WishlistService } from 'src/Services/wishlist.service';
 })
 export class NavigationOneComponent implements OnInit ,OnDestroy{
 
+    catg:any;
 
   public fullName:string =""
   public role:string =""
@@ -22,9 +24,20 @@ export class NavigationOneComponent implements OnInit ,OnDestroy{
   private cartItemsSubscription: Subscription = new Subscription;
   private wishlistItemsSubscription: Subscription = new Subscription;
   constructor(private user_Store: UserStoreService , private auth : AuthService ,
-    private route:Router , private cartService : CartService,private wishlistService:WishlistService){}
+    private route:Router , private cartService : CartService,private wishlistService:WishlistService ,
+    public category:CategoryNameService){}
 
   ngOnInit(): void {
+
+    this.category.GetAllcategoryname().subscribe({
+      next:(data)=>{
+        this.catg=data;
+      },
+      error:(err)=>{console.log(err)}
+    })
+
+
+
     if (this.auth.IsLoggedIn()) {
       this.Logged = true;
 
@@ -61,6 +74,9 @@ export class NavigationOneComponent implements OnInit ,OnDestroy{
     this.route.navigate(['Browse'])
     window.location.reload()
   }
+
+
+
 }
 
 

@@ -49,6 +49,7 @@
   border-radius: 15px;
   height: 70%;
   transition: ease-in 0.2s;
+  cursor: pointer;
 }
 .card-free
 {
