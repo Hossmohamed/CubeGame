@@ -10,9 +10,15 @@ export class TopSellerService {
 
   constructor(private myClient:HttpClient) { }
   private Base_URL = "https://localhost:7121/api/Product/GetAllTopSeller";
-  GetAllTopSeller(): Observable<any[]> {
+  GetSomeTopSeller(): Observable<any[]> {
     return this.myClient.get<any[]>(this.Base_URL)
       .pipe(
         map((response: any[]) => response.slice(0, 5))
       );
-  }}
+  }
+
+  GetAllTopSeller()
+  {
+    return this.myClient.get(this.Base_URL);
+  }
+}

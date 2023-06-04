@@ -6,6 +6,7 @@
 #15102B body
 
 */
+
 body
 {
   background-color: #15102B;
@@ -18,7 +19,7 @@ body
 }
 ::selection {
   color: white;
-  background: #6FE2E1;
+  background: #645B8F;
 }
 /*.bg-first-nav
 {

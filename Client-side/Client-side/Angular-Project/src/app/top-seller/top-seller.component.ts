@@ -10,7 +10,7 @@ export class TopSellerComponent implements OnInit{
   constructor(public myService:TopSellerService){}
   TopSeller:any;
   ngOnInit(): void {
-    this.myService.GetAllTopSeller().subscribe({
+    this.myService.GetSomeTopSeller().subscribe({
       next:(data)=>{
         this.TopSeller = data;
       },

@@ -10,7 +10,7 @@ export class TopRatedComponent implements OnInit{
   constructor(public myService:TopRatedService){}
   TopRated:any;
   ngOnInit(): void {
-    this.myService.GetAllTopRated().subscribe({
+    this.myService.GetSomeTopRated().subscribe({
       next:(data)=>{
         this.TopRated = data;
       },
