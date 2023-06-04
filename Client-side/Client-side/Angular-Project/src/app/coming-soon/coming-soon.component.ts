@@ -10,7 +10,7 @@ export class ComingSoonComponent implements OnInit{
   constructor(public myService:ComingSoonService){}
   ComingSoon:any
   ngOnInit(): void {
-    this.myService.GetAllComingSoon().subscribe({
+    this.myService.GetSomeComingSoon().subscribe({
       next:(data)=>{
         this.ComingSoon = data;
       },

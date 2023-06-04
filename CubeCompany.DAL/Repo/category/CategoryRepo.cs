@@ -35,6 +35,7 @@ namespace CubeGame.DAL.Repo.category
 
             return _context.Categories.Include(x=>x.Products).ToList();
         }
+        
 
         public Category GetById(int id)
         {
@@ -48,5 +49,8 @@ namespace CubeGame.DAL.Repo.category
             _context.Update(old);
             _context.SaveChanges();
         }
+
+
+       
     }
 }

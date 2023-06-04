@@ -17,12 +17,12 @@ export class WishlistService {
 
 private base_url="https://localhost:7121/api/Wishlist/";
 
-private wishlistItems: Product[] = [];
- wishlistItems$ = new BehaviorSubject<Product[]>(this.wishlistItems);
+private wishlistItems: any[] = [];
+ wishlistItems$ = new BehaviorSubject<any[]>(this.wishlistItems);
  private iswishlistFetched = false;
   constructor(private httpclint : HttpClient) { }
   //-------------------Get Wishlist------------------
-  GetWishlist(): Observable<Product[]> {
+  GetWishlist(): Observable<any[]> {
     if (!this.iswishlistFetched) {
     return this.httpclint.get<any>(`${this.base_url}getAll`)
       .pipe(
@@ -44,7 +44,7 @@ private wishlistItems: Product[] = [];
       }
       //-------------------Add To Wishlist------------------
       AddToWishlist(id: Number): Observable<Product> {
-      return this.httpclint.post<Product>(`${this.base_url}AddTowishlist/${id}`,id)
+      return this.httpclint.post<any>(`${this.base_url}AddTowishlist/${id}`,id)
       .pipe(
       tap((response) => {
       this.wishlistItems.push(response);
@@ -71,7 +71,7 @@ private wishlistItems: Product[] = [];
       )
     }
     //---------------clear wishlist----------------
-    ClearCart(): Observable<Product>{
+    ClearCart(): Observable<any>{
       return this.httpclint.delete<Product>(`${this.base_url}clearwishlist`).pipe(
         tap(() => {
           this.wishlistItems = []

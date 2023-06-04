@@ -10,7 +10,7 @@ export class RecentlyUpdatedComponent implements OnInit{
   constructor(public myService:RecentlyUpdatedService){}
   RecentlyUpdated:any;
   ngOnInit(): void {
-    this.myService.GetAllRecentlyUpdated().subscribe({
+    this.myService.GetSomeRecentlyUpdated().subscribe({
       next:(data)=>{
         this.RecentlyUpdated = data;
       },

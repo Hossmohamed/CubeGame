@@ -47,6 +47,16 @@ import { MainSliderComponent } from './main-slider/main-slider.component';
 import { MainSliderDirective } from './Directives/main-slider.directive';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { DistFilmsliderComponent } from './dist-filmslider/dist-filmslider.component';
+import { DistFilmslidelComponent } from './dist-filmslidel/dist-filmslidel.component';
+import { AuthService } from 'src/Services/auth.service';
+import { AddCategoryDashboardComponent } from './add-category-dashboard/add-category-dashboard.component';
+import { AddProductDashboardComponent } from './add-product-dashboard/add-product-dashboard.component';
+import { ProductImageComponent } from './product-image/product-image.component';
+import { UpdateCategoryDashboardComponent } from './update-category-dashboard/update-category-dashboard.component';
+import { UpdateProductDashboardComponent } from './update-product-dashboard/update-product-dashboard.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { adminGuard } from 'src/guards/admin.guard';
 
 
 let routes: Routes = [
@@ -58,7 +68,19 @@ let routes: Routes = [
   {path:"Login", component:LoginComponent },
   {path:"Distribution", component:DistributionComponent },
   {path:"coverGame", component:GameComponent },
+  {path:"cart", component:CartComponent , canActivate:[AuthGuard] },
+  {path:"wishlist", component:WishlistComponent ,  canActivate:[AuthGuard] },
 
+  // dashboard
+  {path:"dashboard", component:DashboardComponent , canActivate:[AuthGuard , adminGuard]},
+
+  {path:"update-category-dashboard/:data", component:UpdateCategoryDashboardComponent , canActivate:[AuthGuard , adminGuard]},
+  {path:"add-category-dashboard", component:AddCategoryDashboardComponent , canActivate:[AuthGuard , adminGuard]},
+
+  {path:"add-product-dashboard", component:AddProductDashboardComponent , canActivate:[AuthGuard , adminGuard]},
+  {path:"product-image", component:ProductImageComponent  , canActivate:[AuthGuard , adminGuard]},
+
+  {path:"update-product-dashboard/:data", component:UpdateProductDashboardComponent , canActivate:[ AuthGuard , adminGuard]},
 
 ]
 
@@ -93,7 +115,16 @@ let routes: Routes = [
     MainSliderComponent,
     MainSliderDirective,
     SpinnerComponent,
-
+    CartComponent,
+    WishlistComponent,
+    AddCategoryDashboardComponent,
+    AddProductDashboardComponent,
+    ProductImageComponent,
+    UpdateCategoryDashboardComponent,
+    UpdateProductDashboardComponent,
+    DashboardComponent,
+    DistFilmsliderComponent,
+    DistFilmslidelComponent
   ],
   imports: [
     BrowserModule,

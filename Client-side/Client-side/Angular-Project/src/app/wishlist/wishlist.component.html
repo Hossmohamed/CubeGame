@@ -1,5 +1,7 @@
 <ng-container *ngIf="AllProduct.length !=0">
   <div class="container my-4">
+    <button class="btn-back" routerLink="/"><i class="bi bi-arrow-left"></i></button>
+
     <h1>My wishlist</h1>
     <div class="container-head">
       <p style="width:10px; ">Sr.No</p>
@@ -20,7 +22,7 @@
                 <div style="width:250px; "><h4>{{item.productName}}</h4></div>
                 <div><h4>{{item.price}} <span> EGP</span></h4></div>
                 <div><h4>{{item.discount}}%</h4></div>
-                <div><h4>{{item.priceAfterDiscount}} <span> EGP</span></h4></div>
+                <div><h4>{{item. priceAfterDiscount}} <span> EGP</span></h4></div>
                 <div>
                     <i class="bi bi-x-square-fill" (click)=" deleteitem(item.id)"></i>
                 </div>

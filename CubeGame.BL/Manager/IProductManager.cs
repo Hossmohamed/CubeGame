@@ -5,12 +5,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OS = CubeGame.DAL.Data.Models.OS;
 
 namespace CubeGame.BL.Manager
 {
     public interface IProductManager
     {
         public List<ProductDTO> GetAll();
+
+        public List<ProductDTO> GetAllWithoutImage();
         public List<ProductDTO> GetAllComingSoon();
         public List<ProductDTO> GetAllGameOnSale();
         public List<ProductDTO> GetAllFreeGames();
@@ -29,5 +32,9 @@ namespace CubeGame.BL.Manager
         public void EditProduct(int id , ProductDTO p);
 
         public void DeleteProduct(int id);
+        public List<ProductDTO> GetProductsByCategory(int id);
+        public List<ProductDTO> GetProductsByPrice(int price);
+
+        public List<ProductDTO> GetProductsByPlatform(OS platform);
     }
 }

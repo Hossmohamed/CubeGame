@@ -1,6 +1,6 @@
 <app-navigation-one></app-navigation-one>
-<app-navigation-two></app-navigation-two>
-<div class="container">
+ <app-navigation-two></app-navigation-two>
+<div class="container py-3">
     <div *ngIf="product ;else flaseBlock" class="row">
         <div class="col-lg-8 col-sm-12">
             <div class="row">
@@ -22,7 +22,7 @@
                     <div class="col-lg-9  col-sm-12 img">
 
                         <img id="preview" src={{product.picture}}>
-                        <ul>
+                        <ul class="pt-3">
                             <li class="left"><h4>Geners</h4> <span>{{product.categoryName}}</span></li>
                             <li class="rigth"><h4>Features</h4><Span>Comperitive , Multiplayer</Span></li>
                         </ul>
@@ -55,7 +55,7 @@
                 </div>
             </div>
             <div class="col-12">
-                <h1>Specification</h1>
+                <h1 calss="py-2">Specification</h1>
                 <table class="table specificTable p-5">
                     <tr>
                         <th>
@@ -155,11 +155,11 @@
                         </tr>
                         <tr>
                             <td>Plat Form </td>
-                            <td><i class="bi bi-windows"></i><i class="bi bi-apple"></i> </td>
+                            <td><i class="bi bi-windows"></i><i class="bi bi-apple"></i>{{product.platform}} </td>
                         </tr>
                         <tr>
                             <td>Price </td>
-                            <td>{{product.price}}</td>
+                            <td>{{product.price}} EGP</td>
                         </tr>
                         <tr>
                             <td colspan="2" class="tablebtn">
@@ -168,7 +168,7 @@
                         </tr>
                         <tr>
                             <td colspan="2" class="tablebtn">
-                             <button (click)=" addToWishlist(product.productId)" class="btn socend">ADD TO wishlist</button>
+                             <button (click)=" addToWishlist(product.productId)" class="btn socend">ADD TO Wishlist</button>
                             </td>
                         </tr>
                     </tbody>

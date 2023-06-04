@@ -1,9 +1,9 @@
 <!-- <p>navigation-two works!</p> -->
-<nav class="navbar bg-second-nav">
+<nav class="navbar bg-second-nav" data-aos="fade-down" data-aos-offset="500">
   <div class="container">
-    <form class="d-flex align-items-center" role="search" >
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="searchQuery"[ngModelOptions]="{standalone: true}">
-      <button class="btn btn-search"(click)="search()">Search</button>
+    <form class="d-flex align-items-center" role="search"  >
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="searchQuery"[ngModelOptions]="{standalone: true}" (keyup)="search()" >
+      <button class="btn btn-search">Search</button>
       <!-- <div *ngIf="searchQuery.length > 0">
         <h3>Search Results:</h3>
         <ul>
@@ -13,6 +13,8 @@
       <button class="btn btn-second-nav btn-discover" type="button"><a [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active-navtwo" routerLink="/">Discover</a></button>
       <button class="btn btn-second-nav btn-browse" type="button"><a routerLinkActive="active-navtwo" routerLink="/Browse">Browse</a></button>
       <button class="btn btn-second-nav btn-library" type="button">Library</button>
+      <!-- <button class="btn btn-second-nav btn-library" type="button"><a routerLinkActive="active-navtwo" routerLink="/dashboard">Dashboard</a></button> -->
+
     </form>
   </div>
 </nav>

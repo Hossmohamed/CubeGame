@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MainSliderService } from '../../Services/main-slider.service';
+import { Component, OnInit} from '@angular/core';
+import { MostPlayedService } from '../../Services/most-played.service';
 
 @Component({
   selector: 'app-main-slider',
@@ -7,7 +7,9 @@ import { MainSliderService } from '../../Services/main-slider.service';
   styleUrls: ['./main-slider.component.css']
 })
 export class MainSliderComponent implements OnInit {
-  constructor(public myserv:MainSliderService){}
+  constructor(public myserv:MostPlayedService){}
+
+
   user:any;
   currentIndex: number = 0;
   currentImage: any;
@@ -26,7 +28,7 @@ export class MainSliderComponent implements OnInit {
 
   ngOnInit(): void {
     this.startInterval();
-    this.myserv.GetAllMainSlider().subscribe({
+    this.myserv.GetSomeMostPlayed().subscribe({
       next:(data)=>{
         this.user=data;
       },

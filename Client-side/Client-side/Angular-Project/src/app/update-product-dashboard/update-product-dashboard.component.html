@@ -1,0 +1,110 @@
+
+<form [formGroup]="updateProduct" (ngSubmit)="onSubmitdata()">
+
+  <input class="form-control" formControlName="productname" [(ngModel)]="data.productName"
+   type="text"  class="form-input border-bottom">
+
+  <textarea  class="form-control" formControlName="productdes" [(ngModel)]="data.description" name="message"></textarea>
+
+  <input class="form-control" formControlName="productprice" [(ngModel)]="data.price"
+  type="number"  class="form-input border-bottom">
+
+  <input class="form-control" formControlName="productdiscount" [(ngModel)]="data.discount"
+  type="number"  class="form-input border-bottom">
+
+  <input class="form-control" formControlName="productrate" [(ngModel)]="data.rate"
+  type="number"  class="form-input border-bottom">
+
+  <!-- Category -->
+  <label>Choose Category:</label>
+  <select [(ngModel)]="selectedCategoryId" class="form-control" formControlName="categoryP">
+    <option *ngFor="let category of AllCategories" [value]="category.id">{{ category.categoryName }}</option>
+    </select>
+
+
+  <input class="form-control" formControlName="developer" [(ngModel)]="data.developerName"
+  type="text"  class="form-input border-bottom">
+
+
+  <input class="form-control" formControlName="releasedate" [(ngModel)]="data.releaseDate"
+  type="date" class="form-input border-bottom">
+
+  <input class="form-control" formControlName="processor" [(ngModel)]="data.processor"
+  type="text"  class="form-input border-bottom">
+
+
+  <input class="form-control" formControlName="ram" [(ngModel)]="data.ram"
+  type="number"  class="form-input border-bottom">
+
+  <!-- platform -->
+  <label>Choose Platform:</label>
+  <select [(ngModel)]="selectedtype" class="form-control" formControlName="os">
+    <option *ngFor="let p of platform" [value]="p">{{p}}</option>
+  </select>
+
+
+  <label>IsMostPopular?</label>
+  <div *ngFor="let TorF of TF">
+    <label >
+      <input  type="radio" name="MPop" [value]="TorF"
+       formControlName="MPop" [(ngModel)]="popular">
+      {{TorF}}
+    </label>
+</div>
+
+  <label>IsMostPlayed?</label>
+  <div *ngFor="let TorF2 of TF">
+    <label>
+      <input type="radio" name="Mp" [value]="TorF2"
+      formControlName="Mp"  [(ngModel)]="most">
+      {{TorF2}}
+    </label>
+</div>
+
+  <label>IsGameOnSale?</label>
+  <div *ngFor="let TorF3 of TF">
+    <label >
+      <input [value]='TorF3' name="Gsale"
+     formControlName="Gsale" type="radio" [(ngModel)]="sale">
+      {{TorF3}}
+    </label>
+</div>
+  <label>IsRecentlyUpdated?</label>
+  <div *ngFor="let TorF4 of TF">
+    <label >
+      <input  [value]='TorF4' name="up"
+      formControlName="up" type="radio" [(ngModel)]="updated">
+      {{TorF4}}
+    </label>
+</div>
+  <label>IsNewRelease?</label>
+  <div *ngFor="let TorF5 of TF">
+    <label >
+      <input  [value]='TorF5' name="rel"
+      formControlName="rel" type="radio" [(ngModel)]="release">
+      {{TorF5}}
+    </label>
+</div>
+
+  <label>IsTopSeller?</label>
+  <div *ngFor="let TorF6 of TF">
+    <label >
+      <input [value]='TorF6' name="topS"
+     formControlName="topS"
+      type="radio" [(ngModel)]="top">
+      {{TorF6}}
+    </label>
+</div>
+
+  <label>IsComingSoon?</label>
+  <div *ngFor="let TorF of TF">
+    <label>
+      <input [value]='TorF' name="Csoon"
+      formControlName="Csoon" type="radio"[(ngModel)]="soon">
+      {{TorF}}
+    </label>
+</div>
+  <button class="btn btn-login mx-4"
+  type="submit"
+  [disabled]="updateProduct.invalid">Submit</button>
+</form>

@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CubeGame.DAL.Data.Models.cart
+namespace CubeGame.DAL.Data.Models.Cart
 {
     public class CartItem
     {
@@ -32,7 +32,7 @@ namespace CubeGame.DAL.Data.Models.cart
         public double Discount { get; set; }
 
         [ForeignKey("Cart")]
-        [Required]
+
         public int CartId { get; set; }
         public virtual Product Product { get; set; }
         public virtual Cart Cart { get; set; }

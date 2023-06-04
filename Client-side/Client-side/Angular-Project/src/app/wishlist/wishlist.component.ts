@@ -12,7 +12,7 @@ import { Product, WishlistService } from 'src/Services/wishlist.service';
 export class WishlistComponent implements OnInit {
 
 
-  AllProduct: Product[] = [];
+  AllProduct: any[] = [];
   constructor(private wishlistService: WishlistService, private cartService :CartService,private auth : AuthService ,private route:Router ) { }
   ngOnInit(): void {
     this.wishlistService.GetWishlist().subscribe(
