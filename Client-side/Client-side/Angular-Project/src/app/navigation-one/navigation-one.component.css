@@ -48,8 +48,9 @@
 }
 .active-navone,.nav-stor:hover ,.nav-cat:hover ,.nav-dist:hover
 {
-  border-bottom: 5px solid #6FE2E1;
-  color: white;
+  border-bottom: 5px solid transparent;
+  border-image: linear-gradient( 90deg, #6FE2E1, transparent);
+  border-image-slice: 1;
   transition: ease-in 0.1s;
 }
 .btn-sign

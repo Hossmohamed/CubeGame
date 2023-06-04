@@ -10,7 +10,7 @@ export class NewReleaseComponent  implements OnInit{
   constructor(public myService:NewReleaseService){}
   NewRelease:any;
   ngOnInit(): void {
-    this.myService.GetAllNewRelease().subscribe({
+    this.myService.GetSomeNewRelease().subscribe({
       next:(data)=>{
         this.NewRelease = data;
       },

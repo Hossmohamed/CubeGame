@@ -47,6 +47,8 @@ import { MainSliderComponent } from './main-slider/main-slider.component';
 import { MainSliderDirective } from './Directives/main-slider.directive';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { DistFilmsliderComponent } from './dist-filmslider/dist-filmslider.component';
+import { DistFilmslidelComponent } from './dist-filmslidel/dist-filmslidel.component';
 import { AuthService } from 'src/Services/auth.service';
 import { AddCategoryDashboardComponent } from './add-category-dashboard/add-category-dashboard.component';
 import { AddProductDashboardComponent } from './add-product-dashboard/add-product-dashboard.component';
@@ -120,7 +122,9 @@ let routes: Routes = [
     ProductImageComponent,
     UpdateCategoryDashboardComponent,
     UpdateProductDashboardComponent,
-    DashboardComponent
+    DashboardComponent,
+    DistFilmsliderComponent,
+    DistFilmslidelComponent
   ],
   imports: [
     BrowserModule,
