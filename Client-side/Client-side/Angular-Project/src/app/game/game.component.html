@@ -1,5 +1,5 @@
-<app-navigation-one></app-navigation-one> 
- <app-navigation-two></app-navigation-two>
+<app-navigation-one></app-navigation-one>
+<app-navigation-two></app-navigation-two>
 <div class="container">
     <div *ngIf="product ;else flaseBlock" class="row">
         <div class="col-lg-8 col-sm-12">
@@ -29,31 +29,15 @@
                     </div>
                     <div class="col-lg-3 col-sm-12 ">
                         <div class="slider-container">
-                            <h4 class="top-arrow">
-                                <i class="bi bi-chevron-compact-up rigth" id="top-arrow" appArrowTop></i>
-                                <!-- <button class="carousel-control-prev" type="button" data-bs-target="#secondcarouselExampleControls" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                  </button> -->
-
-                            </h4>
-                            <div class="slider-images" id="slider-images">
-                              <img id="FImge" class="img1 active" src="../../assets/img/bg.png" appSlider >
-                              <img id="img"  src="../../assets/img/2.png" appSlider>
-                              <img id="img1" src="../../assets/img/3.png" appSlider>
-                              <img id="img1" src="../../assets/img/4.png" appSlider>
-                              <img id="img1" src="../../assets/img/1.png"  appSlider>
-                              <!-- <img *ngFor="let i of img" src={{img.imageURL}}> -->
-
+                            <h4 class="top-arrow" (click)="goToTop()">
+                                <i class="bi bi-chevron-compact-up rigth" id="top-arrow"></i>
+                            </h4>  
+                            <div class="slider-images" id="slider-images"  >
+                              <img  *ngFor="let a of img" class="img" id="img"  src={{a.imageURL}} appSlider >                            
                             </div>
-                            <h4 class="down-arrow">
-                                <i class="bi bi-chevron-compact-down" id="down-arrow" appArrowbutton></i>
-                                <!-- <button class="carousel-control-next" type="button" data-bs-target="#secondcarouselExampleControls" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                  </button>
-                             -->
-                            </h4>
+                            <h4 class="down-arrow" (click)=" goToDown()">
+                                <i class="bi bi-chevron-compact-down" id="down-arrow"></i>
+                            </h4>  
 
                         </div>
                     </div>
@@ -74,12 +58,7 @@
                 <h1>Specification</h1>
                 <table class="table specificTable p-5">
                     <tr>
-                        <!-- <th><toggle>Windows</button> <button>MacOS</button></th> -->
                         <th>
-                            <!-- <label class="switch">
-                                <input type="checkbox"> Windows
-                                <span class="slider">MacOS</span>
-                            </label> -->
                             <div class="top-select">
 
                             </div>

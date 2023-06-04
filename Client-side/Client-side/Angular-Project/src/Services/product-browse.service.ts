@@ -9,7 +9,7 @@ export class ProductBrowseService {
   constructor(private myClient : HttpClient) { }
 
   private Base_URL = "https://localhost:7121/api/Product"
-  private imgs_URL = "https://localhost:7121/api/Product/ImagesProduct?Productid=1"
+  private imgs_URL = "https://localhost:7121/api/Product/ImagesProduct"
 
 
   GetAllProduct(){
@@ -23,6 +23,6 @@ export class ProductBrowseService {
   }
 
   GetProductImageByID(id:any){
-    return this.myClient.get(`${this.imgs_URL}/${id}`);
+    return this.myClient.get(`${this.imgs_URL}?Productid=${id}`);
   }
 }

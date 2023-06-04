@@ -67,14 +67,17 @@ p {
    text-align: center;
    height: 250px;
    overflow-y: scroll;
-   overflow-x: hidden;
-
    scroll-behavior: smooth;
 
  }
- 
- 
- 
+
+ .slider-images::-webkit-scrollbar {
+  display: none;
+ }
+ .slider-images {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;  
+}
  .slider-images img {
    width: 99%;
    height: 75px;
