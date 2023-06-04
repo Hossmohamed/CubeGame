@@ -29,25 +29,7 @@ public class Cart
 
     public bool IsActive { get; set; } = true;
 
-    public double GetTotalPrice()
-    {
-        [Key]
-        public int Id { get; set; }
-
-        [ForeignKey("ApplicationUser")]
-        [Required]
-        public string AccountId { get; set; }
-
-        public double TotalPrice { get; set; }
-
-        public virtual ICollection<CartItem> CartItems { get; set; } = new List<CartItem>();
-
-        public virtual ApplicationUser? Account { get; set; }
-
-        //[DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public DateTime? CreatedDate { get; set; }
-        public bool IsActive { get; set; } = true;
-
+  
         public double GetTotalPrice()
         {
             double total = 0;
@@ -59,6 +41,6 @@ public class Cart
             return total;
         }
 
-    }
+    
 }
 

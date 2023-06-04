@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { catchError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -39,9 +40,15 @@ export class DashboardService {
      return this.client.get<any>(`${this.baseURLP}/ProductsWithoutImages`)
    }
 
-   addProduct(productObj : any){
-     return this.client.post<any>(`${this.baseURLP}` , productObj)
-   }
+   addProduct(productObj: any) {
+    return this.client.post<any>(`${this.baseURLP}`, productObj)
+      .pipe(
+        catchError(error => {
+          console.error('Error adding product:', error);
+          throw error; // Rethrow the error to propagate it to the calling component
+        })
+      );
+  }
 
    UpdateProduct(id : number , productObj : any){
      const url = `${this.baseURLP}/${id}`;
@@ -53,6 +60,6 @@ export class DashboardService {
    }
 
    AddImage(id : any , file : any){
-     return this.client.post<any>(`${this.baseURLP}/AddImage/${id}` , file)
+     return this.client.post<any>(`${this.baseURLP}/AddImage/${id}`, file)
    }
 }
