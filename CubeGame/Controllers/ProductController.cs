@@ -80,12 +80,16 @@ namespace CubeGame.Controllers
             }
             return NotFound();
         }
+        //comment
+
+
 
         [HttpGet("ProductsWithoutImages")]
         public IActionResult GetAllProductWithoutImages()
         {
             if (repo.GetAllWithoutImage().Count() > 0)
             {
+
                 return Ok(repo.GetAllWithoutImage());
             }
             return NotFound();
