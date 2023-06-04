@@ -19,12 +19,12 @@ namespace CubeGame.BL.Manager
     public class ProductManager : IProductManager
     {
         IProductRepo IR { get; }
-        ICategoryRepo IC {get;}
-   
-        public ProductManager(IProductRepo _IR , ICategoryRepo _IC )
+        ICategoryRepo IC { get; }
+
+        public ProductManager(IProductRepo _IR, ICategoryRepo _IC)
         {
             IR = _IR;
-            IC = _IC; 
+            IC = _IC;
         }
 
 
@@ -471,5 +471,100 @@ namespace CubeGame.BL.Manager
 
             return insDTo;
         }
+
+        public List<ProductDTO> GetProductsByCategory(int id)
+        {
+            var ins = IR.GetProductsByCategory(id);
+
+            List<ProductDTO> productDTOs = new List<ProductDTO>();
+
+            foreach (var i in ins)
+            {
+                ProductDTO dTO = new ProductDTO()
+                {
+                    ProductId = i.ProductId,
+                    ProductName = i.ProductName,
+                    Description = i.Description,
+                    Price = i.Price,
+                    Discount = i.Discount,
+                    CategoryId = i.CategoryId,
+                    DeveloperName = i.DeveloperName,
+                    RAM = i.RAM,
+                    Processor = i.Processor,
+                    ReleaseDate = i.ReleaseDate,
+                    platform = i.platform.ToString(),
+                    Picture = i.GetMainImage().ImageURL,
+                    CategoryName = IC.GetById(i.CategoryId).CategoryName
+                };
+                productDTOs.Add(dTO);
+            }
+
+            return productDTOs;
+        }
+        public List<ProductDTO> GetProductsByPrice(int price)
+        {
+            var ins = IR.GetProductsByPrice(price);
+
+            List<ProductDTO> productDTOs = new List<ProductDTO>();
+
+            foreach (var i in ins)
+            {
+                ProductDTO dTO = new ProductDTO()
+                {
+                    ProductId = i.ProductId,
+                    ProductName = i.ProductName,
+                    Description = i.Description,
+                    Price = i.Price,
+                    Discount = i.Discount,
+                    CategoryId = i.CategoryId,
+                    DeveloperName = i.DeveloperName,
+                    RAM = i.RAM,
+                    Processor = i.Processor,
+                    ReleaseDate = i.ReleaseDate,
+                    platform = i.platform.ToString(),
+                    Picture = i.GetMainImage().ImageURL,
+                    CategoryName = IC.GetById(i.CategoryId).CategoryName
+                };
+                productDTOs.Add(dTO);
+
+            }
+
+            return productDTOs;
+        }
+
+        public List<ProductDTO> GetProductsByPlatform(DAL.Data.Models.OS platform)
+        {
+            var ins = IR.GetProductsByPlatform(platform);
+
+            List<ProductDTO> productDTOs = new List<ProductDTO>();
+
+            foreach (var i in ins)
+            {
+                ProductDTO dTO = new ProductDTO()
+                {
+                    ProductId = i.ProductId,
+                    ProductName = i.ProductName,
+                    Description = i.Description,
+                    Price = i.Price,
+                    Discount = i.Discount,
+                    CategoryId = i.CategoryId,
+                    DeveloperName = i.DeveloperName,
+                    RAM = i.RAM,
+                    Processor = i.Processor,
+                    ReleaseDate = i.ReleaseDate,
+                    platform = i.platform.ToString(),
+                    Picture = i.GetMainImage().ImageURL,
+                    CategoryName = IC.GetById(i.CategoryId).CategoryName
+                };
+                productDTOs.Add(dTO);
+
+            }
+
+            return productDTOs;
+
+        }
+
+     
+       
     }
 }

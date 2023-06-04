@@ -32,15 +32,18 @@ public class Cart
 
     public bool IsActive { get; set; } = true;
 
-    public double GetTotalPrice()
-    {
-        double total = 0;
-        if (CartItems.Count > 0)
+  
+        public double GetTotalPrice()
         {
-            foreach (var item in CartItems)
-                total += (item.Price - item.Price * (item.Discount / 100)) * item.Quantity;
+            double total = 0;
+            if (CartItems.Count > 0)
+            {
+                foreach (var item in CartItems)
+                    total += (item.Price - item.Price * (item.Discount / 100)) * item.Quantity;
+            }
+            return total;
         }
-        return total;
-    }
 
+    
 }
+

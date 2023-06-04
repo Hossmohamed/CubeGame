@@ -119,5 +119,21 @@ namespace CubeGame.DAL.Repo.product
         {
             return _context.Products.Include(i => i.Images).Include(c => c.category).SingleOrDefault(g => g.ProductId == id);
         }
+
+        public List<Product> GetProductsByCategory(int categoryid)
+        {
+            return _context.Products.Include(i => i.Images).Where(c=>c.CategoryId == categoryid).ToList();
+
+        }
+
+        public List<Product> GetProductsByPrice(int price)
+        {
+            return _context.Products.Include(i => i.Images).Where(p=>p.Price==price).ToList();  
+        }
+
+        public List<Product> GetProductsByPlatform(OS platform)
+        {
+            return _context.Products.Include(i => i.Images).Where(p => p.platform==platform).ToList();
+        }
     }
 }

@@ -10,6 +10,9 @@ namespace CubeGame.DAL.Repo.product
     public interface IProductRepo
     {
         public List<Product> GetAll();
+        public List<Product> GetProductsByCategory(int id);
+        public List<Product> GetProductsByPrice(int price);
+        public List<Product> GetProductsByPlatform(OS platform);
 
         public List<Product> GetAllWithoutImage();
         public List<Product> GetAllComingSoon();

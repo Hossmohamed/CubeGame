@@ -32,7 +32,7 @@ namespace CubeGame.DAL.Data.Models.Cart
         public double Discount { get; set; }
 
         [ForeignKey("Cart")]
-        [Required]
+
         public int CartId { get; set; }
         public virtual Product Product { get; set; }
         public virtual Cart Cart { get; set; }

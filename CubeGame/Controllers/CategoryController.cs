@@ -31,7 +31,8 @@ namespace CubeGame.Controllers
         public IActionResult GetByID(int id)
         {
             return Ok(repo.GetById(id));
-        }
+        }       
+    
 
         [HttpPost]
         public IActionResult AddCategory(CategoryDTO c)
