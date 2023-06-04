@@ -1,4 +1,4 @@
-﻿using CubeGame.DAL.Data.Models.cart;
+﻿using CubeGame.DAL.Data.Models.Cart;
 using CubeGame.DAL.Data.Models.wishlist;
 using System;
 using System.Collections.Generic;

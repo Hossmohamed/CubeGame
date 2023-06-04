@@ -44,14 +44,14 @@ namespace CubeGame.Controllers
         }
         [Authorize]
         [HttpDelete("clearwishlist")]
-        public IActionResult clearwishlist() 
+        public IActionResult clearwishlist()
         {
             var token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
             wishlistRepo.ClearWishList(token);
             return Ok();
 
-        
-        
+
+
         }
         [Authorize]
         [HttpDelete("RemoveFromwishlist/{id}")]
@@ -59,7 +59,7 @@ namespace CubeGame.Controllers
         {
             string token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
 
-          wishlistRepo.RemoveFromWishList(id,token);
+            wishlistRepo.RemoveFromWishList(id, token);
 
             return Ok("ok");
 

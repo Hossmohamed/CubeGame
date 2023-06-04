@@ -7,10 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CubeGame.DAL.Data.Models.cart;
+namespace CubeGame.DAL.Data.Models.Cart;
 
 public class Cart
 {
+
     [Key]
     public int Id { get; set; }
 
@@ -24,8 +25,8 @@ public class Cart
 
     public virtual ApplicationUser? Account { get; set; }
 
-    //[DatabaseGenerated(DatabaseGeneratedOption.Computed)]
     public DateTime? CreatedDate { get; set; }
+
     public bool IsActive { get; set; } = true;
 
     public double GetTotalPrice()

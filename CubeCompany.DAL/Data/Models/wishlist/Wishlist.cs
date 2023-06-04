@@ -1,4 +1,4 @@
-﻿using CubeGame.DAL.Data.Models.cart;
+﻿using CubeGame.DAL.Data.Models.Cart;
 using CubeGame.Data.Models.Account;
 using System;
 using System.Collections.Generic;
