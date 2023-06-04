@@ -15,6 +15,9 @@ public class Cart
     [Key]
     public int Id { get; set; }
 
+
+
+
     [ForeignKey("ApplicationUser")]
     [Required]
     public string AccountId { get; set; }
