@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/Services/auth.service';
 import { DashboardService } from 'src/Services/dashboard.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class DashboardComponent implements OnInit{
   // -------- Category ------------
   AllCategories : any
   AllProduct : any
-  constructor(public myService : DashboardService , private router: Router){}
+  constructor(public myService : DashboardService , public auth : AuthService , private router: Router){}
   ngOnInit(): void {
 
     this.myService.GetAllCategories().subscribe({
@@ -83,6 +84,12 @@ deleteproduct(id : any){
   this.show1 = false
   this.show2 = false
   this.show3 = true
+ }
+
+ Logout(){
+    this.auth.logOut();
+    this.router.navigate(['Browse'])
+    window.location.reload()
  }
 }
 

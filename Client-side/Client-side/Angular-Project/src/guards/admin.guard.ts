@@ -10,14 +10,14 @@ import { AuthService } from 'src/Services/auth.service';
   providedIn: 'root'
 })
 export class adminGuard implements CanActivate {
-  constructor(private injector: Injector, private router: Router){};
+  constructor(private injector: Injector, private router: Router , private auth : AuthService){};
   canActivate(
    ): boolean {
-    let isLoggedIn = this.injector.get(AuthService).IsLoggedIn();
-    if (isLoggedIn && this.injector.get(AuthService).getRoleFromToken()==='Admin'){
+
+    // let isLoggedIn = this.injector.get(AuthService).IsLoggedIn();
+    if (this.auth.getRoleFromToken()==='Admin'){
       return true
     } else {
-      this.router.navigate(['/']);
       return false;
     }
   }

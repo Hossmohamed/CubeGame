@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
 
           if(this.role === 'Admin'){
             this.toast.success({detail:"SUCCESS",summary:'Login - Success',duration:5000});
-
+            console.log("I AM  Admin")
             this.myRouter.navigate(['dashboard'])
           }
           else if(this.role === 'User'){
@@ -102,21 +102,6 @@ export class LoginComponent implements OnInit {
 
   }
 
-  checkRole(){
-    let is_admin = this.myService.getRoleFromToken();
-    console.log(is_admin)
-    if(is_admin === true){
-      this.myRouter.navigate(['dashboard'])
-    }
-    else if(is_admin === false){
-      this.myRouter.navigate(['Browse'])
-    }
-
-    else{
-      this.myRouter.navigate(['login'])
-    }
-
-  }
 }
 
 

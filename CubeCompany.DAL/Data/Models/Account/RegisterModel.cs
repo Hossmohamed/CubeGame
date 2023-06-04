@@ -18,5 +18,7 @@ namespace CubeGame.Data.Models.Account
 
         [Required, StringLength(256)]
         public string Password { get; set; }
+
+        public string Role { get; set; } = "User";
     }
 }

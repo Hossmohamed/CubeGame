@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CubeGame.DAL.Data.Models.cart;
+namespace CubeGame.DAL.Data.Models.Cart;
 
 public class Cart
 {

@@ -9,6 +9,6 @@ namespace CubeGame.BL.Manager
 {
    public interface IWishlistManager
     {
-       IEnumerable<wishlistDto> GetAll(string token);
+        IEnumerable<wishlistDto> GetAll(string token);
     }
 }

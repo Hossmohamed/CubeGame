@@ -25,7 +25,7 @@ export class NavigationOneComponent implements OnInit ,OnDestroy{
     private route:Router , private cartService : CartService,private wishlistService:WishlistService){}
 
   ngOnInit(): void {
-    if (this.auth.IsLoggedIn()) {
+    if (this.auth.IsLoggedIn()&& this.auth.getRoleFromToken()!=='Admin') {
       this.Logged = true;
 
       this.cartItemsSubscription = this.cartService.cartItems$.subscribe(

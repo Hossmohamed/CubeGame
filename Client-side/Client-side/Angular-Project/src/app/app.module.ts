@@ -70,15 +70,15 @@ let routes: Routes = [
   {path:"wishlist", component:WishlistComponent ,  canActivate:[AuthGuard] },
 
   // dashboard
-  {path:"dashboard", component:DashboardComponent , canActivate:[adminGuard]},
+  {path:"dashboard", component:DashboardComponent , canActivate:[AuthGuard , adminGuard]},
 
-  {path:"update-category-dashboard/:data", component:UpdateCategoryDashboardComponent , canActivate:[adminGuard]},
-  {path:"add-category-dashboard", component:AddCategoryDashboardComponent , canActivate:[adminGuard]},
+  {path:"update-category-dashboard/:data", component:UpdateCategoryDashboardComponent , canActivate:[AuthGuard , adminGuard]},
+  {path:"add-category-dashboard", component:AddCategoryDashboardComponent , canActivate:[AuthGuard , adminGuard]},
 
-  {path:"add-product-dashboard", component:AddProductDashboardComponent , canActivate:[adminGuard]},
-  {path:"product-image", component:ProductImageComponent },
+  {path:"add-product-dashboard", component:AddProductDashboardComponent , canActivate:[AuthGuard , adminGuard]},
+  {path:"product-image", component:ProductImageComponent  , canActivate:[AuthGuard , adminGuard]},
 
-  {path:"update-product-dashboard/:data", component:UpdateProductDashboardComponent , canActivate:[adminGuard]},
+  {path:"update-product-dashboard/:data", component:UpdateProductDashboardComponent , canActivate:[ AuthGuard , adminGuard]},
 
 ]
 
