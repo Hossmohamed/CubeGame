@@ -19,7 +19,7 @@ namespace CubeGame.BL.Manager
 
         public IEnumerable<wishlistDto> GetAll(string token)
         {
-             var wishlistItems = Iwish.GetwishlisttItems(token);
+            var wishlistItems = Iwish.GetwishlisttItems(token);
 
             List<wishlistDto> wishlistDtos = new List<wishlistDto>();
 

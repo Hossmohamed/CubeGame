@@ -24,6 +24,11 @@ namespace CubeGame.Data.Context
 
             modelBuilder.Entity<Cart>().HasQueryFilter(C => C.IsActive == true);
 
+            //modelBuilder.Entity<Cart>()
+            //  .HasMany(c => c.CartItems)
+            //  .WithOne(ci => ci.Cart)
+            //  .HasForeignKey(ci => ci.CartId);
+
             base.OnModelCreating(modelBuilder);
             //modelBuilder.Entity<IdentityUserLogin<string>>().HasKey(l => new { l.LoginProvider, l.ProviderKey });
         }
@@ -32,9 +37,11 @@ namespace CubeGame.Data.Context
         public DbSet<Image> Images { get; set; }
         public DbSet<Cart> Carts { get; set; }
         public DbSet<CartItem> CartItems { get; set; }
+
         public DbSet<Wishlist> wishlists { get; set; }
         public DbSet<wishlistItam> WishlistItams { get; set; }
-      
+
+
 
     }
 }

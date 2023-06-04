@@ -16,13 +16,13 @@ namespace CubeGame.DAL.Repo.Services
     public class AuthService : IAuthService
     {
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
+        //private readonly RoleManager<IdentityRole> _roleManager;
         private readonly JWT _jwt;
         public AuthService(UserManager<ApplicationUser> userManager, IOptions<JWT> jwt, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _jwt = jwt.Value;
-            _roleManager = roleManager;
+            //_roleManager = roleManager;
         }
 
         public async Task<AuthModel> GetTokenAsync(TokenRequestModel model)
@@ -38,7 +38,7 @@ namespace CubeGame.DAL.Repo.Services
             }
 
             var jwtSecurityToken = await CreateJwtToken(user);
-            var rolesList = await _userManager.GetRolesAsync(user);
+            //var rolesList = await _userManager.GetRolesAsync(user);
 
             authModel.IsAuthenticated = true;
 
@@ -49,7 +49,7 @@ namespace CubeGame.DAL.Repo.Services
             authModel.Email = user.Email;
             authModel.Username = user.UserName;
             //authModel.ExpiresOn = jwtSecurityToken.ValidTo;
-            authModel.Roles = rolesList.ToList();
+            authModel.Roles = user.Role;
 
             //Is the user that login to App has any active refresh token ?
 
@@ -74,20 +74,20 @@ namespace CubeGame.DAL.Repo.Services
             return authModel;
         }
 
-        public async Task<string> AddRoleAsync(AddRoleModel model)
-        {
-            var user = await _userManager.FindByIdAsync(model.UserId);
+        //public async Task<string> AddRoleAsync(AddRoleModel model)
+        //{
+        //    var user = await _userManager.FindByIdAsync(model.UserId);
 
-            if (user is null || !await _roleManager.RoleExistsAsync(model.Role))
-                return "Invalid user ID or Role";
+        //    if (user is null || !await _roleManager.RoleExistsAsync(model.Role))
+        //        return "Invalid user ID or Role";
 
-            if (await _userManager.IsInRoleAsync(user, model.Role))
-                return "User already assigned to this role";
+        //    if (await _userManager.IsInRoleAsync(user, model.Role))
+        //        return "User already assigned to this role";
 
-            var result = await _userManager.AddToRoleAsync(user, model.Role);
+        //    var result = await _userManager.AddToRoleAsync(user, model.Role);
 
-            return result.Succeeded ? string.Empty : "Something went wrong";
-        }
+        //    return result.Succeeded ? string.Empty : "Something went wrong";
+        //}
 
 
         public async Task<AuthModel> RegisterAsync(RegisterModel model)
@@ -103,7 +103,8 @@ namespace CubeGame.DAL.Repo.Services
                 UserName = model.Username,
                 Email = model.Email,
                 FirstName = model.FirstName,
-                LastName = model.LastName
+                LastName = model.LastName,
+                Role = model.Role,
             };
 
             var result = await _userManager.CreateAsync(user, model.Password);
@@ -118,7 +119,7 @@ namespace CubeGame.DAL.Repo.Services
                 return new AuthModel { Message = errors };
             }
 
-            await _userManager.AddToRoleAsync(user, "User");
+            //await _userManager.AddToRoleAsync(user, "User");
 
             var jwtSecurityToken = await CreateJwtToken(user);
            
@@ -136,7 +137,8 @@ namespace CubeGame.DAL.Repo.Services
                 Email = user.Email,
                // ExpiresOn = jwtSecurityToken.ValidTo,
                 IsAuthenticated = true,
-                Roles = new List<string> { "User" },
+                //Roles = new List<string> { "User" },
+                Roles = user.Role,
                 Token = user.token,
                 Username = user.UserName,
                 RefreshToken = refreshToken.Token,
@@ -188,8 +190,9 @@ namespace CubeGame.DAL.Repo.Services
             authModel.Token = user.token;
             authModel.Email = user.Email;
             authModel.Username = user.UserName;
-            var roles = await _userManager.GetRolesAsync(user);
-            authModel.Roles = roles.ToList();
+            //var roles = await _userManager.GetRolesAsync(user);
+            //authModel.Roles = roles.ToList();
+            authModel.Roles = user.Role;
             authModel.RefreshToken = newRefreshToken.Token;
             authModel.RefreshTokenExpiration = newRefreshToken.ExpiresOn;
             return authModel;
@@ -203,11 +206,11 @@ namespace CubeGame.DAL.Repo.Services
                 throw new ArgumentNullException(nameof(user));
             }
             var userClaims = await _userManager.GetClaimsAsync(user);
-            var roles = await _userManager.GetRolesAsync(user);
-            var roleClaims = new List<Claim>();
+            //var roles = await _userManager.GetRolesAsync(user);
+            //var roleClaims = new List<Claim>();
 
-            foreach (var role in roles)
-                roleClaims.Add(new Claim("roles", role));
+            //foreach (var role in roles)
+            //    roleClaims.Add(new Claim("roles", role));
             if (user.Id == null)
             {
                 // Handle the null user ID case
@@ -219,11 +222,11 @@ namespace CubeGame.DAL.Repo.Services
                 new Claim(ClaimTypes.NameIdentifier, user.Id),
                 new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(JwtRegisteredClaimNames.Email, user.Email)
-              
+                new Claim(JwtRegisteredClaimNames.Email, user.Email),
+                new Claim("roles", user.Role)
             }
-            .Union(userClaims)
-            .Union(roleClaims);
+            .Union(userClaims);
+            //.Union(roleClaims);
 
             var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwt.Key));
             var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256);
