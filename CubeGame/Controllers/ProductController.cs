@@ -37,6 +37,20 @@ namespace CubeGame.Controllers
             }
             return NotFound();
         }
+        //comment
+
+
+
+        [HttpGet("ProductsWithoutImages")]
+        public IActionResult GetAllProductWithoutImages()
+        {
+            if (repo.GetAllWithoutImage().Count() > 0)
+            {
+
+                return Ok(repo.GetAllWithoutImage());
+            }
+            return NotFound();
+        }
 
         [HttpGet ("GetAllFreeGames")]
         public IActionResult GetAllFreeGames()
@@ -148,7 +162,7 @@ namespace CubeGame.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddProduct([FromForm] ProductDTO c )
+        public IActionResult AddProduct(int id, ProductDTO c )
         {          
             if (ModelState.IsValid)
             {
@@ -167,7 +181,7 @@ namespace CubeGame.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateProduct(int id, [FromForm] ProductDTO c)
+        public IActionResult UpdateProduct(int id, ProductDTO c)
         {
             var uCategory = repo.getProductByID(id);
             if (uCategory == null)
@@ -229,7 +243,7 @@ namespace CubeGame.Controllers
 
                     repo.AddProductImages(id, I);
 
-                    return Created("url", id);
+                    return Created("url", I);
                 }
                 catch (Exception ex)
                 {

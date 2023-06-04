@@ -17,7 +17,7 @@ export class NavigationOneComponent implements OnInit ,OnDestroy{
     catg:any;
 
   public fullName:string =""
-  public role:string =""
+
   total : number =0
   total1:number=0;
   Logged:boolean = false;
@@ -38,7 +38,7 @@ export class NavigationOneComponent implements OnInit ,OnDestroy{
 
 
 
-    if (this.auth.IsLoggedIn()) {
+    if (this.auth.IsLoggedIn()&& this.auth.getRoleFromToken()!=='Admin') {
       this.Logged = true;
 
       this.cartItemsSubscription = this.cartService.cartItems$.subscribe(
@@ -56,6 +56,7 @@ export class NavigationOneComponent implements OnInit ,OnDestroy{
       )
 
        this.wishlistService.GetWishlist().subscribe();
+
        this.user_Store.getFullNameFromStore().subscribe({
          next:(data)=>{
 
@@ -63,7 +64,10 @@ export class NavigationOneComponent implements OnInit ,OnDestroy{
            this.fullName = data || fullnameFromToken
          }
        })
-   }}
+   }
+  //  ///////////////////////////////////////
+
+  }
    ngOnDestroy(): void {
     this.cartItemsSubscription.unsubscribe();
     this.wishlistItemsSubscription.unsubscribe();
@@ -75,17 +79,8 @@ export class NavigationOneComponent implements OnInit ,OnDestroy{
     window.location.reload()
   }
 
-
-
 }
 
 
-        // this.user_Store.getRoleFromStore().subscribe({
-        //   next:(data)=>{
 
-        //     let fullRoleFromToken = this.auth.getRoleFromToken();
-        //     this.role = data || fullRoleFromToken
 
-        //   }
-        // })
-      // }

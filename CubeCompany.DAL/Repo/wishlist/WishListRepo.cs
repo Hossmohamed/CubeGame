@@ -31,12 +31,12 @@ namespace CubeGame.DAL.Repo.wishlist
         public Wishlist GetwishlisttItems(string Token)
         {
 
-           ApplicationUser? account = context.Users.FirstOrDefault(a => a.token == Token);
+            ApplicationUser? account = context.Users.FirstOrDefault(a => a.token == Token);
 
-           Wishlist? wishlistItems = context.wishlists.Include(w => w.WishlistItams)
-               .ThenInclude(w => w.Product)
-               .ThenInclude(w => w.Images)
-               .FirstOrDefault(w => w.AccountID == account.Id);
+            Wishlist? wishlistItems = context.wishlists.Include(w => w.WishlistItams)
+                .ThenInclude(w => w.Product)
+                .ThenInclude(w => w.Images)
+                .FirstOrDefault(w => w.AccountID == account.Id);
 
             return wishlistItems;
         }

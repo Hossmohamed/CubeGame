@@ -1,5 +1,5 @@
 ﻿using CubeGame.DAL.Data.Models;
-using CubeGame.DAL.Data.Models.cart;
+using CubeGame.DAL.Data.Models.Cart;
 using CubeGame.Data.Context;
 using CubeGame.Data.Models.Account;
 using Microsoft.AspNetCore.Authorization;

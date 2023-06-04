@@ -1,0 +1,11 @@
+
+<form [formGroup]="updateCategory" (ngSubmit)="onSubmitdata()">
+
+  <label for="firstname">Enter Category-Name :</label>
+  <input class="form-control" formControlName="name" [(ngModel)]="data.categoryName"
+  id="name" type="text"  class="form-input border-bottom">
+
+  <button class="btn btn-login mx-4"
+  type="submit"
+  [disabled]="updateCategory.invalid">Submit</button>
+</form>
