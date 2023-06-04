@@ -10,7 +10,7 @@ import { Product } from 'src/Services/wishlist.service';
   styleUrls: ['./browse.component.css']
 })
 export class BrowseComponent implements OnInit {
-  searchResults: Product[] = [];
+  searchResults: any[] = [];
   AllProduct : any
   filteredProducts: any[] = [];
   constructor(public myService : ProductBrowseService,private searchService: SearchService){}
@@ -26,7 +26,7 @@ export class BrowseComponent implements OnInit {
       }
     });
 
-    this.searchService.searchResults$.subscribe((results: Product[]) => {
+    this.searchService.searchResults$.subscribe((results: any[]) => {
       this.searchResults = results;
       this.filteredProducts = [...results]; // Update filteredProducts with search results
     });

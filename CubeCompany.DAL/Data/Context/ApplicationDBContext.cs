@@ -20,12 +20,7 @@ namespace CubeGame.Data.Context
             modelBuilder
                 .Entity<Product>().HasMany(P => P.Images).WithOne(A => A.Product)
                 .OnDelete(DeleteBehavior.ClientCascade);
-            modelBuilder.Entity<Cart>()
-       .HasMany(c => c.CartItems)
-       .WithOne(ci => ci.Cart)
-      .HasForeignKey(ci => ci.CartId)
-        .IsRequired() // Add this line to make the relationship required
-        .OnDelete(DeleteBehavior.ClientCascade);
+        
 
             modelBuilder.Entity<Cart>().HasQueryFilter(C => C.IsActive == true);
 

@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing.Constraints;
 using Microsoft.EntityFrameworkCore;
 using System.IO;
+using OS = CubeGame.DAL.Data.Models.OS;
 
 namespace CubeGame.Controllers
 {
@@ -34,6 +35,48 @@ namespace CubeGame.Controllers
             if (repo.GetAll().Count() > 0)
             {
                 return Ok(repo.GetAll());
+            }
+            return NotFound();
+        }      
+        [HttpGet("GetProductsByCategory/{categoryId}")]
+        public IActionResult GetProductsByCategory(int categoryId)
+        {
+            var products = repo.GetProductsByCategory(categoryId);
+            if (products == null)
+            {
+                return NotFound();
+            }
+           else if (products.Count() > 0)
+            {
+                return Ok(products);
+            }
+            return NotFound();
+        }
+        [HttpGet("GetProductsByPrice/{price}")]
+        public IActionResult GetProductsByPrice(int price)
+        {
+            var products = repo.GetProductsByPrice(price);
+            if (products == null)
+            {
+                return NotFound();
+            }
+            else if (products.Count() > 0)
+            {
+                return Ok(products);
+            }
+            return NotFound();
+        }
+        [HttpGet("GetProductsByPlatform/{platform}")]
+        public IActionResult GetProductsByPlatform(OS platform)
+        {
+            var products = repo.GetProductsByPlatform(platform);
+            if (products == null)
+            {
+                return NotFound();
+            }
+            else if (products.Count() > 0)
+            {
+                return Ok(products);
             }
             return NotFound();
         }
