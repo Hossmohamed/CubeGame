@@ -30,18 +30,14 @@ namespace CubeGame.Data.Context
             //  .HasForeignKey(ci => ci.CartId);
 
             base.OnModelCreating(modelBuilder);
-            //modelBuilder.Entity<IdentityUserLogin<string>>().HasKey(l => new { l.LoginProvider, l.ProviderKey });
         }
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Image> Images { get; set; }
         public DbSet<Cart> Carts { get; set; }
         public DbSet<CartItem> CartItems { get; set; }
-
         public DbSet<Wishlist> wishlists { get; set; }
         public DbSet<wishlistItam> WishlistItams { get; set; }
-
-
-
+        public DbSet<Order> orders { get; set; }
     }
 }
