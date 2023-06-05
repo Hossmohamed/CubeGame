@@ -45,7 +45,7 @@ export class StripecheckoutComponent {
 
     handler.open({
       name: 'Demo Site',
-      description: 'A Simple Snake Game',
+      description: 'A Simple Snake Game !!!!!!!!!!',
       amount: amount * 100
     });
   }
