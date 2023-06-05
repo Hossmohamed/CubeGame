@@ -101,7 +101,28 @@
         </tbody>
       </table>
 
-      <table *ngIf="show3"></table>
+      <table *ngIf="show3">
+        <thead>
+          <tr>
+            <th scope="col">Orderid</th>
+            <th scope="col">CustomerID</th>
+            <th scope="col">CustomerName</th>
+            <th scope="col">CartID</th>
+            <th scope="col">orderStatus</th>
+            <th scope="col">createdDate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let s of AllOrders">
+            <th scope="row">{{ s.id }}</th>
+            <td>{{ s.customerId }}</td>
+            <td>{{ s.customerName }}</td>
+            <td>{{ s.cartId }}</td>
+            <td>{{ s.orderStatus }}</td>
+            <td>{{ s.createdDate }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </body>

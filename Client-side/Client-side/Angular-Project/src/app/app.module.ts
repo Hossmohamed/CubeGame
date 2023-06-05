@@ -59,7 +59,7 @@ import { UpdateCategoryDashboardComponent } from './update-category-dashboard/up
 import { UpdateProductDashboardComponent } from './update-product-dashboard/update-product-dashboard.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { adminGuard } from 'src/guards/admin.guard';
-
+import { CheckoutUserdetailsComponent } from './checkout-userdetails/checkout-userdetails.component';
 
 let routes: Routes = [
   {path:"", component:DiscoverComponent },
@@ -84,6 +84,13 @@ let routes: Routes = [
   {path:"product-image", component:ProductImageComponent  , canActivate:[AuthGuard , adminGuard]},
 
   {path:"update-product-dashboard/:data", component:UpdateProductDashboardComponent , canActivate:[ AuthGuard , adminGuard]},
+
+
+  // payment
+  {path:"checkout-userdetails", component:CheckoutUserdetailsComponent ,  canActivate:[AuthGuard] },
+
+  {path:"checkout", component:CheckoutComponent ,  canActivate:[AuthGuard] },
+
 
 ]
 
@@ -129,7 +136,8 @@ let routes: Routes = [
     UpdateProductDashboardComponent,
     DashboardComponent,
     DistFilmsliderComponent,
-    DistFilmslidelComponent
+    DistFilmslidelComponent,
+    CheckoutUserdetailsComponent,
   ],
   imports: [
     BrowserModule,
