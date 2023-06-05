@@ -10,7 +10,7 @@ import { DashboardService } from 'src/Services/dashboard.service';
 })
 export class ProductImageComponent implements OnInit {
   res : any
-  url = './assets/img/banner1.png'
+  url = './assets/img/banner1Modified.png'
   file : any
   AllProduct : any
   selectedProductId!: number;
