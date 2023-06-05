@@ -7,14 +7,11 @@
                 <div class="col-12  header" data-aos="fade-right" data-aos-delay="700">
                     <h1>{{product.productName}}</h1>
                     <h2>
-                        <span class="stars">
+                        <span class="stars" *ngFor="let n of product.rate">
                             <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-half"></i>
+
                         </span> -
-                        <span>Challengeing Combat</span>
+                        <span>Challengeing Combat {{product.rate}}</span>
                     </h2>
                 </div>
                 <div class="col-12">

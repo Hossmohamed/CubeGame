@@ -461,6 +461,7 @@ namespace CubeGame.BL.Manager
                 insDTo.Discount = i.Discount;
                 insDTo.CategoryId = i.CategoryId;
                 insDTo.DeveloperName = i.DeveloperName;
+                insDTo.Rate = i.Rate;
                 insDTo.RAM = i.RAM;
                 insDTo.Processor = i.Processor;
                 insDTo.ReleaseDate = i.ReleaseDate;
