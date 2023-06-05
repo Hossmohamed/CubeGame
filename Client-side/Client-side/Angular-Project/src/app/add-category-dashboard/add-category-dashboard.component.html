@@ -1,12 +1,59 @@
+<body>
+  <div class="app dashboard">
+    <div class="col-3">
+      <div class="sideNav">
+        <div class="logo">
+          <img src="assets/img/logo.png" width="40" alt="cubegame logo" />
+          <h2>Cube Game</h2>
+        </div>
+        <div class="list-group">
+          <!-- <a class="list-group-item list-group-item-action">Home</a> -->
+          <a class="list-group-item list-group-item-action" routerLink="/dashboard">
+            Categories
+          </a>
 
+          <a class="list-group-item list-group-item-action" routerLink="/dashboard">
+            Products
+          </a>
 
-<form [formGroup]="AddCategory" (ngSubmit)="onSubmitdata()">
+          <a class="list-group-item list-group-item-action">
+            Orders
+          </a>
+        </div>
+        <a href="" class="logout"><h5>Logout</h5></a>
+      </div>
+    </div>
 
-  <label for="firstname">Enter Category-Name :</label>
-  <input class="form-control" formControlName="name"
-  id="name" type="text"  class="form-input border-bottom">
+    <div class="col-8">
+      <form [formGroup]="AddCategory" (ngSubmit)="onSubmitdata()" class="container w-75 mt-3">
+        <h3 class="pageTitle mt-3">Add New Category</h3>
+        <div class="form-group col-sm-12 col-lg-6">
+          <label for="firstname" class="mb-1">Enter Category Name:</label>
+          <input class="form-control" formControlName="name" id="firstname" type="text">
+        </div>
 
-  <button class="btn btn-login mx-4"
-  type="submit"
-  [disabled]="AddCategory.invalid">Submit</button>
-</form>
+        <div class="submitAlignment">
+          <button class="btn submitStyle mt-3" type="submit" [disabled]="AddCategory.invalid">Add</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+<!--
+<div class="submitAlignment">
+  <button class="btn submitStyle mt-3" type="submit" [disabled]="AddProduct.invalid">Submit</button>
+</div> -->
+
+<!-- <div class="row mt-3">
+  <div class="form-group col-sm-12 col-lg-6">
+    <label for="ChooseCategory">Choose Category</label>
+    <select [(ngModel)]="selectedCategoryId" class="form-control" formControlName="categoryP" id="ChooseCategory">
+      <option *ngFor="let category of AllCategories" [value]="category.id">{{ category.categoryName }}</option>
+      </select>
+  </div>
+  <div class="form-group col-sm-12 col-lg-6 mt-sm-3 mt-lg-0">
+    <label for="DeveloperName">Enter Developer Name</label>
+    <input type="text" formControlName="developer" class="form-control" id="DeveloperName">
+  </div>
+</div> -->
