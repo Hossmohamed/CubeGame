@@ -19,7 +19,7 @@
       <!--<div class="img-prev text-center d-flex align-items-start">-->
       <div class="img-prev text-center" data-aos="fade-up">
           <div class="img-slide " *ngFor="let image of user; let i = index" [class.active-slide]="i == currentIndex" (click)="changeImage(image, i)">
-            <img [src]="image.picture" alt="bg" appMainSlider routerLink="/Browse/{{currentImage.productId}}">
+            <img [src]="image.picture" alt="bg" appMainSlider>
           </div>
       </div>
     </div>

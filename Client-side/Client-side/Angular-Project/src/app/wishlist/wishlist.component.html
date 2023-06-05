@@ -12,7 +12,7 @@
       <p>Price After Discount</p>
       <p>Action</p>
     </div>
-          <div class="cart-product">
+          <div class="cart-product" data-aos="fade-up">
 
             <div class="container-list" *ngFor="let item of AllProduct; let i = index">
                 <div style="width:40px; ">{{i+1}}</div>
@@ -38,10 +38,10 @@
           </div>
 </ng-container>
 <ng-container *ngIf="AllProduct.length ==0">
-  <div class="container mt-4">
+  <div class="container mt-4" data-aos="zoom-in">
     <h1>My wishlist</h1>
       <div class="card">
-        <img src="../../assets/img/wishlist.jpg" alt="">
+        <img src="../../assets/img/wishlist.png" alt="">
       </div>
       <div class="center">
           <h4>Your wishlistis empty!</h4>

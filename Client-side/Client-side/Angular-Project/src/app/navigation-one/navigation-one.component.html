@@ -15,10 +15,10 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link nav-cat dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            GENERS
+            GENRES
           </a>
           <ul class="dropdown-menu" >
-            <li><a class="dropdown-item" href="#" *ngFor="let g of catg">{{g.categoryName}}</a></li>
+            <li><a class="dropdown-item" routerLink="/{{g.categoryName}}" *ngFor="let g of catg">{{g.categoryName}}</a></li>
           </ul>
         </li>
         <li class="nav-item">
