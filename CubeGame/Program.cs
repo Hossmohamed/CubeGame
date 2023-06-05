@@ -16,6 +16,7 @@ using CubeGame.DAL.Repo.category;
 using CubeGame.DAL.Repo.cart;
 using CubeGame.DAL.Repo.wishlist;
 using CubeGame.Controllers;
+using CubeGame.DAL.Repo.order;
 
 namespace CubeGame
 {
@@ -104,7 +105,11 @@ namespace CubeGame
             //addwishList
             builder.Services.AddScoped<IwishlistRepo,WishListRepo>();
             builder.Services.AddScoped<IWishlistManager,WishlistManager>();
-          
+
+            //order
+            builder.Services.AddScoped<IOrderRepo, OrderRepo>();
+            builder.Services.AddScoped<IOrderManager, OrderManager>();
+
             //for session
             builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             builder.Services.AddDistributedMemoryCache();
