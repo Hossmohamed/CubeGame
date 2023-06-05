@@ -1,18 +1,51 @@
+<body>
+  <div class="app dashboard">
+    <div class="col-3">
+      <div class="sideNav">
+        <div class="logo">
+          <img src="assets/img/logo.png" width="40" alt="cubegame logo" />
+          <h2>Cube Game</h2>
+        </div>
+        <div class="list-group">
+          <!-- <a class="list-group-item list-group-item-action">Home</a> -->
+          <a class="list-group-item list-group-item-action">
+            Categories
+          </a>
 
+          <a class="list-group-item list-group-item-action">
+            Products
+          </a>
 
-<form [formGroup]="AddImage" (ngSubmit)="onSubmitdata()">
+          <a class="list-group-item list-group-item-action">
+            Orders
+          </a>
+        </div>
+        <a href="" class="logout"><h5>Logout</h5></a>
+      </div>
+    </div>
 
-  <label>Choose Product:</label>
-  <select [(ngModel)]="selectedProductId" class="form-control" formControlName="ProductI">
-    <option *ngFor="let p of AllProduct"
-     [value]="p.productId">{{ p.productName }}</option>
-    </select>
+    <div class="AllBody col-8">
+      <h3 class="pageTitle mt-3">Add Image</h3>
+      <form [formGroup]="AddImage" (ngSubmit)="onSubmitdata()" class="container w-50 mt-3">
+        <div>
+          <label>Choose Product:</label>
+          <select [(ngModel)]="selectedProductId" class="form-control" formControlName="ProductI">
+            <option *ngFor="let p of AllProduct"
+             [value]="p.productId">{{ p.productName }}</option>
+            </select>
+        </div>
 
-    <input type="file" (change)="onFileSelected($event)" required/>
+        <label for="addImage" class="mt-3">Choose Image to Add:</label>
+        <div class="form-group center">
+          <input type="file" class="form-control" id="addImage" (change)="onFileSelected($event)" required/>
+          <img [src]="url" class="imgFile mt-3" >
+        </div>
 
-    <img [src]="url" style="width: 250px;height: 200px;">
+        <div class="submitAlignment">
+          <button class="btn submitStyle mt-3" type="submit" [disabled]="AddImage.invalid">Add Image</button>
+        </div>
+      </form>
 
-    <button class="btn btn-login mx-4"
-    type="submit"
-    [disabled]="AddImage.invalid">Submit</button>
-</form>
+    </div>
+  </div>
+</body>
