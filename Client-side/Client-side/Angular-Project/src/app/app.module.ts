@@ -47,6 +47,8 @@ import { MainSliderComponent } from './main-slider/main-slider.component';
 import { MainSliderDirective } from './Directives/main-slider.directive';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { StripecheckoutComponent } from './stripecheckout/stripecheckout.component';
 import { DistFilmsliderComponent } from './dist-filmslider/dist-filmslider.component';
 import { DistFilmslidelComponent } from './dist-filmslidel/dist-filmslidel.component';
 import { AuthService } from 'src/Services/auth.service';
@@ -66,6 +68,7 @@ let routes: Routes = [
   {path:"Browse/:id", component:GameComponent},
   {path:"Signup", component:SignUpComponent },
   {path:"Login", component:LoginComponent },
+  {path:"Checkout", component:CheckoutComponent },
   {path:"Distribution", component:DistributionComponent },
   {path:"coverGame", component:GameComponent },
   {path:"cart", component:CartComponent , canActivate:[AuthGuard] },
@@ -115,6 +118,8 @@ let routes: Routes = [
     MainSliderComponent,
     MainSliderDirective,
     SpinnerComponent,
+    CheckoutComponent,
+    StripecheckoutComponent,
     CartComponent,
     WishlistComponent,
     AddCategoryDashboardComponent,
