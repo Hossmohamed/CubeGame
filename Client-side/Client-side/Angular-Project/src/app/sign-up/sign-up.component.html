@@ -158,7 +158,7 @@
              id="pass"  type="password" class="form-input border-bottom">
             <span class="border-bottom-animation center input-pass"></span> -->
             <div class="input-form">
-              <input formControlName="PWD" type="text" name="pass" required autocomplete="off">
+              <input formControlName="PWD" type="password" name="pass" required autocomplete="off">
               <label for="pass" class="label-name">
                 <span class="content-name">Enter Password:</span>
               </label>
@@ -189,7 +189,7 @@
           class="form-input border-bottom">
         <span class="border-bottom-animation center input-con-pass"></span> -->
         <div class="input-form">
-          <input formControlName="rpwd" type="text" name="rpwd" required autocomplete="off">
+          <input formControlName="rpwd" type="password" name="rpwd" required autocomplete="off">
           <label for="rpwd" class="label-name">
             <span class="content-name">Confirm Password:</span>
           </label>
@@ -206,9 +206,12 @@
       <button class="d-flex justify-content-center btn btn-login"
       type="submit"
       [disabled]="signupForm.invalid">Sign Up</button>
+      <br>
+      <h6 class="signbtn d-flex justify-content-center"><a routerLink="/Login">Already have an account? Login now!</a></h6>
+
     </form>
 
-    <div class="btn-logwith d-flex flex-column">
+    <!-- <div class="btn-logwith d-flex flex-column">
       <div class="auth-provider google-login m-1">
         <svg aria-hidden="true" class="svg-icon" width="38" height="38" viewBox="0 0 20 20">
           <g>
@@ -226,8 +229,7 @@
         </svg>
         Log in with Facebook
       </div>
-    </div>
-    <h6 class="signbtn my-4"><a routerLink="/Login">Already have an account? Login now!</a></h6>
+    </div> -->
 
   </div>
 </div>

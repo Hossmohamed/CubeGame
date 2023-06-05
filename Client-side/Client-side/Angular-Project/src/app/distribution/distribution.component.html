@@ -2,7 +2,7 @@
   <div class="container">
     <!-- TEST FOR START SCROLL <div style="width:30px; height: 30px; background-color: red; position: absolute; top:1000px"></div> -->
     <div class="row">
-      <div class="intro">
+      <div class="intro" data-aos="zoom-in">
 
       </div>
 
@@ -54,27 +54,29 @@
       </div>
       </div>
       </div>
-      <app-dist-filmslider></app-dist-filmslider>
-  <div class="games" data-aos="zoom-out" data-aos-anchor-placement="top-center">
-    <h2>More And More Games <br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur magni aliquam corrupti consequatur! Error?</h2>
-    <h5>Lorem ipsum dolor sit amet, consectetur adipisicing.</h5>
-  </div>
+      <div class="my-5">
+        <app-dist-filmslider></app-dist-filmslider>
+        <div class="games py-3" data-aos="zoom-in" data-aos-anchor-placement="top-center">
+          <h2>More And More Games <br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur magni aliquam corrupti consequatur! Error?</h2>
+          <h5>Lorem ipsum dolor sit amet, consectetur adipisicing.</h5>
+        </div>
+      </div>
   <app-dist-filmslidel></app-dist-filmslidel>
   <div class="container">
     <div class="row">
-      <div class="achievement my-4">
+      <div class="achievement my-5">
         <div class="head-achev" data-aos="fade-down" data-aos-anchor-placement="top-center">
           <h2>OUR ACHIEVEMENTS</h2>
           <hr>
         </div>
-        <h5 class="achev-body" data-aos="fade-down" data-aos-anchor-placement="top-center">Lorem adipisicing elit. ipsum ipsum dolor sit amet consectetur adipisicing elit. Reiciendis ut at quos?</h5>
+        <h5 class="achev-body" data-aos="zoom-out" data-aos-anchor-placement="top-center">Lorem adipisicing elit. ipsum ipsum dolor sit amet consectetur adipisicing elit. Reiciendis ut at quos?</h5>
         <div class="our-numbers d-flex col-lg-12">
           <div class="count-body special-count" data-aos="fade-right">
             <!-- <i class="bi bi-controller"></i> -->
             <h1>+ {{gamecount}}</h1>
             <h4>Games</h4>
           </div>
-          <div class="count-body" data-aos="fade-up">
+          <div class="count-body" data-aos="fade-up" data-aos-delay="300">
             <!-- <i class="bi bi-grid"></i> -->
             <h1>+ {{genercount}}</h1>
             <h4>Geners</h4>
@@ -97,7 +99,7 @@
           <br>
           <h5>We've built a simple and quick checkout flow so you can complete your payment and order in minutes.</h5>
           <br>
-            <div class="btn-pay" routerLink="/Browse" data-aos="fade-up" data-aos-anchor-placement="top-center">
+            <div class="btn-pay" routerLink="/Browse">
               <h5>Go To Shop Now </h5> &nbsp;&nbsp; <i class="bi bi-arrow-right"></i>
             </div>
         </div>

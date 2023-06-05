@@ -53,8 +53,11 @@
       &nbsp;Password is required</small>
       <br>      <br>
       <button [disabled]="loginform.invalid" (click)="onsubmit()" class="d-flex justify-content-center btn btn-login" type="submit">Log In</button>
+      <br>
+      <h6 class="signbtn d-flex justify-content-center"><a routerLink="/Signup">Need an account? Sign up now!</a></h6>
+
     </form>
-    <div class="btn-logwith d-flex flex-column">
+    <!-- <div class="btn-logwith d-flex flex-column">
       <div class="auth-provider google-login m-1">
         <svg aria-hidden="true" class="svg-icon" width="38" height="38" viewBox="0 0 20 20">
           <g>
@@ -72,8 +75,7 @@
         </svg>
         Log in with Facebook
       </div>
-    </div>
-    <h6 class="signbtn my-4"><a routerLink="/Signup">Need an account? Sign up now!</a></h6>
+    </div> -->
   </div>
 </div>
 
