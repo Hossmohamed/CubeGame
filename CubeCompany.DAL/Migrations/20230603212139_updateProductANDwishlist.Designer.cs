@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CubeGame.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20230527175917_discoverapis")]
-    partial class discoverapis
+    [Migration("20230603212139_updateProductANDwishlist")]
+    partial class updateProductANDwishlist
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -114,7 +114,6 @@ namespace CubeGame.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ImageURL")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ProductId")
@@ -211,7 +210,7 @@ namespace CubeGame.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("CubeGame.DAL.Data.Models.Wishlist", b =>
+            modelBuilder.Entity("CubeGame.DAL.Data.Models.wishlist.Wishlist", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -223,16 +222,46 @@ namespace CubeGame.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("ProductID")
-                        .HasColumnType("int");
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
                     b.HasIndex("AccountID");
 
-                    b.HasIndex("ProductID");
-
                     b.ToTable("wishlists");
+                });
+
+            modelBuilder.Entity("CubeGame.DAL.Data.Models.wishlist.wishlistItam", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<double>("Discount")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.Property<double>("PriceAfterDiscount")
+                        .HasColumnType("float");
+
+                    b.Property<int>("productId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("wishlistId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("productId");
+
+                    b.HasIndex("wishlistId");
+
+                    b.ToTable("WishlistItams");
                 });
 
             modelBuilder.Entity("CubeGame.Data.Models.Account.ApplicationUser", b =>
@@ -286,6 +315,10 @@ namespace CubeGame.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
@@ -497,7 +530,7 @@ namespace CubeGame.Migrations
                     b.Navigation("category");
                 });
 
-            modelBuilder.Entity("CubeGame.DAL.Data.Models.Wishlist", b =>
+            modelBuilder.Entity("CubeGame.DAL.Data.Models.wishlist.Wishlist", b =>
                 {
                     b.HasOne("CubeGame.Data.Models.Account.ApplicationUser", "Account")
                         .WithMany()
@@ -505,15 +538,26 @@ namespace CubeGame.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Account");
+                });
+
+            modelBuilder.Entity("CubeGame.DAL.Data.Models.wishlist.wishlistItam", b =>
+                {
                     b.HasOne("CubeGame.DAL.Data.Models.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("ProductID")
+                        .HasForeignKey("productId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Account");
+                    b.HasOne("CubeGame.DAL.Data.Models.wishlist.Wishlist", "Wishlist")
+                        .WithMany("WishlistItams")
+                        .HasForeignKey("wishlistId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Product");
+
+                    b.Navigation("Wishlist");
                 });
 
             modelBuilder.Entity("CubeGame.Data.Models.Account.ApplicationUser", b =>
@@ -617,6 +661,11 @@ namespace CubeGame.Migrations
             modelBuilder.Entity("CubeGame.DAL.Data.Models.Product", b =>
                 {
                     b.Navigation("Images");
+                });
+
+            modelBuilder.Entity("CubeGame.DAL.Data.Models.wishlist.Wishlist", b =>
+                {
+                    b.Navigation("WishlistItams");
                 });
 #pragma warning restore 612, 618
         }

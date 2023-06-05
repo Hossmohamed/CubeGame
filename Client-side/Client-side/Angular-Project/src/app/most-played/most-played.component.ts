@@ -10,7 +10,7 @@ export class MostPlayedComponent implements OnInit{
   constructor(public myService:MostPlayedService){}
   mostPlayed:any
   ngOnInit(): void {
-    this.myService.GetAllMostPlayed().subscribe({
+    this.myService.GetSomeMostPlayed().subscribe({
       next:(data)=>{
         this.mostPlayed = data;
       },

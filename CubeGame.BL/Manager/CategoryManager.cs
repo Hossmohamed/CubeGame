@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace CubeGame.BL.Manager
 {
@@ -45,6 +46,7 @@ namespace CubeGame.BL.Manager
             return categoryDTOs;
         }
 
+
         public CategoryDTO GetById(int id)
         {
             var o = IR.GetById(id);
@@ -60,5 +62,6 @@ namespace CubeGame.BL.Manager
             o.CategoryName = c.CategoryName;
             IR.Update(id , o);
         }
+
     }
 }

@@ -1,5 +1,5 @@
 <!-- <p>navigation-one works!</p> -->
-<nav class="navbar navbar-expand-lg bg-first-nav">
+<nav class="navbar navbar-expand-lg bg-first-nav" data-aos="fade-down" data-aos-offset="300">
   <div class="container-fluid">
     <a class="navbar-brand mx-3" routerLink="/">
       <img src="assets/img/logo.png" width="40" alt="cubegame logo">
@@ -15,12 +15,10 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link nav-cat dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            CATEGORY
+            GENERS
           </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Shooter</a></li>
-            <li><a class="dropdown-item" href="#">Stratigy</a></li>
+          <ul class="dropdown-menu" >
+            <li><a class="dropdown-item" href="#" *ngFor="let g of catg">{{g.categoryName}}</a></li>
           </ul>
         </li>
         <li class="nav-item">
@@ -65,7 +63,7 @@
 
        <ng-container *ngIf="!Logged" >
         <a routerLink="/Signup">
-          <button class="btn btn-sign" type="button">Sign Up</button>
+          <button class="btn btn-sign ms-5" type="button">Sign Up</button>
         </a>
        </ng-container>
 

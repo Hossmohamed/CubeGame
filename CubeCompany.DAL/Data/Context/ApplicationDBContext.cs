@@ -1,5 +1,5 @@
 ﻿using CubeGame.DAL.Data.Models;
-using CubeGame.DAL.Data.Models.cart;
+using CubeGame.DAL.Data.Models.Cart;
 using CubeGame.DAL.Data.Models.wishlist;
 using CubeGame.Data.Models.Account;
 using Microsoft.AspNetCore.Identity;
@@ -20,11 +20,16 @@ namespace CubeGame.Data.Context
             modelBuilder
                 .Entity<Product>().HasMany(P => P.Images).WithOne(A => A.Product)
                 .OnDelete(DeleteBehavior.ClientCascade);
+        
 
             modelBuilder.Entity<Cart>().HasQueryFilter(C => C.IsActive == true);
 
+            //modelBuilder.Entity<Cart>()
+            //  .HasMany(c => c.CartItems)
+            //  .WithOne(ci => ci.Cart)
+            //  .HasForeignKey(ci => ci.CartId);
+
             base.OnModelCreating(modelBuilder);
-            //modelBuilder.Entity<IdentityUserLogin<string>>().HasKey(l => new { l.LoginProvider, l.ProviderKey });
         }
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
@@ -33,7 +38,6 @@ namespace CubeGame.Data.Context
         public DbSet<CartItem> CartItems { get; set; }
         public DbSet<Wishlist> wishlists { get; set; }
         public DbSet<wishlistItam> WishlistItams { get; set; }
-      
-
+        public DbSet<Order> orders { get; set; }
     }
 }

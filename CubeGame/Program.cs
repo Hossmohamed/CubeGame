@@ -18,6 +18,7 @@ using CubeGame.DAL.Repo.wishlist;
 using CubeGame.Controllers;
 using CubeGame.DAL.Repo.Service;
 using Stripe;
+using CubeGame.DAL.Repo.order;
 
 namespace CubeGame
 {
@@ -112,7 +113,11 @@ namespace CubeGame
             //addwishList
             builder.Services.AddScoped<IwishlistRepo,WishListRepo>();
             builder.Services.AddScoped<IWishlistManager,WishlistManager>();
-          
+
+            //order
+            builder.Services.AddScoped<IOrderRepo, OrderRepo>();
+            builder.Services.AddScoped<IOrderManager, OrderManager>();
+
             //for session
             builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             builder.Services.AddDistributedMemoryCache();

@@ -85,6 +85,39 @@ namespace CubeGame.Migrations
                     b.ToTable("CartItems");
                 });
 
+            modelBuilder.Entity("CubeGame.DAL.Data.Models.Cart.Order", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CartId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CustomerId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int?>("OrderStatus")
+                        .HasColumnType("int");
+
+                    b.Property<double>("TotalPaid")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CartId");
+
+                    b.HasIndex("CustomerId");
+
+                    b.ToTable("orders");
+                });
+
             modelBuilder.Entity("CubeGame.DAL.Data.Models.Category", b =>
                 {
                     b.Property<int>("ID")
@@ -111,7 +144,6 @@ namespace CubeGame.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ImageURL")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ProductId")
@@ -208,7 +240,7 @@ namespace CubeGame.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("CubeGame.DAL.Data.Models.Wishlist", b =>
+            modelBuilder.Entity("CubeGame.DAL.Data.Models.wishlist.Wishlist", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -220,16 +252,46 @@ namespace CubeGame.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("ProductID")
-                        .HasColumnType("int");
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
                     b.HasIndex("AccountID");
 
-                    b.HasIndex("ProductID");
-
                     b.ToTable("wishlists");
+                });
+
+            modelBuilder.Entity("CubeGame.DAL.Data.Models.wishlist.wishlistItam", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<double>("Discount")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.Property<double>("PriceAfterDiscount")
+                        .HasColumnType("float");
+
+                    b.Property<int>("productId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("wishlistId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("productId");
+
+                    b.HasIndex("wishlistId");
+
+                    b.ToTable("WishlistItams");
                 });
 
             modelBuilder.Entity("CubeGame.Data.Models.Account.ApplicationUser", b =>
@@ -283,6 +345,10 @@ namespace CubeGame.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
@@ -443,6 +509,55 @@ namespace CubeGame.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("CubeGame.DAL.Data.Models.Cart.Cart", b =>
+                {
+                    b.HasOne("CubeGame.Data.Models.Account.ApplicationUser", "Account")
+                        .WithMany()
+                        .HasForeignKey("AccountId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Account");
+                });
+
+            modelBuilder.Entity("CubeGame.DAL.Data.Models.Cart.CartItem", b =>
+                {
+                    b.HasOne("CubeGame.DAL.Data.Models.Cart.Cart", "Cart")
+                        .WithMany("CartItems")
+                        .HasForeignKey("CartId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CubeGame.DAL.Data.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cart");
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("CubeGame.DAL.Data.Models.Cart.Order", b =>
+                {
+                    b.HasOne("CubeGame.DAL.Data.Models.Cart.Cart", "Cart")
+                        .WithMany()
+                        .HasForeignKey("CartId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CubeGame.Data.Models.Account.ApplicationUser", "Customer")
+                        .WithMany()
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cart");
+
+                    b.Navigation("Customer");
+                });
+
             modelBuilder.Entity("CubeGame.DAL.Data.Models.Image", b =>
                 {
                     b.HasOne("CubeGame.DAL.Data.Models.Product", "Product")
@@ -464,7 +579,7 @@ namespace CubeGame.Migrations
                     b.Navigation("category");
                 });
 
-            modelBuilder.Entity("CubeGame.DAL.Data.Models.Wishlist", b =>
+            modelBuilder.Entity("CubeGame.DAL.Data.Models.wishlist.Wishlist", b =>
                 {
                     b.HasOne("CubeGame.Data.Models.Account.ApplicationUser", "Account")
                         .WithMany()
@@ -472,15 +587,26 @@ namespace CubeGame.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Account");
+                });
+
+            modelBuilder.Entity("CubeGame.DAL.Data.Models.wishlist.wishlistItam", b =>
+                {
                     b.HasOne("CubeGame.DAL.Data.Models.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("ProductID")
+                        .HasForeignKey("productId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Account");
+                    b.HasOne("CubeGame.DAL.Data.Models.wishlist.Wishlist", "Wishlist")
+                        .WithMany("WishlistItams")
+                        .HasForeignKey("wishlistId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Product");
+
+                    b.Navigation("Wishlist");
                 });
 
             modelBuilder.Entity("CubeGame.Data.Models.Account.ApplicationUser", b =>
@@ -571,6 +697,11 @@ namespace CubeGame.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("CubeGame.DAL.Data.Models.Cart.Cart", b =>
+                {
+                    b.Navigation("CartItems");
+                });
+
             modelBuilder.Entity("CubeGame.DAL.Data.Models.Category", b =>
                 {
                     b.Navigation("Products");
@@ -579,11 +710,6 @@ namespace CubeGame.Migrations
             modelBuilder.Entity("CubeGame.DAL.Data.Models.Product", b =>
                 {
                     b.Navigation("Images");
-                });
-
-            modelBuilder.Entity("CubeGame.DAL.Data.Models.cart.Cart", b =>
-                {
-                    b.Navigation("CartItems");
                 });
 
             modelBuilder.Entity("CubeGame.DAL.Data.Models.wishlist.Wishlist", b =>

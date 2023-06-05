@@ -50,9 +50,17 @@ export class AuthService {
     }
   }
 
+  // getRoleFromToken(){
+  //   if(this.userPayload){
+  //     return this.userPayload.roles
+  //   }
+  // }
+
   getRoleFromToken(){
-    if(this.userPayload){
-      return this.userPayload.role;
+
+    var roles = this.decodedToken().roles;
+    if(roles === "Admin"){
+      return roles
     }
   }
 

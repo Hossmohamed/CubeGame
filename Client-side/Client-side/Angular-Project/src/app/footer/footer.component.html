@@ -1,24 +1,23 @@
 <footer>
-  <div class="container">
+  <div class="container" data-aos="fade-up">
     <div class="row">
       <div class="col-lg-3 col-sm-12">
         <div class="row">
           <div class="col-12">
             <h4>Store</h4>
-            <p>
-              <a href="">Discover</a>
-              <a href="">Browes</a>
+            <p data-aos="fade-up">
+              <a routerLink="/discover">Discover</a>
+              <a routerLink="/Browse">Browes</a>
               <a href="">Library</a>
+              <br>
+              <a routerLink="/Distribution">Distribution</a>
             </p>
-          </div>
-          <div class="col-12">
-            <a href="">Distribution</a>
           </div>
         </div>
       </div>
       <div class="col-lg-4 col-sm-12">
         <div class="row">
-          <div class="col-12">
+          <div class="col-12" data-aos="fade-up">
             <h4>Categories</h4>
             <p class="geners">
             <a routerLink="">Action</a>
@@ -35,7 +34,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-4 col-sm-12">
+      <div class="col-lg-4 col-sm-12" data-aos="fade-up">
         <div class="row">
           <div class="col-12">
             <button (click)="toTop()">

@@ -1,5 +1,6 @@
 <app-navigation-one></app-navigation-one>
 <div class="container-fluid d-flex">
+  <!-- <button class="btn-back" routerLink="/"><i class="bi bi-arrow-left"></i></button> -->
   <div class="login-form flex-column">
     <div class="d-flex align-items-center m-4">
       <img alt="logo" width="60px" src="../../assets/img/logo.png">
@@ -10,31 +11,48 @@
       <div class="form-group">
         <div class="input-field">
           <div class="d-flex justify-content-between align-items-baseline">
-            <label for="email">Enter Email :</label>
+            <!--<label for="email">Enter Email :</label>
             <input formControlName="email" id="email" type="text" class="form-input border-bottom">
-            <span class="border-bottom-animation center input-email"></span>
+            <span class="border-bottom-animation center input-email"></span>-->
+            <div class="input-form">
+              <input formControlName="email" type="text" name="email" required autocomplete="off">
+              <label for="email" class="label-name">
+                <span class="content-name">Enter Email:</span>
+              </label>
+            </div>
           </div>
         </div>
       </div>
       <small *ngIf="loginform.controls['email'].dirty &&
        loginform.hasError('required' , 'email')"
-       class="text-danger">Email is required</small>
-
+       class="validation-msg"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+      </svg>
+      &nbsp;Email is required</small>
        <div class="form-group">
-        <div class="input-field">
           <div class="d-flex justify-content-between align-items-baseline">
-            <label for="pass">Enter Password :</label>
+            <!-- <label for="pass">Enter Password :</label>
             <input formControlName="password" id="pass"
             type="password" class="form-input border-bottom">
-            <span class="border-bottom-animation center input-pass"></span>
+            <span class="border-bottom-animation center input-pass"></span>-->
+              <div class="input-form">
+                <input formControlName="password" id="pass" type="password" name="pass" required autocomplete="off">
+                <label for="pass" class="label-name">
+                  <span class="content-name">Password:</span>
+                </label>
+              </div>
           </div>
-        </div>
        </div>
       <small *ngIf="loginform.controls['password'].dirty &&
        loginform.hasError('required' , 'password')"
-       class="text-danger">Password is required</small>
-
-      <button [disabled]="loginform.invalid" (click)="onsubmit()" class="btn btn-login mx-4" type="submit">Log In</button>
+       class="validation-msg"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+      </svg>
+      &nbsp;Password is required</small>
+      <br>      <br>
+      <button [disabled]="loginform.invalid" (click)="onsubmit()" class="d-flex justify-content-center btn btn-login" type="submit">Log In</button>
     </form>
     <div class="btn-logwith d-flex flex-column">
       <div class="auth-provider google-login m-1">

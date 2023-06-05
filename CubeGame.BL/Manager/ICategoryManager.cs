@@ -11,9 +11,11 @@ namespace CubeGame.BL.Manager
     public interface ICategoryManager
     {
         IEnumerable<CategoryDTO> GetAll();
+       // IEnumerable<CategoryDTO> GetAl(int categoryId);
         CategoryDTO GetById(int id);
         void Add(CategoryDTO c);
         void Update(int id, CategoryDTO c);
-        void Delete(int id);
+        void Delete(int id); 
+       //List<Product> GetAllproduct(int categoryId);
     }
 }

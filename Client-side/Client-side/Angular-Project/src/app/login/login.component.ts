@@ -12,6 +12,7 @@ import { UserStoreService } from 'src/Services/user-store.service';
 })
 export class LoginComponent implements OnInit {
 
+  public role:string =""
   loginform! : FormGroup
   constructor(
     private fb : FormBuilder ,
@@ -42,9 +43,34 @@ export class LoginComponent implements OnInit {
 
           let payload = this.myService.decodedToken();
           this.user_store.setFullNameForStore(payload.sub)
+          this.user_store.setRoleForStore(payload.roles)
 
-          this.toast.success({detail:"SUCCESS",summary:'Login - Success',duration:5000});
-          this.myRouter.navigate(['Browse'])
+          this.user_store.getRoleFromStore().subscribe({
+            next:(data)=>{
+
+              let fullRoleFromToken = this.myService.getRoleFromToken();
+              this.role = data || fullRoleFromToken
+            }
+          })
+
+          if(this.role === 'Admin'){
+            this.toast.success({detail:"SUCCESS",summary:'Login - Success',duration:5000});
+            console.log("I AM  Admin")
+            this.myRouter.navigate(['dashboard'])
+          }
+          else if(this.role === 'User'){
+            this.toast.success({detail:"SUCCESS",summary:'Login - Success',duration:5000});
+
+            this.myRouter.navigate(['Browse'])
+          }
+          else{
+            this.myRouter.navigate(['login'])
+          }
+
+          // this.toast.success({detail:"SUCCESS",summary:'Login - Success',duration:5000});
+
+          // this.checkRole()
+          //this.myRouter.navigate(['Browse'])
         },
         error:(err)=>{
           // alert(err?.error.Message)
@@ -77,3 +103,5 @@ export class LoginComponent implements OnInit {
   }
 
 }
+
+
