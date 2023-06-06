@@ -12,5 +12,4 @@ namespace CubeGame.DAL.Data.Models.Resources
     string ExpiryYear,
     string ExpiryMonth,
     string Cvc);
-    //Add StripeCheckout\PaymentGateway(FrontEnd-BackEnd)
 }
