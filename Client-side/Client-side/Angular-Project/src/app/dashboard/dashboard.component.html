@@ -1,7 +1,7 @@
 <body>
   <div class="app dashboard">
     <div class="col-2">
-      <div class="sideNav">
+      <div class="sideNav" data-aos="fade-up">
         <div class="logo">
           <img src="assets/img/logo.png" width="40" alt="cubegame logo" />
           <h2>Cube Game</h2>
@@ -38,14 +38,14 @@
       <!-- Category -->
       <table class="table text-center mt-2" *ngIf="show1">
         <thead>
-          <tr>
+          <tr data-aos="fade-right">
             <th scope="col">id</th>
             <th scope="col">Name</th>
             <th scope="col" colspan="2">Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let s of AllCategories">
+          <tr *ngFor="let s of AllCategories" data-aos="fade-right">
             <th scope="row">{{ s.id }}</th>
             <td>{{ s.categoryName }}</td>
             <td>
@@ -65,7 +65,7 @@
       <!-- Product -->
       <table class="table" *ngIf="show2">
         <thead>
-          <tr>
+          <tr data-aos="fade-right">
             <th scope="col">id</th>
             <th scope="col">Name</th>
             <th scope="col">Image</th>
@@ -77,7 +77,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let s of AllProduct">
+          <tr *ngFor="let s of AllProduct" data-aos="fade-right">
             <th scope="row">{{ s.productId }}</th>
             <td>{{ s.productName }}</td>
             <td><img style="width: 100px" src="{{ s.picture }}" /></td>
