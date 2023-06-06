@@ -1,5 +1,5 @@
 <!-- <p>navigation-one works!</p> -->
-<nav class="navbar navbar-expand-lg bg-first-nav" data-aos="fade-down" data-aos-offset="300">
+<nav class="navbar navbar-expand-lg bg-first-nav">
   <div class="container-fluid">
     <a class="navbar-brand mx-3" routerLink="/">
       <img src="assets/img/logo.png" width="40" alt="cubegame logo">
@@ -13,14 +13,14 @@
         <li class="nav-item">
           <a class="nav-link nav-stor" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active-navone" routerLink="/">STORE</a>
         </li>
-        <li class="nav-item dropdown">
+        <!-- <li class="nav-item dropdown">
           <a class="nav-link nav-cat dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            GENERS
+            GENRES
           </a>
           <ul class="dropdown-menu" >
             <li><a class="dropdown-item" href="#" *ngFor="let g of catg">{{g.categoryName}}</a></li>
           </ul>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link nav-dist" routerLinkActive="active-navone" routerLink="/Distribution">DISTRIBUTION</a>
         </li>
@@ -38,9 +38,9 @@
         </i>
 
 
-        <i class="bi bi-chat-left-dots ">
+        <!-- <i class="bi bi-chat-left-dots ">
           <span class="position-absolute top-10 start-10 translate-middle bg-danger border border-light rounded-circle">1</span>
-        </i>
+        </i> -->
       </div>
         <!-- <a routerLink="/Signup"><button class="btn btn-sign mx-4" type="button">Sign Up</button></a> -->
 
