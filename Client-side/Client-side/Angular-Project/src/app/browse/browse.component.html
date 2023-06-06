@@ -71,7 +71,7 @@
 
 <div class="container">
   <div class="browse">
-    <form action="">
+    <form action="" class="d-flex">
     <div class="left col-9">
 
       <!-- <div *ngIf="searchResults.length > 0"> -->
@@ -100,39 +100,30 @@
       <app-product-item [oneProduct]="p" *ngFor="let p of AllProduct"></app-product-item>
 
   </form>
-    <div class="right col-3">
+    <div class="right col-3" data-aos="fade-up">
       <p class="filter">Filters</p>
       <hr />
       <div class="filterHover">
         <label for="price">Price</label>
-        <select id="price" name="price">
-          <option value="" selected></option>
-          <option value="Free">Free</option>
-          <option value="200">200 EGP</option>
-          <option value="250">250 EGP</option>
-          <option value="300">300 EGP</option>
-          <option value="400">400 EGP</option>
+        <select id="price" name="price" (change)="filterprice($event)">
+          <option value="" selected> All</option>
+          <option value="{{p.price}}" *ngFor="let p of price">{{p.price}}</option>
         </select>
       </div>
       <hr />
       <div class="filterHover">
         <label for="genre">Genre</label>
-        <select id="genre" name="genre">
-          <option value="" selected></option>
-          <option value="action">Action</option>
-          <option value="party">Party</option>
-          <option value="stratigy">Stratigy</option>
-          <option value="shooter">Shooter</option>
-          <option value="multiplayer">Multiplayer</option>
+        <select id="genre" name="genre" (change)="filtercategory($event)">
+          <option value="" selected> All</option>
+          <option value="{{c.id}}" *ngFor="let c of categoryname">{{c.categoryName}}</option>
         </select>
       </div>
       <hr />
       <div class="filterHover">
         <label for="platform">Platform</label>
-        <select id="platforn" name="platform">
-          <option value="" selected></option>
-          <option value="windows">Windows</option>
-          <option value="mac">MAC</option>
+        <select id="platforn" name="platform" (change)="filterplatform($event)">
+          <option value="" selected> All</option>
+          <option value="{{pl.id}}" *ngFor="let pl of platform">{{pl.platform}}</option>
         </select>
       </div>
       <hr />
@@ -148,6 +139,4 @@
     </div>
   </div>
 </div>
-
 <app-footer></app-footer>
-
