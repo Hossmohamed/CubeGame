@@ -53,5 +53,15 @@ namespace CubeGame.Controllers
             }
             return NotFound();
         }
+
+
+        [Authorize]
+        [HttpGet("GetUser")]
+        public IActionResult GetUser()
+        {
+            string token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+
+           return Ok(orderRepo.user(token));
+        }
     }
 }

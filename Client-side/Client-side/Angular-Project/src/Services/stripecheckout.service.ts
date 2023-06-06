@@ -14,5 +14,8 @@ export class StripecheckoutService {
       const url = "http://localhost:5000/checkout";
 
       return this.client.post<any>(url,{token:stripeToken})
+
+      // return this.client.post<any>(url,{stripeToken})
   }
+
 }

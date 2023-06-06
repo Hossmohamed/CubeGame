@@ -17,6 +17,7 @@ export class GameComponent implements OnInit{
   ImgID:any;
   product:any;
   img:any;
+
   // src:any="../../assets/img/1.png";
   // arr:string[] = ["../../assets/img/bg.png",
   // "../../assets/img/2.png",
