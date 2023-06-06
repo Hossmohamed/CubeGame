@@ -82,7 +82,20 @@ namespace CubeGame.Controllers
         }
         //comment
 
-
+        [HttpGet("GetProductsByDeveloperName/{developerName}")]
+        public IActionResult GetProductsByDeveloperName(string developerName)
+        {
+            var products = repo.GetProductsByDeveloperName(developerName);
+            if (products == null)
+            {
+                return NotFound();
+            }
+            else if (products.Count() > 0)
+            {
+                return Ok(products);
+            }
+            return NotFound();
+        }
 
         [HttpGet("ProductsWithoutImages")]
         public IActionResult GetAllProductWithoutImages()

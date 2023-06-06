@@ -564,7 +564,35 @@ namespace CubeGame.BL.Manager
 
         }
 
-     
-       
+        public List<ProductDTO> GetProductsByDeveloperName(string DeveloperName)
+        {
+            var ins = IR.GetProductsByDeveloperName(DeveloperName);
+
+            List<ProductDTO> productDTOs = new List<ProductDTO>();
+
+            foreach (var i in ins)
+            {
+                ProductDTO dTO = new ProductDTO()
+                {
+                    ProductId = i.ProductId,
+                    ProductName = i.ProductName,
+                    Description = i.Description,
+                    Price = i.Price,
+                    Discount = i.Discount,
+                    CategoryId = i.CategoryId,
+                    DeveloperName = i.DeveloperName,
+                    RAM = i.RAM,
+                    Processor = i.Processor,
+                    ReleaseDate = i.ReleaseDate,
+                    platform = i.platform.ToString(),
+                    Picture = i.GetMainImage().ImageURL,
+                    CategoryName = IC.GetById(i.CategoryId).CategoryName
+                };
+                productDTOs.Add(dTO);
+
+            }
+
+            return productDTOs;
+        }
     }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/Services/auth.service';
 import { DashboardService } from 'src/Services/dashboard.service';
+import { OrderService } from 'src/Services/order.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,7 +14,10 @@ export class DashboardComponent implements OnInit{
   // -------- Category ------------
   AllCategories : any
   AllProduct : any
-  constructor(public myService : DashboardService , public auth : AuthService , private router: Router){}
+  AllOrders : any
+  constructor(public myService : DashboardService ,
+    public auth : AuthService , private router: Router ,
+    public orderService : OrderService){}
   ngOnInit(): void {
 
     this.myService.GetAllCategories().subscribe({
@@ -33,6 +37,13 @@ export class DashboardComponent implements OnInit{
       error:(err)=>{console.log(err)}
     })
 
+    this.orderService.GetAllOrder().subscribe({
+      next:(data)=>{
+
+         this.AllOrders = data
+      },
+      error:(err)=>{console.log(err)}
+    })
   }
 
 

@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,8 +6,12 @@ import { Injectable } from '@angular/core';
 })
 export class CheckoutService {
 
-  constructor() { }
-  //1 - URL
-  //2 - All Requests
-  //3 - Methods[Get - Post - Put - Delete] ==> HttpClient
+  private baseURL = "https://localhost:7121/api/Order/GetUser"
+  constructor(private http : HttpClient) {}
+
+  //getUserDetails
+
+  getUserDetails(){
+    return this.http.get(`${this.baseURL}`)
+  }
 }

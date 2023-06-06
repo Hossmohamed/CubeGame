@@ -1,30 +1,29 @@
 <body>
   <div class="app dashboard">
     <div class="col-3">
-      <div class="sideNav">
+      <div class="sideNav" data-aos="fade-up">
         <div class="logo">
           <img src="assets/img/logo.png" width="40" alt="cubegame logo" />
           <h2>Cube Game</h2>
         </div>
         <div class="list-group">
-          <!-- <a class="list-group-item list-group-item-action">Home</a> -->
-          <a class="list-group-item list-group-item-action">
+          <a routerLink="/dashboard" class="list-group-item list-group-item-action">
             Categories
           </a>
 
-          <a class="list-group-item list-group-item-action">
+          <a routerLink="/dashboard" class="list-group-item list-group-item-action">
             Products
           </a>
 
-          <a class="list-group-item list-group-item-action">
+          <a routerLink="/dashboard" class="list-group-item list-group-item-action">
             Orders
           </a>
         </div>
-        <a href="" class="logout"><h5>Logout</h5></a>
+        <a href="" class="logout" (click)="Logout()"><h5>Logout</h5></a>
       </div>
     </div>
 
-    <div class="AllBody col-8">
+    <div class="AllBody col-8" data-aos="fade-up">
       <h3 class="pageTitle mt-3">Add Image</h3>
       <form [formGroup]="AddImage" (ngSubmit)="onSubmitdata()" class="container w-50 mt-3">
         <div>

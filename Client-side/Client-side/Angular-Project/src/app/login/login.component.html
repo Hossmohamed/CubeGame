@@ -1,7 +1,7 @@
 <app-navigation-one></app-navigation-one>
 <div class="container-fluid d-flex">
   <!-- <button class="btn-back" routerLink="/"><i class="bi bi-arrow-left"></i></button> -->
-  <div class="login-form flex-column">
+  <div class="login-form flex-column" data-aos="zoom-in">
     <div class="d-flex align-items-center m-4">
       <img alt="logo" width="60px" src="../../assets/img/logo.png">
       <h2>CUBE GAME LogIn</h2>
@@ -54,7 +54,7 @@
       <br>      <br>
       <button [disabled]="loginform.invalid" (click)="onsubmit()" class="d-flex justify-content-center btn btn-login" type="submit">Log In</button>
     </form>
-    <div class="btn-logwith d-flex flex-column">
+    <!-- <div class="btn-logwith d-flex flex-column">
       <div class="auth-provider google-login m-1">
         <svg aria-hidden="true" class="svg-icon" width="38" height="38" viewBox="0 0 20 20">
           <g>
@@ -65,14 +65,14 @@
           </g>
         </svg>
         Log in with Google
-      </div>
-      <div class="auth-provider facebook-login m-1">
+      </div> -->
+      <!-- <div class="auth-provider facebook-login m-1">
         <svg aria-hidden="true" class="svg-icon" width="38" height="38" viewBox="0 0 20 20">
           <path d="M1.88 1C1.4 1 1 1.4 1 1.88v14.24c0 .48.4.88.88.88h7.67v-6.2H7.46V8.4h2.09V6.61c0-2.07 1.26-3.2 3.1-3.2.88 0 1.64.07 1.87.1v2.16h-1.29c-1 0-1.19.48-1.19 1.18V8.4h2.39l-.31 2.42h-2.08V17h4.08c.48 0 .88-.4.88-.88V1.88c0-.48-.4-.88-.88-.88H1.88z" fill="#fff"></path>
         </svg>
         Log in with Facebook
-      </div>
-    </div>
+      </div> -->
+    <!-- </div> -->
     <h6 class="signbtn my-4"><a routerLink="/Signup">Need an account? Sign up now!</a></h6>
   </div>
 </div>

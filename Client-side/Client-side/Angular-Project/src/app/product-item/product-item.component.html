@@ -21,7 +21,7 @@
     </div>
   </div>
 </div>-->
-<div *ngIf="oneProduct">
+<div *ngIf="oneProduct.price!=0" class="d-flex" data-aos="fade-right">
 <div class="card">
   <a routerLink="/Browse/{{oneProduct.productId}}"> <img src={{oneProduct.picture}} class="card-img-top"    alt="" /> </a>
   <div class="card-body">
@@ -40,7 +40,7 @@
 </div>
 </div>
 
-<div *ngIf="oneProduct.price==0">
+<div *ngIf="oneProduct.price==0" class="d-flex" data-aos="fade-right">
   <div class="card">
     <a routerLink="/Browse/{{oneProduct.productId}}"> <img class="card-img-top" src={{oneProduct.picture}} alt=""/></a>
     <div class="card-body">
@@ -48,6 +48,12 @@
       <h5 class="card-title" title="{{oneProduct.productName}}">{{oneProduct.productName}}</h5>
       <div class="d-flex justify-content-between">
         <h5><span class="price">Free</span></h5>
+        <div>
+          <span class="cardIcon" (click)="addToWishlist(oneProduct.productId)"><i class="bi bi-heart"></i></span>
+          <span class="cardIcon cart" (click)="addToCart(oneProduct.productId)">
+            <i class="bi bi-bag"></i>
+          </span>
+        </div>
       </div>
     </div>
   </div>

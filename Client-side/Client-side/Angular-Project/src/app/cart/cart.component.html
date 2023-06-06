@@ -4,7 +4,7 @@
 
     <h1>My Cart</h1>
 
-    <div class="container-head">
+    <div class="container-head" data-aos="fade-up">
       <p style="width:10px; ">Sr.No</p>
       <p>Product Image</p>
       <p style="width:250px; ">Product Name</p>
@@ -15,7 +15,7 @@
     </div>
           <div class="cart-product">
 
-            <div class="container-list" *ngFor="let item of AllProductCart; let i = index">
+            <div class="container-list" *ngFor="let item of AllProductCart; let i = index" data-aos="fade-right">
                 <div style="width:40px; ">{{i+1}}</div>
                 <div>
                   <img width="80px" alt="card-list" src="{{item.image}}">
@@ -32,7 +32,7 @@
                 <div>
                   <button (click)="emptycart()" class="btn btn-empcart mx-1">Empty Cart</button>
                   <button routerLink="/Browse" class="btn btn-shopm  mx-1">Shop More</button>
-                  <button class="btn btn-checkout  mx-1">Checkout</button>
+                  <button routerLink="/checkout-userdetails" class="btn btn-checkout  mx-1">Checkout</button>
                 </div>
                 <div>
                   <h2>Grand Total : {{Total}} EGP</h2>
@@ -43,7 +43,7 @@
 </ng-container>
 
 <ng-container *ngIf="AllProductCart.length ==0">
-  <div class="container mt-4">
+  <div class="container mt-4" data-aos="zoom-in">
     <h1>My Cart</h1>
       <div class="card">
         <img src="../../assets/img/cart.png" alt="">

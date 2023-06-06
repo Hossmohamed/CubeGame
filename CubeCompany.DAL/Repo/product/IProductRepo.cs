@@ -13,6 +13,7 @@ namespace CubeGame.DAL.Repo.product
         public List<Product> GetProductsByCategory(int id);
         public List<Product> GetProductsByPrice(int price);
         public List<Product> GetProductsByPlatform(OS platform);
+        public List<Product> GetProductsByDeveloperName(string DeveloperName);
 
         public List<Product> GetAllWithoutImage();
         public List<Product> GetAllComingSoon();

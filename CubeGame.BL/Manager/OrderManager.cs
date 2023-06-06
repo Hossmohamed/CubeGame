@@ -53,7 +53,7 @@ namespace CubeGame.BL.Manager
                 {
                     Id = i.Id,
                     CustomerId = i.CustomerId,
-                    CustomerName = i.Customer.UserName,
+                    CustomerName = i.Customer.FirstName,
                     CartId = i.CartId,
                     OrderStatus = i.OrderStatus.ToString(),
                     TotalPaid = i.TotalPaid,

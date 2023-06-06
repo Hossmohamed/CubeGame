@@ -1,10 +1,10 @@
 <app-navigation-one></app-navigation-one>
  <app-navigation-two></app-navigation-two>
 <div class="container py-3">
-    <div *ngIf="product ;else flaseBlock" class="row">
+    <div class="row">
         <div class="col-lg-8 col-sm-12">
             <div class="row">
-                <div class="col-12  header">
+                <div class="col-12  header" data-aos="fade-right">
                     <h1>{{product.productName}}</h1>
                     <h2>
                         <span class="stars">
@@ -19,7 +19,7 @@
                 </div>
                 <div class="col-12">
                    <div class="row">
-                    <div class="col-lg-9  col-sm-12 img">
+                    <div class="col-lg-9  col-sm-12 img" data-aos="fade-up">
 
                         <img id="preview" src={{product.picture}}>
                         <ul class="pt-3">
@@ -44,19 +44,19 @@
                     </div>
 
                 </div>
-                <div class="col-12">
+                <div class="col-12" data-aos="fade-right">
                     <p>{{product.description}}</p>
                     <h1>{{product.productName}}</h1>
-                    <h4>DEFY THE LIMITS FOR FREE IN VALORANT</h4>
+                    <h4>DEFY THE LIMITS FOR FREE IN STORE</h4>
                     <h5>FIGHT AROUND THE WORLD</h5>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam enim nostrum animi iste nemo sequi sint cumque, corrupti necessitatibus neque molestiae deserunt ut praesentium sit quibusdam earum reiciendis cupiditate expedita!</p>
                     <h5>FIGHT AROUND THE WORLD</h5>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam enim nostrum animi iste nemo sequi sint cumque, corrupti necessitatibus neque molestiae deserunt ut praesentium sit quibusdam earum reiciendis cupiditate expedita!</p>
                 </div>
             </div>
-            <div class="col-12">
+            <div class="col-8">
                 <h1 calss="py-2">Specification</h1>
-                <table class="table specificTable p-5">
+                <table class="table specificTable px-5" data-aos="fade-up">
                     <tr>
                         <th>
                             <div class="top-select">
@@ -79,54 +79,51 @@
                         <td><h3>Minimum</h3></td>
                         <td><h3>Recommended</h3></td>
                     </tr>
-                    <tr>
+                    <tr data-aos="fade-right">
                         <td>
                             <h4>OS</h4>
-                <p>{{product.platform}} 7/B</p>
+                <p>{{product.platform}} </p>
                         </td>
                         <td>
                             <h4>OS</h4>
-                            <p>Windows 7/B</p>
+                            <p>Windows </p>
                         </td>
                     </tr>
-                    <tr>
+                    <tr data-aos="fade-right">
                         <td>
                             <h4>Processor</h4>
-                            <p> Dolorum eveniet nostrum alias nisi optio praesentium qui minima atque </p>
+                            <p> {{product.processor}} </p>
                         </td>
                         <td>
                             <h4>Processor</h4>
-                            <p> Dolorum eveniet nostrum alias nisi optio praesentium qui minima atque </p>
+                            <p> Intel Core i7-4790 or AMD Ryzen 3 3200G </p>
                         </td>
                     </tr>
-                    <tr>
+                    <tr data-aos="fade-right">
                         <td>
                             <h4>Memory</h4>
-                            <p>Ram {{product.ram}}G</p>
+                            <p>Ram {{product.ram}} G</p>
                         </td>
                         <td>
                             <h4>Memory</h4>
-                            <p>Ram 4G</p>
+                            <p>Ram 4 G</p>
                         </td>
                     </tr>
-                    <tr>
+                    <tr data-aos="fade-right">
                         <td>
                             <h4>Graphics</h4>
-                            <p>Inter HD 4000, Radeon RS 200</p>
+                            <p>NVIDIA GeForce GTX 970 or AMD Radeon RX 470</p>
                         </td>
                         <td>
                             <h4>Graphics</h4>
-                            <p>Inter HD 4000, Radeon RS 200</p>
+                            <p>NVIDIA GeForce GTX 1060 or AMD Radeon R9 Fury</p>
                         </td>
                     </tr>
-                    <tr>
+                    <tr data-aos="fade-right">
                         <td colspan="2">
                             <h4>Language support</h4>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                 Ab quisquam debitis officia voluptate esse repellat animi nihil.
-                                  Hic porro.</p>
-                              <p>dicta corrupti at voluptatibus dolor,
-                                 laboriosam dignissimos perferendis amet dolorum fugit.
+                            <p>AUDIO: English, French, German, Italian, Spanish - Spain, Japanese, Polish, Portuguese - Brazil, Chinese - Simplified, Korean, Russian
+                              TEXT: Spanish - Latin America, Thai, Czech, Hungarian, Chinese - Traditional, Arabic, Turkish, English, Italian, Spanish - Spain, Japanese, Portuguese - Brazil, Chinese - Simplified, French, German, Korean, Polish, Russian
                             </p>
                         </td>
                     </tr>
@@ -135,7 +132,7 @@
         </div>
         <div class="col-lg-4 col-sm-12">
             <div class="col-12">
-                <table class="table sidebar">
+                <table class="table sidebar" data-aos="fade-left">
                     <tbody>
                         <tr>
                          <td>Developer </td>
@@ -148,10 +145,6 @@
                         <tr>
                             <td>Release Data </td>
                             <td>{{product.releaseDate}} </td>
-                        </tr>
-                        <tr>
-                            <td>Initial Release </td>
-                            <td>06/02/20 </td>
                         </tr>
                         <tr>
                             <td>Plat Form </td>
@@ -177,13 +170,6 @@
 
         </div>
     </div>
-    <ng-template #flaseBlock>
-        <div class="row">
-            <div class="col-12">
-                <h1>Loading . . .</h1>
-            </div>
-        </div>
-    </ng-template>
 
   </div>
 
