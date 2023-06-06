@@ -138,7 +138,7 @@ let routes: Routes = [
     HttpClientModule,
     NgToastModule,
     SlickCarouselModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
   ],
   providers: [{
     provide : HTTP_INTERCEPTORS,
