@@ -6,13 +6,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent {
+  arrow  = "bi bi-chevron-compact-down";
+  IM = 'assets/img/logo.png';
+  
 
   toTop(){
-    window.scroll({
-      top: 0,
-      left: 0,
-      behavior: 'smooth'
-    });
-  }
+    if(window.scrollY > 0){ 
+      window.scrollTo(0,0);
+      // this.btn = 'hidden';
+      this.arrow = "bi bi-chevron-compact-down"
+    }else{
+      window.scrollTo(0,document.body.scrollHeight)
+      this.arrow = "bi bi-chevron-compact-up";
 
+    }
+
+
+
+}
 }
