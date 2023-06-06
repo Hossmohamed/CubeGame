@@ -7,20 +7,19 @@
           <h2>Cube Game</h2>
         </div>
         <div class="list-group">
-          <!-- <a class="list-group-item list-group-item-action">Home</a> -->
-          <a class="list-group-item list-group-item-action">
+          <a routerLink="/dashboard" class="list-group-item list-group-item-action">
             Categories
           </a>
 
-          <a class="list-group-item list-group-item-action">
+          <a routerLink="/dashboard" class="list-group-item list-group-item-action">
             Products
           </a>
 
-          <a class="list-group-item list-group-item-action">
+          <a routerLink="/dashboard" class="list-group-item list-group-item-action">
             Orders
           </a>
         </div>
-        <a href="" class="logout"><h5>Logout</h5></a>
+        <a href="" class="logout" (click)="Logout()"><h5>Logout</h5></a>
       </div>
     </div>
 

@@ -1,5 +1,8 @@
 import { Component, OnInit} from '@angular/core';
 import { MostPlayedService } from '../../Services/most-played.service';
+import { AuthService } from 'src/Services/auth.service';
+import { CartService } from 'src/Services/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-slider',
@@ -7,7 +10,9 @@ import { MostPlayedService } from '../../Services/most-played.service';
   styleUrls: ['./main-slider.component.css']
 })
 export class MainSliderComponent implements OnInit {
-  constructor(public myserv:MostPlayedService){}
+  constructor(public myserv:MostPlayedService ,
+     private auth : AuthService ,
+     private myservice : CartService , private route : Router ){}
 
 
   user:any;
@@ -35,4 +40,19 @@ export class MainSliderComponent implements OnInit {
       error:(err)=>{console.log(err)}
     })
   }
+
+  AddToCart(id : any) {
+    if(this.auth.IsLoggedIn()){
+      this.myservice.AddTCart(id).subscribe(
+        (response) => {
+          console.log('Response:', response);
+        },
+
+        (error) => {
+          console.error('Error:', error);
+        }
+        );}
+    else{
+      this.route.navigate(['Login'])
+  }}
 }
