@@ -47,7 +47,7 @@ import { MainSliderComponent } from './main-slider/main-slider.component';
 import { MainSliderDirective } from './Directives/main-slider.directive';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
-import { CheckoutComponent } from './checkout/checkout.component';
+// import { CheckoutComponent } from './checkout/checkout.component';
 import { StripecheckoutComponent } from './stripecheckout/stripecheckout.component';
 import { DistFilmsliderComponent } from './dist-filmslider/dist-filmslider.component';
 import { DistFilmslidelComponent } from './dist-filmslidel/dist-filmslidel.component';
@@ -60,6 +60,7 @@ import { UpdateProductDashboardComponent } from './update-product-dashboard/upda
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { adminGuard } from 'src/guards/admin.guard';
 import { CheckoutUserdetailsComponent } from './checkout-userdetails/checkout-userdetails.component';
+import { LibraryComponent } from './library/library.component';
 
 let routes: Routes = [
   {path:"", component:DiscoverComponent },
@@ -68,7 +69,7 @@ let routes: Routes = [
   {path:"Browse/:id", component:GameComponent},
   {path:"Signup", component:SignUpComponent },
   {path:"Login", component:LoginComponent },
-  {path:"Checkout", component:CheckoutComponent },
+  // {path:"Checkout", component:CheckoutComponent , canActivate:[AuthGuard]},
   {path:"Distribution", component:DistributionComponent },
   {path:"coverGame", component:GameComponent },
   {path:"cart", component:CartComponent , canActivate:[AuthGuard] },
@@ -89,8 +90,9 @@ let routes: Routes = [
   // payment
   {path:"checkout-userdetails", component:CheckoutUserdetailsComponent ,  canActivate:[AuthGuard] },
 
-  {path:"checkout", component:CheckoutComponent ,  canActivate:[AuthGuard] },
+  {path:"stripecheckout", component:StripecheckoutComponent ,  canActivate:[AuthGuard] },
 
+  {path:"library", component:LibraryComponent ,  canActivate:[AuthGuard] },
 
 ]
 
@@ -125,7 +127,6 @@ let routes: Routes = [
     MainSliderComponent,
     MainSliderDirective,
     SpinnerComponent,
-    CheckoutComponent,
     StripecheckoutComponent,
     CartComponent,
     WishlistComponent,
@@ -138,6 +139,7 @@ let routes: Routes = [
     DistFilmsliderComponent,
     DistFilmslidelComponent,
     CheckoutUserdetailsComponent,
+    LibraryComponent,
   ],
   imports: [
     BrowserModule,

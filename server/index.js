@@ -18,11 +18,12 @@ app.post('/checkout', async (req, res) => {
     // console.log(req.body)
 
     try{
+        // token = req.body.token;
         token = req.body.token;
         console.log(req.body);
         const customer = stripe.customers
         .create({
-            email: "hendshaker@gmail.com",
+            email: "yasmeenahmed4488@gmail.com",
             source: token.id,
         })
         .then((customer) => {

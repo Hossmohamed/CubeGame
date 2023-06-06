@@ -39,15 +39,18 @@
 
     <form [formGroup]="CheckOut" *ngIf="AllUserData">
 
-        <div class="form-group col-6 mb-2">
-          <input class="form-control" formControlName="Email" type="email" name="email" [(ngModel)]="AllUserData.email">
-        </div>
+    <div class="form-group col-6 mb-2">
+      Your Email :
+      <input class="form-control" formControlName="Email" type="email" name="email" [(ngModel)]="AllUserData.email">
+    </div>
 
      <div class="form-group col-6 mb-2">
+      Your FirstName:
        <input class="form-control" formControlName="FirstName" type="text" name="firstname" [(ngModel)]="AllUserData.firstName">
      </div>
 
      <div class="form-group col-6 mb-2">
+      Your LastName:
        <input class="form-control" formControlName="lastName" type="text" name="lastName" [(ngModel)]="AllUserData.lastName">
      </div>
 
@@ -63,7 +66,7 @@
    </div>
 
    <button class=" btn btn-checkout2 mt-4" routerLink="/cart">Go To Basket</button>
-   <button class=" btn btn-checkout2 mt-4" routerLink="/checkout">Go To Payment</button>
+   <button class=" btn btn-checkout2 mt-4" routerLink="/stripecheckout">Go To Payment</button>
 
   </div>
 

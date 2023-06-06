@@ -54,7 +54,7 @@ namespace CubeGame.DAL.Repo.order
             ApplicationUser? UserID = Context.Users.FirstOrDefault(a => a.token == Token);
             if (UserID != null)
             {
-                return Context.orders.ToList();
+                return Context.orders.Include(c=> c.Cart).Include(u=>u.Customer).ToList();
             }
             return null;
         }

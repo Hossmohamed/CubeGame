@@ -18,4 +18,8 @@ export class OrderService {
   GetOrderForUser(){
     return this.http.get(`${this.baseURL}/GetUserOrder`)
   }
+
+  AddOrder(){
+     this.http.post(`${this.baseURL}/AddOrder`, {})
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit} from '@angular/core';
+import { OrderService } from 'src/Services/order.service';
 
 @Component({
   selector: 'app-checkout',
@@ -24,6 +25,7 @@ export class CheckoutComponent implements OnInit{
         console.log(token)
         alert('Token Created!!');
       }
+
     });
 
     handler.open({
