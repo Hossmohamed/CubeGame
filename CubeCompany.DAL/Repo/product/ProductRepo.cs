@@ -1,6 +1,7 @@
 ﻿using CubeGame.DAL.Data.Models;
 using CubeGame.DAL.Repo.category;
 using CubeGame.Data.Context;
+using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -128,12 +129,17 @@ namespace CubeGame.DAL.Repo.product
 
         public List<Product> GetProductsByPrice(int price)
         {
-            return _context.Products.Include(i => i.Images).Where(p=>p.Price==price).ToList();  
+            return _context.Products.Include(i => i.Images).Where(p=>p.Price<=price).ToList();  
         }
 
         public List<Product> GetProductsByPlatform(OS platform)
         {
             return _context.Products.Include(i => i.Images).Where(p => p.platform==platform).ToList();
+        }
+
+        public List<Product> GetProductsByDeveloperName(string DeveloperName)
+        {
+            return _context.Products.Include(i => i.Images).Where(p => p.DeveloperName == DeveloperName).ToList();
         }
     }
 }
