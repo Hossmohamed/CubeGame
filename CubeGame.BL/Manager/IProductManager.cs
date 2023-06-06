@@ -34,7 +34,7 @@ namespace CubeGame.BL.Manager
         public void DeleteProduct(int id);
         public List<ProductDTO> GetProductsByCategory(int id);
         public List<ProductDTO> GetProductsByPrice(int price);
-
+        public List<ProductDTO> GetProductsByDeveloperName(string DeveloperName);
         public List<ProductDTO> GetProductsByPlatform(OS platform);
     }
 }

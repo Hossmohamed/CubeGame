@@ -21,7 +21,7 @@
     </div>
   </div>
 </div>-->
-<div *ngIf="oneProduct">
+<div *ngIf="oneProduct.price!=0">
 <div class="card">
   <a routerLink="/Browse/{{oneProduct.productId}}"> <img class="card-img-top" src={{oneProduct.picture}} alt=""/></a>
   <div class="card-body">

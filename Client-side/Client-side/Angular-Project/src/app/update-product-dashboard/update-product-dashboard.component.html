@@ -61,7 +61,7 @@
         <div class="row mt-3">
           <div class="form-group col-sm-12 col-lg-6">
             <label for="ReleaseDate" class="mb-1">Enter Release Date</label>
-            <input class="form-control" formControlName="releasedate" [(ngModel)]="data.releaseDate" type="date" id="ReleaseDate">
+            <input class="form-control" formControlName="releasedate" [(ngModel)]="data.releaseDate" type="date" id="ReleaseDate" [max]="getTodayDate()">
           </div>
           <div class="form-group col-sm-12 col-lg-6 mt-sm-3 mt-lg-0">
             <label for="ProcessorType" class="mb-1">Enter Processor Type</label>
