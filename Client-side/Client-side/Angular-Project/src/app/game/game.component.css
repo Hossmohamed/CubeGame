@@ -337,3 +337,16 @@ input:focus + .slider {
    }
 
 
+   .slider-images::-webkit-scrollbar {
+
+    display: none;
+
+   }
+
+   .slider-images {
+
+    -ms-overflow-style: none;
+
+    scrollbar-width: none;
+
+  }

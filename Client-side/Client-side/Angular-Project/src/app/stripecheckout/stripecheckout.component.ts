@@ -45,7 +45,7 @@ export class StripecheckoutComponent {
 
             if(data.data === "success"){
                   this.success = true;
-                  this.orderService.AddOrder()
+                  this.orderService.AddOrder().subscribe()
                   this.cartService.ClearCart().subscribe()
                   this.hidePayButton()
             }

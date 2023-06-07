@@ -14,28 +14,50 @@ import { WishlistService } from 'src/Services/wishlist.service';
 export class GameComponent implements OnInit{
 
   ID:any;
-  ImgID:any;
+
   product:any;
+
   img:any;
 
-  // src:any="../../assets/img/1.png";
-  // arr:string[] = ["../../assets/img/bg.png",
-  // "../../assets/img/2.png",
-  // "../../assets/img/4.png",
-  // "../../assets/img/1.png",
-  // "../../assets/img/3.png"];
-  // counter = 0;
-  // play = setInterval(()=>{
-  //    this.counter++;
-  //   if(this.counter>this.arr.length-1){
-  //     this.counter = 1;
-  //   }
-  //    this.src=this.arr[this.counter]
+  sliderImages = document.getElementById('slider-images');
+
+  a = window.matchMedia("(min-width: 991px)");
 
 
 
-  // },5000)
 
+  goToTop(){
+
+    this.sliderImages?.scroll
+
+    if (this.a.matches) {
+
+      this.sliderImages?.scrollBy(0,-5) ;
+
+    } else {
+
+      this.sliderImages?.scrollBy(-5,0) ;
+
+    }
+
+  }
+
+  goToDown(){
+
+    if (this.a.matches) {
+
+      this.sliderImages?.scrollBy(0,5) ;
+
+    } else {
+
+      this.sliderImages?.scrollBy(5,0) ;
+
+    }
+
+
+
+
+  }
 
 
 
@@ -53,13 +75,19 @@ export class GameComponent implements OnInit{
       error:(err)=>{console.log(err)}
     });
 
-    // this.myServices.GetProductImageByID(this.ImgID).subscribe({
-    //   next:(data)=>{
-    //     // console.log(data)
-    //     this.img = data;
-    //   },
-    //   error:(err)=>{console.log(err)}
-    // })
+    this.myServices.GetProductImageByID(this.ID).subscribe({
+
+      next:(data)=>{
+
+        // console.log(data)
+
+        this.img = data;
+
+      },
+
+      error:(err)=>{console.log(err)}
+
+    })
   }
   addcart(id:any){
 

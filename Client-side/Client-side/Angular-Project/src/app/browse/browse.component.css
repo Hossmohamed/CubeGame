@@ -252,3 +252,40 @@ hr{
   margin-top: -5px;
   text-align: right;
 }
+*::-webkit-scrollbar {
+
+  width: 5px;
+
+}
+
+
+
+
+/* Track */
+
+*::-webkit-scrollbar-track {
+
+  background: rgb(100, 92, 143);
+
+}
+
+
+
+/* Handle */
+
+*::-webkit-scrollbar-thumb {
+
+  background: #1F193D;
+
+}
+
+
+
+
+/* Handle on hover */
+
+*::-webkit-scrollbar-thumb:hover {
+
+  background: #1F193D;
+
+}

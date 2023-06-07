@@ -20,6 +20,6 @@ export class OrderService {
   }
 
   AddOrder(){
-     this.http.post(`${this.baseURL}/AddOrder`, {})
+    return this.http.post(`${this.baseURL}/AddOrder`, {})
   }
 }
