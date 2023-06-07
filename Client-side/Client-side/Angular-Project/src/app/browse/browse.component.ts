@@ -16,6 +16,7 @@ export class BrowseComponent implements OnInit {
   categoryname :any
   price :any
   platform :any
+  developerName :any
 
   filteredProducts: any[] = [];
   constructor(public myService : ProductBrowseService,private searchService: SearchService){}
@@ -44,14 +45,26 @@ export class BrowseComponent implements OnInit {
     })
   }
 
-  filterplatform(event:any)
+  // filterplatform(event:any)
+  // {
+  //   let value = event.target.value;
+  //   this.getproductsprice(value);
+  // }
+  // getproductsplatform(x:any)
+  // {
+  //   this.myService.GetProductByPlatformID(x).subscribe((data:any)=>{
+  //     this.filteredProducts = data;
+  //   })
+  // }
+
+  filterdev(event:any)
   {
     let value = event.target.value;
-    this.getproductsprice(value);
+    this.getproductsdev(value);
   }
-  getproductsplatform(x:any)
+  getproductsdev(x:any)
   {
-    this.myService.GetProductByPlatformID(x).subscribe((data:any)=>{
+    this.myService.GetProductByDevID(x).subscribe((data:any)=>{
       this.filteredProducts = data;
     })
   }
@@ -91,9 +104,18 @@ export class BrowseComponent implements OnInit {
       }
     });
 
-    this.myService.GetAllProductPlatform().subscribe({
+    // this.myService.GetAllProductPlatform().subscribe({
+    //   next:(data)=>{
+    //     this.platform = data;
+    //   },
+    //   error:(err)=>{
+    //     console.log(err);
+    //   }
+    // });
+
+    this.myService.GetAllProductDev().subscribe({
       next:(data)=>{
-        this.platform = data;
+        this.developerName = data;
       },
       error:(err)=>{
         console.log(err);

@@ -15,7 +15,7 @@
 .card-img-overlay
 {
   position: absolute;
-  top: 150px;
+  top: 130px;
   left: 100px;
 }
 .card-title
@@ -46,6 +46,7 @@
 {
   text-shadow: 0px 3px 6px #15102b;
   font-size: 38px;
+  width:500px;
 }
 .rate
 {
@@ -61,7 +62,7 @@
 .img-prev
 {
   position: absolute;
-  top:190px;
+  top:270px;
   left: 340px;
 }
 .img-slide

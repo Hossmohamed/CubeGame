@@ -37,8 +37,8 @@ namespace CubeGame.Controllers
             string token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
 
             orderRepo.AddOrder(token);
-           return Created("url", "Added");
-            
+           return Ok();
+
         }
 
         [Authorize]

@@ -119,21 +119,20 @@
         </select>
       </div>
       <hr />
-      <div class="filterHover">
+      <!-- <div class="filterHover">
         <label for="platform">Platform</label>
         <select id="platforn" name="platform" (change)="filterplatform($event)">
           <option value="" selected> All</option>
-          <option value="{{pl.id}}" *ngFor="let pl of platform">{{pl.platform}}</option>
+          <option value="{{pl.platform}}" *ngFor="let pl of platform">{{pl.platform}}</option>
         </select>
-      </div>
-      <hr />
+      </div> -->
+      <!-- <hr /> -->
       <div class="filterHover">
         <label for="publisher">Publisher</label>
-        <select id="publisher" name="publisher">
-          <option value="" selected></option>
-          <option value="riot games">Riot Games</option>
-          <option value="rockstar games">Rockstar Games</option>
-          <option value="epic games">Epic Games</option>
+        <select id="publisher" name="publisher" (change)="filterdev($event)">
+          <option value="" selected> All</option>
+          <option value="{{v.developerName}}" *ngFor="let v of developerName">{{v.developerName}}</option>
+
         </select>
       </div>
     </div>
